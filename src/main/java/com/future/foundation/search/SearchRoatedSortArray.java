@@ -16,9 +16,14 @@ public class SearchRoatedSortArray {
         int start = 0;
         int end = rotatedArray.length - 1;
         int mid;
+
         while (start + 1 < end) {
             mid = start + (end - start) / 2;
             //Why we compare mid to end? start may not exist.
+            // 4, 5, 6, 7(mid), 1, 2, 3 mid is greater than start, the min is on the right.
+            // 1, 2, 3, 4(mid), 5, 6, 7 mid is greater than start, the min is on the left.
+            //4, 5, 6, 7(mid), 1, 2, 3 mid is less than end,
+            //1, 2, 3, 4(mid), 5, 6, 7 mid is less than end, the min must be the left.
             if(rotatedArray[mid] < rotatedArray[end]) {
                 end = mid;
             } else {
@@ -115,19 +120,23 @@ public class SearchRoatedSortArray {
     }
 
     public static void main(String[] args) {
-        System.out.println("Minimum element is in " + findMiniElement(rotatedArray));
-        System.out.println("Minimum element is in " + findMiniElement(rotatedArray2));
-        System.out.println("========================");
-        System.out.println("The giving element is in " + findElement(rotatedArray, 1));
-        System.out.println("The giving element is in " + findElement(rotatedArray, 4));
-        System.out.println("The giving element is in " + findElement(rotatedArray2, 4));
-        System.out.println("The giving element is in " + findElement(rotatedArray2, 11));
-        System.out.println("The giving element is in " + findElement(rotatedArray2, 1));
-        System.out.println("========================");
-        System.out.println("The giving element is in " + findElementS2(rotatedArray, 1));
-        System.out.println("The giving element is in " + findElementS2(rotatedArray, 4));
-        System.out.println("The giving element is in " + findElementS2(rotatedArray2, 4));
-        System.out.println("The giving element is in " + findElementS2(rotatedArray2, 11));
-        System.out.println("The giving element is in " + findElementS2(rotatedArray2, 1));
+//        System.out.println("Minimum element is in " + findMiniElement(rotatedArray));
+//        System.out.println("Minimum element is in " + findMiniElement(rotatedArray2));
+//        System.out.println("========================");
+//        System.out.println("The giving element is in " + findElement(rotatedArray, 1));
+//        System.out.println("The giving element is in " + findElement(rotatedArray, 4));
+//        System.out.println("The giving element is in " + findElement(rotatedArray2, 4));
+//        System.out.println("The giving element is in " + findElement(rotatedArray2, 11));
+//        System.out.println("The giving element is in " + findElement(rotatedArray2, 1));
+//        System.out.println("========================");
+//        System.out.println("The giving element is in " + findElementS2(rotatedArray, 1));
+//        System.out.println("The giving element is in " + findElementS2(rotatedArray, 4));
+//        System.out.println("The giving element is in " + findElementS2(rotatedArray2, 4));
+//        System.out.println("The giving element is in " + findElementS2(rotatedArray2, 11));
+//        System.out.println("The giving element is in " + findElement(new int[]{6, 7, 1, 2, 3, 4, 5}, 7));
+        System.out.println(findMiniElement(new int[]{1, 2, 3, 4}));
+        System.out.println(findMiniElement(new int[]{1, 2}));
+        System.out.println(findMiniElement(new int[]{3, 4, 1, 2}));
+        System.out.println(findMiniElement(new int[]{4, 1, 2, 3}));
     }
 }

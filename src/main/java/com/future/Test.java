@@ -1,15 +1,20 @@
 package com.future;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by xingfeiy on 5/16/17.
  */
 public class Test {
     public static void main(String[] args) {
+
+        Collections.sort(new ArrayList<>(), new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        });
+
         System.out.println(Math.round((float) 5 / 2));
         char ch = (char)1;
         System.out.println(ch);
