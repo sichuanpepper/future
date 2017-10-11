@@ -7,6 +7,7 @@ import java.util.*;
  */
 public class Test {
     public static void main(String[] args) {
+<<<<<<< Updated upstream
 
         Collections.sort(new ArrayList<>(), new Comparator<Integer>() {
             @Override
@@ -15,6 +16,23 @@ public class Test {
             }
         });
 
+=======
+        String str = "/.".substring(1, 2);
+        String str2 = ".";
+        System.out.println(str);
+        System.out.println(str2);
+        if(str.equals(str2)) {
+            System.out.println();
+        }
+        if(str == ".") {
+            System.out.println();
+        }
+
+        System.out.println(simplifyPath("/.."));
+        System.out.println(-129 % 10);
+        System.out.println(Math.abs(-2147483648));
+        System.out.println(Math.abs(-2147483647));
+>>>>>>> Stashed changes
         System.out.println(Math.round((float) 5 / 2));
         char ch = (char)1;
         System.out.println(ch);
@@ -110,5 +128,27 @@ public class Test {
             max = Math.max(max, p2 - p1 + 1);
         }
         return max;
+    }
+
+    public static String simplifyPath(String path) {
+        if(path == null || path.length() < 1) {
+            return path;
+        }
+
+        Stack<String> stack = new Stack<>();
+        for(String str : path.split("/")) {
+            if(str.equals("..")) {
+                if(!stack.isEmpty()) {stack.pop();}
+
+            } else if (!str.equals(".") && str.length() > 0) {
+                stack.push(str);
+            }
+        }
+
+        String res = "";
+        while(!stack.isEmpty()) {
+            res = "/" + stack.pop() + res;
+        }
+        return res.length() < 1 ? "/" : res;
     }
 }
