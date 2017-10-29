@@ -31,9 +31,9 @@ public class Problem4 {
     public static double findMedianSortedArrays(int[] nums1, int[] nums2) {
         int length = nums1.length + nums2.length;
         if(length % 2 == 0) {
-            return (double)(findKth(nums1, 0, nums2, 0, length / 2 - 1) + findKth(nums1, 0, nums2, 0, length / 2)) / 2;
+            return (double)(findkth(nums1, 0, nums2, 0, length / 2) + findkth(nums1, 0, nums2, 0, length / 2 + 1)) / 2;
         } else {
-            return (double)findKth(nums1, 0, nums2, 0, length / 2);
+            return (double)findkth(nums1, 0, nums2, 0, length / 2 + 1);
         }
     }
 
@@ -52,16 +52,16 @@ public class Problem4 {
      * @return
      */
     private static int findKth(int[] nums1, int start1, int[] nums2, int start2, int k) {
-        if(start1 >= nums1.length) return nums2[start2 + k];
+        if(start1 >= nums1.length) return nums2[start2 + k - 1];
 
-        if(start2 >= nums2.length) return nums1[start1 + k];
+        if(start2 >= nums2.length) return nums1[start1 + k - 1];
 
         if(k == 1) {
             return Math.min(nums1[start1], nums2[start2]);
         }
 
-        int mid1 = start1 + k / 2 < nums1.length ? nums1[start1 + k / 2] : Integer.MAX_VALUE;
-        int mid2 = start2 + k / 2 < nums2.length ? nums2[start2 + k / 2] : Integer.MAX_VALUE;
+        int mid1 = start1 + k / 2 < nums1.length ? nums1[start1 + k / 2 - 1] : nums1[nums1.length - 1];
+        int mid2 = start2 + k / 2 < nums2.length ? nums2[start2 + k / 2 - 1] : nums2[nums2.length - 1];
         if(mid1 < mid2) {
             return findKth(nums1, start1 + k / 2, nums2, start2, k - k / 2);
         } else {
@@ -69,10 +69,29 @@ public class Problem4 {
         }
     }
 
+    private static int findkth(int[] nums1, int start1, int[] nums2, int start2, int k) {
+        if(start1 >= nums1.length) {
+            return nums2[start2 + k - 1];
+        }
+
+        if(start2 >= nums2.length) {
+            return nums1[start1 + k - 1];
+        }
+
+        if(k == 1) {
+            return Math.min(nums1[start1], nums2[start2]);
+        }
+
+        int val1 = start1 + k / 2 - 1>= nums1.length ? Integer.MAX_VALUE : nums1[start1 + k / 2 - 1];
+        int val2 = start2 + k / 2 - 1>= nums2.length ? Integer.MAX_VALUE : nums2[start2 + k / 2 - 1];
+        return val1 > val2 ? findkth(nums1, start1, nums2, start2 + k / 2, k - k / 2) :
+                findkth(nums1, start1 + k / 2, nums2, start2, k - k / 2);
+    }
+
     public static void main(String[] args) {
         System.out.println(findMedianSortedArrays(new int[]{1, 3, 5, 7}, new int[]{2, 4, 6, 8}));
         System.out.println(findMedianSortedArrays(new int[]{1, 3, 5, 7, 9}, new int[]{2, 4, 6, 8}));
-        System.out.println(findMedianSortedArrays(new int[]{1}, new int[]{2, 4, 6, 8}));
+        System.out.println(findMedianSortedArrays(new int[]{1}, new int[]{2, 4, 6, 7, 8, 9, 10, 11, 12, 13}));
         System.out.println(findMedianSortedArrays(new int[]{1, 1, 1, 1}, new int[]{1, 1, 1}));
     }
 }
