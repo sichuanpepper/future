@@ -12,7 +12,7 @@ package com.future.round1;
  [1,3,5,6], 7 → 4
  [1,3,5,6], 0 → 0
 
- * Created by xingfeiy on 4/11/17.
+ * Created by someone on 4/11/17.
  */
 public class InsertPosition35 {
     public int searchInsert(int[] nums, int target) {

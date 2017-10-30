@@ -16,7 +16,7 @@ import java.util.Map;
 
  Because nums[0] + nums[1] = 2 + 7 = 9,
  return [0, 1].
- * Created by xingfeiy on 10/10/17.
+ * Created by someone on 10/10/17.
  */
 public class Problem1 {
     public static int[] solution1(int[] nums, int target) {

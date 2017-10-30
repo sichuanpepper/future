@@ -1,7 +1,7 @@
 package com.future.foundation;
 
 /**
- * Created by xingfeiy on 5/17/17.
+ * Created by someone on 5/17/17.
  */
 public class BitManipulation {
     public static void main(String[] args) {

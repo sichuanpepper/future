@@ -16,7 +16,7 @@ package com.future.round2;
 
  The median is (2 + 3)/2 = 2.5
 
- * Created by xingfeiy on 10/10/17.
+ * Created by someone on 10/10/17.
  */
 public class Problem4 {
     /**

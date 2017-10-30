@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * Created by xingfeiy on 10/5/17.
+ * Created by someone on 10/5/17.
  */
 public class TopologicSorting {
     private List<Integer>[] adj;

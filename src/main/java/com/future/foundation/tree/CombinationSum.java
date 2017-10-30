@@ -15,7 +15,7 @@ import java.util.List;
 
  [7]
  [2, 2, 3]
- * Created by xingfeiy on 6/17/17.
+ * Created by someone on 6/17/17.
  */
 public class CombinationSum {
     /**

@@ -12,7 +12,7 @@ import java.util.List;
  dict = ["leet", "code"].
 
  Return true because "leetcode" can be segmented as "leet code".
- * Created by xingfeiy on 10/10/17.
+ * Created by someone on 10/10/17.
  */
 public class Problem139 {
     /**

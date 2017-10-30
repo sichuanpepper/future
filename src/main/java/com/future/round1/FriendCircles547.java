@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Created by xingfeiy on 6/7/17.
+ * Created by someone on 6/7/17.
  */
 public class FriendCircles547 {
     public int findCircleNum(int[][] M) {

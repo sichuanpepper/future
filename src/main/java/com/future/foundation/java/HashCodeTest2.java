@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by xingfeiy on 5/5/17.
+ * Created by someone on 5/5/17.
  */
 public class HashCodeTest2 {
     private String name;

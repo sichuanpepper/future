@@ -1,7 +1,7 @@
 package com.future.round1;
 
 /**
- * Created by xingfeiy on 5/30/17.
+ * Created by someone on 5/30/17.
  */
 public class MaxProduct152 {
     public static int maxProduct(int[] nums) {

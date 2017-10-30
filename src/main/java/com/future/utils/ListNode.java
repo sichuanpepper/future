@@ -1,7 +1,7 @@
 package com.future.utils;
 
 /**
- * Created by xingfeiy on 10/10/17.
+ * Created by someone on 10/10/17.
  */
 public class ListNode {
     public int val;

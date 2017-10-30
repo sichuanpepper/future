@@ -1,7 +1,7 @@
 package com.future.foundation.debug;
 
 /**
- * Created by xingfeiy on 8/20/17.
+ * Created by someone on 8/20/17.
  */
 public class Debug200 {
     private int count;

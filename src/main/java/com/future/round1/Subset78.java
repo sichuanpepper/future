@@ -25,7 +25,7 @@ import java.util.List;
  []
  ]
 
- * Created by xingfeiy on 8/30/17.
+ * Created by someone on 8/30/17.
  */
 public class Subset78 {
     public List<List<Integer>> subsets(int[] nums) {

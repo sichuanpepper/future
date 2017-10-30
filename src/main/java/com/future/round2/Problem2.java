@@ -11,7 +11,7 @@ import com.future.utils.ListNode;
 
  Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
  Output: 7 -> 0 -> 8
- * Created by xingfeiy on 10/10/17.
+ * Created by someone on 10/10/17.
  */
 public class Problem2 {
     /**

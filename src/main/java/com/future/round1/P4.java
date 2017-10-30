@@ -2,7 +2,7 @@ package com.future.round1;
 
 
 /**
- * Created by xingfeiy on 7/11/17.
+ * Created by someone on 7/11/17.
  */
 public class P4 {
     public static int findkth(int[] nums1, int start1, int[] nums2, int start2, int k) {

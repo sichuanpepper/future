@@ -6,7 +6,7 @@ import com.future.utils.DisplayUtils;
  * Simplest approach: Quick find
  * Better approach: Quick union
  * Improved approach: Weighted quick-union
- * Created by xingfeiy on 6/13/17.
+ * Created by someone on 6/13/17.
  */
 public class UnionFind {
     public int[] array = null;

@@ -7,7 +7,7 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by xingfeiy on 6/3/17.
+ * Created by someone on 6/3/17.
  */
 public class BinarySearchTree {
     public static class Node {

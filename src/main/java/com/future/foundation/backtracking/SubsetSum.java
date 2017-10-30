@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by xingfeiy on 7/25/17.
+ * Created by someone on 7/25/17.
  */
 public class SubsetSum {
     /**

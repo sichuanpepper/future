@@ -1,7 +1,7 @@
 package com.future.foundation.search;
 
 /**
- * Created by xingfeiy on 3/30/17.
+ * Created by someone on 3/30/17.
  *
  * There are two sorted array A and B of size m and n respectively, find the median of the two sorted array.
  *

@@ -3,7 +3,7 @@ package com.future.foundation.sort;
 import java.util.Arrays;
 
 /**
- * Created by xingfeiy on 5/6/17.
+ * Created by someone on 5/6/17.
  */
 public class MergeSort {
     //first of all, the merge sort is a divide and conquer algorithm, so let's see how to implement the 3 methods of D & C.

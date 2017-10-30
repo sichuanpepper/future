@@ -1,7 +1,7 @@
 package com.future.round1;
 
 /**
- * Created by xingfeiy on 8/29/17.
+ * Created by someone on 8/29/17.
  */
 public class TreeNode {
     int val;

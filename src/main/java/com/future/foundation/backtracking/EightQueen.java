@@ -5,7 +5,7 @@ import com.future.utils.DisplayUtils;
 import java.util.List;
 
 /**
- * Created by xingfeiy on 7/20/17.
+ * Created by someone on 7/20/17.
  */
 public class EightQueen {
     //we have n * n chessboard, and we want to place n queens.

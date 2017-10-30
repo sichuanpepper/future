@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by xingfeiy on 6/22/17.
+ * Created by someone on 6/22/17.
  */
 public class Stupid624 {
     public static int maxDistance(List<List<Integer>> arrays) {

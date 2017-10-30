@@ -3,7 +3,7 @@ package com.future.foundation.db;
 import com.future.utils.DisplayUtils;
 
 /**
- * Created by xingfeiy on 5/8/17.
+ * Created by someone on 5/8/17.
  */
 public class CoinChanges {
 

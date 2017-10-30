@@ -14,7 +14,7 @@ import java.util.List;
  "()(())",
  "()()()"
  ]
- * Created by xingfeiy on 8/30/17.
+ * Created by someone on 8/30/17.
  */
 public class Problem22 {
 //    public List<String> generateParenthesis(int n) {

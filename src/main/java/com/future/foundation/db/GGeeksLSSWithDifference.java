@@ -17,7 +17,7 @@ import java.util.Arrays;
  * Output : 4
  * The subsequence is {-2, -1, -1, 0}.
  * <p>
- * Created by xingfeiy on 9/6/17.
+ * Created by someone on 9/6/17.
  */
 public class GGeeksLSSWithDifference {
 

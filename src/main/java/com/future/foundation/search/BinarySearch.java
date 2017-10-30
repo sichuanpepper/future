@@ -1,7 +1,7 @@
 package com.future.foundation.search;
 
 /**
- * Created by xingfeiy on 3/27/17.
+ * Created by someone on 3/27/17.
  */
 public class BinarySearch {
     public static final int[] array = new int[]{1, 3, 4, 6, 8, 10, 13};

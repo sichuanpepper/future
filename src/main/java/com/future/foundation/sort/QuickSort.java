@@ -3,7 +3,7 @@ package com.future.foundation.sort;
 import java.util.Arrays;
 
 /**
- * Created by xingfeiy on 4/11/17.
+ * Created by someone on 4/11/17.
  */
 public class QuickSort {
     public static int[] sort(int[] array) {

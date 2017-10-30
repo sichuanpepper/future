@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by xingfeiy on 5/1/17.
+ * Created by someone on 5/1/17.
  */
 public class Analyse {
 

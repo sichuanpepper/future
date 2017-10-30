@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by xingfeiy on 5/15/17.
+ * Created by someone on 5/15/17.
  */
 public class LongestParlindorm409 {
     public int longestPalindrome(String s) {

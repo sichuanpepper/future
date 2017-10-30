@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * Created by xingfeiy on 3/28/17.
+ * Created by someone on 3/28/17.
  */
 public class Lambda {
     public static List<String> names = Arrays.asList("peter", "anna", "mike", "xenia");

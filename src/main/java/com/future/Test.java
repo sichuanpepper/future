@@ -3,11 +3,10 @@ package com.future;
 import java.util.*;
 
 /**
- * Created by xingfeiy on 5/16/17.
+ * Created by someone on 5/16/17.
  */
 public class Test {
     public static void main(String[] args) {
-<<<<<<< Updated upstream
 
         Collections.sort(new ArrayList<>(), new Comparator<Integer>() {
             @Override
@@ -16,7 +15,6 @@ public class Test {
             }
         });
 
-=======
         String str = "/.".substring(1, 2);
         String str2 = ".";
         System.out.println(str);
@@ -32,7 +30,6 @@ public class Test {
         System.out.println(-129 % 10);
         System.out.println(Math.abs(-2147483648));
         System.out.println(Math.abs(-2147483647));
->>>>>>> Stashed changes
         System.out.println(Math.round((float) 5 / 2));
         char ch = (char)1;
         System.out.println(ch);

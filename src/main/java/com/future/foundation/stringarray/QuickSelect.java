@@ -1,7 +1,7 @@
 package com.future.foundation.stringarray;
 
 /**
- * Created by xingfeiy on 4/27/17.
+ * Created by someone on 4/27/17.
  */
 public class QuickSelect {
     //first, let's recall quick sort here again

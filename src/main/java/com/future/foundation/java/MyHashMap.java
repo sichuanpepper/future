@@ -1,7 +1,7 @@
 package com.future.foundation.java;
 
 /**
- * Created by xingfeiy on 9/27/17.
+ * Created by someone on 9/27/17.
  */
 public class MyHashMap<K, V> {
     private class Entry<K, V> {

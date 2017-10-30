@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by xingfeiy on 7/31/17.
+ * Created by someone on 7/31/17.
  */
 public class Keyboard {
     private static final Set<Character> FIRST_LINE = new HashSet<>(Arrays.asList('q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'));

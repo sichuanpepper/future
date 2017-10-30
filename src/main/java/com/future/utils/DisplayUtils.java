@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Created by xingfeiy on 5/24/17.
+ * Created by someone on 5/24/17.
  */
 public class DisplayUtils {
     public static void printTwoDimensionsArray(int[][] array) {
@@ -24,8 +24,15 @@ public class DisplayUtils {
         System.out.println();
     }
 
-    public static void printList(List<Integer> list) {
-        for(int i : list) {
+//    public static void printList(List<Integer> list) {
+//        for(int i : list) {
+//            System.out.print(i + " ");
+//        }
+//        System.out.println();
+//    }
+
+    public static <T> void printList(List<T> list) {
+        for(T i : list) {
             System.out.print(i + " ");
         }
         System.out.println();
@@ -44,5 +51,13 @@ public class DisplayUtils {
             str = str + i + " ";
         }
         return str;
+    }
+
+    public static void printListNode(ListNode listNode) {
+        while (listNode != null) {
+            System.out.print(listNode.val + " ");
+            listNode = listNode.next;
+        }
+        System.out.println();
     }
 }

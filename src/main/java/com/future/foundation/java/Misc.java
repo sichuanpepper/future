@@ -5,7 +5,7 @@ import com.future.utils.DisplayUtils;
 import java.util.Stack;
 
 /**
- * Created by xingfeiy on 9/21/17.
+ * Created by someone on 9/21/17.
  */
 public class Misc {
     public static void primitiveType() {

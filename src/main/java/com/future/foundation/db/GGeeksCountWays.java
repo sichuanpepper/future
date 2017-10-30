@@ -21,7 +21,7 @@ package com.future.foundation.db;
 
  http://www.geeksforgeeks.org/count-ways-build-street-given-constraints/
 
- * Created by xingfeiy on 9/6/17.
+ * Created by someone on 9/6/17.
  */
 public class GGeeksCountWays {
     public long countWays(int n) {

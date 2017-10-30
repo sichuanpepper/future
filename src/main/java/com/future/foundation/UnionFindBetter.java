@@ -3,7 +3,7 @@ package com.future.foundation;
 import com.future.utils.DisplayUtils;
 
 /**
- * Created by xingfeiy on 6/14/17.
+ * Created by someone on 6/14/17.
  */
 public class UnionFindBetter {
     public int[] array = null;

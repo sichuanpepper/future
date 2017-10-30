@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * Created by xingfeiy on 4/5/17.
+ * Created by someone on 4/5/17.
  */
 public class Stream {
     private static final List<String> myList = Arrays.asList("a2", "a1", "b1", "c2", "c1");

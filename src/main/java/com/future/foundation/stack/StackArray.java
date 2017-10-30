@@ -1,7 +1,7 @@
 package com.future.foundation.stack;
 
 /**
- * Created by xingfeiy on 9/20/17.
+ * Created by someone on 9/20/17.
  */
 public class StackArray<T> {
     private T[] array;

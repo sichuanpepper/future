@@ -7,7 +7,7 @@ package com.future.foundation.search;
 
  n is a non-negative integer and fits within the range of a 32-bit signed integer.
 
- * Created by xingfeiy on 4/12/17.
+ * Created by someone on 4/12/17.
  */
 public class ArrangingCoins441 {
     public int arrangeCoins(int n) {

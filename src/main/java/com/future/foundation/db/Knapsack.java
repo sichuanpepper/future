@@ -3,7 +3,7 @@ package com.future.foundation.db;
 import com.future.utils.DisplayUtils;
 
 /**
- * Created by xingfeiy on 5/24/17.
+ * Created by someone on 5/24/17.
  */
 public class Knapsack {
     //the weight of each stone

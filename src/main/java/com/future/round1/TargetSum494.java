@@ -3,7 +3,7 @@ package com.future.round1;
 import com.future.utils.DisplayUtils;
 
 /**
- * Created by xingfeiy on 5/31/17.
+ * Created by someone on 5/31/17.
  */
 public class TargetSum494 {
     public static int findTargetSumWays(int[] nums, int S) {

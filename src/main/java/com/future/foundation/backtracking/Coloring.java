@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by xingfeiy on 7/26/17.
+ * Created by someone on 7/26/17.
  */
 public class Coloring {
     /**

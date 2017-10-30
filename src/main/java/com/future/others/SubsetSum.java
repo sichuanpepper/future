@@ -10,7 +10,7 @@ import java.util.Arrays;
  *
  * Please use 3 different solutions to solve it.
  *
- * Created by xingfeiy on 8/1/17.
+ * Created by someone on 8/1/17.
  */
 public class SubsetSum {
     //solution 1, brute force way, recursive.

@@ -13,7 +13,7 @@ package com.future.foundation.stringarray;
   Input:   str = "Ab,c,de!$"
   Output:  str = "ed,c,bA!$"
 
- * Created by xingfeiy on 4/26/17.
+ * Created by someone on 4/26/17.
  */
 public class ReverseString2 {
 

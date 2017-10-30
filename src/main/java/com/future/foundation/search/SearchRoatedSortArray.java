@@ -1,7 +1,7 @@
 package com.future.foundation.search;
 
 /**
- * Created by xingfeiy on 3/28/17.
+ * Created by someone on 3/28/17.
  */
 public class SearchRoatedSortArray {
     public static final int[] rotatedArray = new int[]{4, 5, 7, 0, 1, 2};

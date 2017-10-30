@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by xingfeiy on 10/4/17.
+ * Created by someone on 10/4/17.
  */
 public class SumProblems {
     /**

@@ -1,7 +1,7 @@
 package com.future.round1;
 
 /**
- * Created by xingfeiy on 4/12/17.
+ * Created by someone on 4/12/17.
  */
 public class Sqrt69 {
     public static int mySqrt(int x) {

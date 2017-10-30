@@ -7,7 +7,7 @@ import com.future.utils.DisplayUtils;
 
  For example, given the array [-2,1,-3,4,-1,2,1,-5,4],
  the contiguous subarray [4,-1,2,1] has the largest sum = 6.
- * Created by xingfeiy on 5/30/17.
+ * Created by someone on 5/30/17.
  */
 public class MaximumSubarray {
     /**

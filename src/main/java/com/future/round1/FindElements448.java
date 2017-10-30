@@ -14,7 +14,7 @@ import java.util.List;
  * Q2, both linked list and array list have two remove function, one for index and other one for object.
  * First one take primitive int type as parameter, and second one take object, so you must be understood how to use it now.
  *
- * Created by xingfeiy on 6/17/17.
+ * Created by someone on 6/17/17.
  */
 public class FindElements448 {
     public static List<Integer> findDisappearedNumbers(int[] nums) {

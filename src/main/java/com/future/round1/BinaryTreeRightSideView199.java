@@ -3,7 +3,7 @@ package com.future.round1;
 import java.util.*;
 
 /**
- * Created by xingfeiy on 6/21/17.
+ * Created by someone on 6/21/17.
  */
 public class BinaryTreeRightSideView199 {
 

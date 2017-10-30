@@ -5,7 +5,7 @@ import com.future.utils.DisplayUtils;
 import java.util.*;
 
 /**
- * Created by xingfeiy on 7/8/17.
+ * Created by someone on 7/8/17.
  * We are going to talk about one of the commonest collections Map here, we maybe already familiar with HashMap, maybe not.
  *
  * There are other useful function excepts put, get, containsKey...

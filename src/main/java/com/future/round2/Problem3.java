@@ -12,7 +12,7 @@ package com.future.round2;
  Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring,
  "pwke" is a subsequence and not a substring.
 
- * Created by xingfeiy on 10/10/17.
+ * Created by someone on 10/10/17.
  */
 public class Problem3 {
     public static int lengthOfLongestSubstring(String s) {

@@ -3,7 +3,7 @@ package com.future.foundation.sort;
 import java.util.Arrays;
 
 /**
- * Created by xingfeiy on 5/3/17.
+ * Created by someone on 5/3/17.
  */
 public class HeapSort {
     //Three major steps to implement a heap sort algorithm.

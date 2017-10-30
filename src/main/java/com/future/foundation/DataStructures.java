@@ -1,7 +1,7 @@
 package com.future.foundation;
 
 /**
- * Created by xingfeiy on 5/4/17.
+ * Created by someone on 5/4/17.
  */
 public class DataStructures {
     // Stacks && Queues

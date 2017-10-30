@@ -17,7 +17,7 @@ import java.util.*;
 
  Note: you can assume that no duplicate edges will appear in edges. Since all edges are undirected,
  [0, 1] is the same as [1, 0] and thus will not appear together in edges.
- * Created by xingfeiy on 8/21/17.
+ * Created by someone on 8/21/17.
  */
 public class Leet261 {
     /**
