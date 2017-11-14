@@ -15,7 +15,7 @@ import java.util.Arrays;
  string convert(string text, int nRows);
  convert("PAYPALISHIRING", 3) should return "PAHNAPLSIIGYIR".
 
- * Created by xingfeiy on 10/11/17.
+ * Created by someone on 10/11/17.
  */
 public class Problem6 {
     /**

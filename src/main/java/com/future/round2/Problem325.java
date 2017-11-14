@@ -22,7 +22,7 @@ import java.util.Map;
  * <p>
  * Follow Up:
  * Can you do it in O(n) time?
- * Created by xingfeiy on 10/29/17.
+ * Created by someone on 10/29/17.
  */
 public class Problem325 {
     /**

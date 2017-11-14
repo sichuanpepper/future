@@ -1,7 +1,7 @@
 package com.future.others;
 
 /**
- * Created by xingfeiy on 10/25/17.
+ * Created by someone on 10/25/17.
  */
 public class ReverseInteger {
     public static int reverse(int val) {

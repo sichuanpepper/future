@@ -21,7 +21,7 @@ import java.util.*;
  Note:
  The number of tasks is in the range [1, 10000].
  The integer n is in the range [0, 100].
- * Created by xingfeiy on 10/29/17.
+ * Created by someone on 10/29/17.
  */
 public class Problem621 {
     /**

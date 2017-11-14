@@ -12,7 +12,7 @@ package com.future.round2;
 
  Note:
  The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows.
- * Created by xingfeiy on 10/29/17.
+ * Created by someone on 10/29/17.
  */
 public class Problem7 {
 

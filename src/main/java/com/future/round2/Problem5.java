@@ -15,7 +15,7 @@ package com.future.round2;
  Input: "cbbd"
 
  Output: "bb"
- * Created by xingfeiy on 10/11/17.
+ * Created by someone on 10/11/17.
  */
 public class Problem5 {
     public static String solution1(String s) {
