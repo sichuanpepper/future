@@ -1,7 +1,7 @@
 package com.future.utils;
 
 /**
- * Created by xingfeiy on 11/14/17.
+ * Created by someone on 11/7/17.
  */
 public class TreeNode {
     public int val;
