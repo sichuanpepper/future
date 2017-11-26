@@ -12,4 +12,6 @@ import com.future.utils.ListNode;
 public class Problem23 {
     public ListNode mergeKLists(ListNode[] lists) {
     }
+
+
 }
