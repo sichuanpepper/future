@@ -38,6 +38,13 @@ public class DisplayUtils {
         System.out.println();
     }
 
+    public static <T> void printLists(List<List<T>> lists) {
+        for(List<T> list : lists) {
+            printList(list);
+        }
+        System.out.println();
+    }
+
     public static void printCollection(Collection<Integer> list) {
         for(int i : list) {
             System.out.print(i + " ");
