@@ -5,7 +5,7 @@ package com.future.round2;
  *
  * -- facebook
  *
- * Created by xingfeiy on 11/21/17.
+ * Created by someone on 11/21/17.
  */
 public class Problem670 {
 

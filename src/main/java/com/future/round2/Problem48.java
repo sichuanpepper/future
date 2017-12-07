@@ -3,7 +3,7 @@ package com.future.round2;
 /**
  * https://leetcode.com/problems/rotate-image/description/
  *
- * Created by xingfeiy on 12/6/17.
+ * Created by someone on 12/6/17.
  */
 public class Problem48 {
     /**

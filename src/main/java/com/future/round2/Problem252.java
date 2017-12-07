@@ -16,7 +16,7 @@ import java.util.Comparator;
  return false.
 
 
- * Created by xingfeiy on 11/16/17.
+ * Created by someone on 11/16/17.
  */
 public class Problem252 {
     /**

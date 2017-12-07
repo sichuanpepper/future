@@ -17,7 +17,7 @@ import java.util.List;
  [2,1,1]
  ]
 
- * Created by xingfeiy on 12/6/17.
+ * Created by someone on 12/6/17.
  */
 public class Problem47 {
     /**

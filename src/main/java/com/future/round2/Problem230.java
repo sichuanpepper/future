@@ -17,7 +17,7 @@ import com.future.utils.TreeNode;
  Credits:
  Special thanks to @ts for adding this problem and creating all test cases.
 
- * Created by xingfeiy on 11/30/17.
+ * Created by someone on 11/30/17.
  */
 public class Problem230 {
     /**

@@ -7,7 +7,7 @@ import java.util.*;
 
 /**
  * https://leetcode.com/problems/binary-tree-vertical-order-traversal/description/
- * Created by xingfeiy on 11/15/17.
+ * Created by someone on 11/15/17.
  *
  */
 public class Problem314 {

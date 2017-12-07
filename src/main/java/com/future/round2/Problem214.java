@@ -3,7 +3,7 @@ package com.future.round2;
 /**
  * https://leetcode.com/problems/shortest-palindrome/description/
  *
- * Created by xingfeiy on 11/26/17.
+ * Created by someone on 11/26/17.
  */
 public class Problem214 {
     /**

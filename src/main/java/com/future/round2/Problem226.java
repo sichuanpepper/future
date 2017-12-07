@@ -5,7 +5,7 @@ import com.future.utils.TreeNode;
 /**
  * https://leetcode.com/problems/invert-binary-tree/description/
  *
- * Created by xingfeiy on 11/19/17.
+ * Created by someone on 11/19/17.
  */
 public class Problem226 {
     public TreeNode invertTree(TreeNode root) {

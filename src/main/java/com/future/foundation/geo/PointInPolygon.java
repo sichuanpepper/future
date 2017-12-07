@@ -9,7 +9,7 @@ import com.future.utils.Point;
  * Check if a point lies inside the given polygon or not.
  * The point lies on edge considers inside.
  *
- * Created by xingfeiy on 12/4/17.
+ * Created by someone on 12/4/17.
  */
 public class PointInPolygon {
     /**

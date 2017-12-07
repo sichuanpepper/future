@@ -14,7 +14,7 @@ package com.future.round2;
 
  return [3, 4].
  *
- * Created by xingfeiy on 12/3/17.
+ * Created by someone on 12/3/17.
  */
 public class Problem34 {
     /**

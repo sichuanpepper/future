@@ -11,7 +11,7 @@ package com.future.round2;
  and [3,4,-1,1] return 2.
 
   Your algorithm should run in O(n) time and uses constant space.
- * Created by xingfeiy on 12/3/17.
+ * Created by someone on 12/3/17.
  */
 public class Problem41 {
 

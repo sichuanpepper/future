@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * https://leetcode.com/problems/word-break/description/
  *
- * Created by xingfeiy on 11/20/17.
+ * Created by someone on 11/20/17.
  */
 public class Problem139 {
     /**

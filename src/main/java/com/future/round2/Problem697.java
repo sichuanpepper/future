@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by xingfeiy on 11/15/17.
+ * Created by someone on 11/15/17.
  */
 public class Problem697 {
     public int findShortestSubArray(int[] nums) {

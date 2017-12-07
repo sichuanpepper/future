@@ -23,7 +23,7 @@ import java.util.List;
  [7],
  [2, 2, 3]
  ]
- * Created by xingfeiy on 12/3/17.
+ * Created by someone on 12/3/17.
  */
 public class Problem39 {
 

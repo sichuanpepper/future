@@ -19,7 +19,7 @@ import java.util.*;
  Note:
  You can assume that you can always reach the last index.
  *
- * Created by xingfeiy on 12/5/17.
+ * Created by someone on 12/5/17.
  */
 public class Problem45 {
 

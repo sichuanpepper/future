@@ -13,7 +13,7 @@ import java.util.PriorityQueue;
  * Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
  * <p>
  * <p>
- * Created by xingfeiy on 11/17/17.
+ * Created by someone on 11/17/17.
  */
 public class Problem23 {
     /**

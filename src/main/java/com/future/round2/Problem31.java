@@ -14,7 +14,7 @@ package com.future.round2;
  3,2,1 → 1,2,3
  1,1,5 → 1,5,1
 
- * Created by xingfeiy on 11/26/17.
+ * Created by someone on 11/26/17.
  */
 public class Problem31 {
     /**

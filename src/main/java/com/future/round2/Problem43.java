@@ -12,7 +12,7 @@ package com.future.round2;
  Both num1 and num2 does not contain any leading zero.
  You must not use any built-in BigInteger library or convert the inputs to integer directly.
 
- * Created by xingfeiy on 11/21/17.
+ * Created by someone on 11/21/17.
  */
 public class Problem43 {
     public String multiply(String num1, String num2) {

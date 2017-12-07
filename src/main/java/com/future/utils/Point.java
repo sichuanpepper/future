@@ -1,7 +1,7 @@
 package com.future.utils;
 
 /**
- * Created by xingfeiy on 12/4/17.
+ * Created by someone on 12/4/17.
  */
 public class Point {
     public int x;

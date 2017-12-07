@@ -10,7 +10,7 @@ import com.future.utils.Point;
  *  - Clockwise
  *  - Colinear
  *
- * Created by xingfeiy on 12/4/17.
+ * Created by someone on 12/4/17.
  */
 public class Orientation {
     /**

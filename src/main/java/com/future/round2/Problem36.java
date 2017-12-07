@@ -3,7 +3,7 @@ package com.future.round2;
 /**
  * https://leetcode.com/problems/valid-sudoku/description/
  *
- * Created by xingfeiy on 12/3/17.
+ * Created by someone on 12/3/17.
  */
 public class Problem36 {
     /**

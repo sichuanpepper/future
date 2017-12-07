@@ -14,7 +14,7 @@ package com.future.round2;
  Note: There will be exactly one celebrity if he/she is in the party. Return the celebrity's label if there is a celebrity in the party.
  If there is no celebrity, return -1.
 
- * Created by xingfeiy on 11/15/17.
+ * Created by someone on 11/15/17.
  */
 public class Problem277 {
 }

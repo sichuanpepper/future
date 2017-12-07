@@ -37,7 +37,7 @@ import java.util.Queue;
  Output: -1
  Explanation: The smallest value is 2, but there isn't any second smallest value.
 
- * Created by xingfeiy on 11/30/17.
+ * Created by someone on 11/30/17.
  */
 public class Problem671 {
     /**

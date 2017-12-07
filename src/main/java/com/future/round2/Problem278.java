@@ -14,7 +14,7 @@ package com.future.round2;
 
  Credits:
  Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases.
- * Created by xingfeiy on 11/15/17.
+ * Created by someone on 11/15/17.
  */
 public class Problem278 {
 }

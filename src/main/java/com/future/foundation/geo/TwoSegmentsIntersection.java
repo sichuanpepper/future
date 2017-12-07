@@ -17,7 +17,7 @@ import com.future.utils.Point;
  *      - the x-projections of (s1, e1) and (s2, e2) intersected.
  *      - the y-projections of (s1, e1) and (s2, e2) intersected.
  *
- * Created by xingfeiy on 12/4/17.
+ * Created by someone on 12/4/17.
  */
 public class TwoSegmentsIntersection {
     public static boolean intersect(Point s1, Point e1, Point s2, Point e2) {

@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * https://leetcode.com/problems/n-queens/description/
  *
- * Created by xingfeiy on 12/6/17.
+ * Created by someone on 12/6/17.
  */
 public class Problem51 {
     /**

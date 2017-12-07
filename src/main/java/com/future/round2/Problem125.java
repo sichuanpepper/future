@@ -14,7 +14,7 @@ package com.future.round2;
 
  * https://leetcode.com/problems/valid-palindrome/description/
  *
- * Created by xingfeiy on 11/20/17.
+ * Created by someone on 11/20/17.
  */
 public class Problem125 {
     /**

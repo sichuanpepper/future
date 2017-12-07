@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * https://leetcode.com/problems/flatten-nested-list-iterator/description/
  *
- * Created by xingfeiy on 11/21/17.
+ * Created by someone on 11/21/17.
  */
 public class Problem341 implements Iterator<Integer> {
     public Problem341(List<Problem341> nestedList) {

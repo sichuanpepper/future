@@ -8,7 +8,7 @@ package com.future.round2;
 
  If it is overflow, return MAX_INT.
  *
- * Created by xingfeiy on 11/26/17.
+ * Created by someone on 11/26/17.
  */
 public class Problem29 {
     public int divide(int dividend, int divisor) {

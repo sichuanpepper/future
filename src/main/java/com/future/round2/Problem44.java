@@ -22,7 +22,7 @@ package com.future.round2;
  isMatch("ab", "?*") → true
  isMatch("aab", "c*a*b") → false
  *
- * Created by xingfeiy on 12/3/17.
+ * Created by someone on 12/3/17.
  */
 public class Problem44 {
     /**

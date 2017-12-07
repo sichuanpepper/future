@@ -14,7 +14,7 @@ import java.util.*;
  You may assume k is always valid, 1 ≤ k ≤ number of unique elements.
  Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
 
- * Created by xingfeiy on 11/30/17.
+ * Created by someone on 11/30/17.
  */
 public class Problem347 {
     /**

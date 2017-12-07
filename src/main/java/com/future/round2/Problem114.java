@@ -5,7 +5,7 @@ import com.future.utils.TreeNode;
 /**
  * https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/
  *
- * Created by xingfeiy on 12/1/17.
+ * Created by someone on 12/1/17.
  */
 public class Problem114 {
     /**

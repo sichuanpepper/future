@@ -17,7 +17,7 @@ import java.util.*;
  ]
  Note: All inputs will be in lower-case.
 
- * Created by xingfeiy on 12/6/17.
+ * Created by someone on 12/6/17.
  */
 public class Problem49 {
 

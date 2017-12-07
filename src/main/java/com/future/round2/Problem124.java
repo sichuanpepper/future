@@ -18,7 +18,7 @@ import com.future.utils.TreeNode;
  2   3
  Return 6.
  *
- * Created by xingfeiy on 12/1/17.
+ * Created by someone on 12/1/17.
  */
 public class Problem124 {
     /**

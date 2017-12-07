@@ -19,7 +19,7 @@ import java.util.Map;
  You should return the indices: [0,9].
  (order does not matter).
  *
- * Created by xingfeiy on 11/26/17.
+ * Created by someone on 11/26/17.
  */
 public class Problem30 {
     /**

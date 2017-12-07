@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * https://leetcode.com/problems/subsets/description/
  * -- facebook
- * Created by xingfeiy on 11/21/17.
+ * Created by someone on 11/21/17.
  */
 public class Problem78 {
     /**
