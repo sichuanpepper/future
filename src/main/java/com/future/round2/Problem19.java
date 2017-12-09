@@ -13,26 +13,42 @@ import com.future.utils.ListNode;
  Note:
  Given n will always be valid.
  Try to do this in one pass.
- * Created by someone on 10/11/17.
+ * Created by someone on 12/08/17.
  */
 public class Problem19 {
     /**
-     * The given n will always be valid, it's very important point, which means, the length of linked list >= n.
-     * and we can know, the remove one must be in the last full n-segment.
-     * likes, 1, 2, 3, 4, 5, and delete 2nd, then the last full segment is (3, 4),
-     * likes, 1, 2, 3, 4, 5, and delete 3rd, then the last full segment is (1, 2, 3)
+     * Analyze:
+     * It's single linked list, can't retrieve elements back forward.
+     *
+     * If we move steps n each time,
+     *  - if reached the last element on last step, the deleting element is the start element of last step.
+     *  - if last step exceeded the element, move the step back forward element by element until the last step reached the last element.
+     *
+     *  Example:
+     *  1->2->3->4->5  n=2
+     *  p1    p2
+     *    p1    p2
+     *       p1    p2
+     *          p1    p2
+     *
      * @param head
      * @param n
      * @return
      */
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode slow = head;
-        ListNode fast = head;
-        for(int i = 0; i <= n; i++) {
-            fast = fast.next;
+        ListNode left = head;
+        ListNode right = head;
+        while (n > 0) {
+            right = right.next;
+            n--;
         }
+        if(right == null) return left.next;
 
-        //todo
-        return null;
+        while (right.next != null) {
+            left = left.next;
+            right = right.next;
+        }
+        left.next = left.next.next;
+        return head;
     }
 }
