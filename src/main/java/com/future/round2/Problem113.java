@@ -39,8 +39,26 @@ public class Problem113 {
     public List<List<Integer>> pathSum(TreeNode root, int sum) {
         List<List<Integer>> res = new ArrayList<>();
         if(root == null) return res;
+        helper(root, sum, 0,new ArrayList<>(), res);
+        return res;
     }
 
-    private void helper(TreeNode node, int sum, List<Integer> curPath, List<List<Integer>> res) {
+    private void helper(TreeNode node, int sum, int curSum,List<Integer> curPath, List<List<Integer>> res) {
+        if(node == null) return;
+        curSum += node.val;
+        curPath.add(node.val);
+        if(node.left == null && node.right == null) {
+            if(sum == curSum) res.add(new ArrayList<>(curPath));
+            return;
+        }
+        if(node.left != null ) {
+            helper(node.left, sum, curSum, curPath, res);
+            curPath.remove(curPath.size() - 1);
+        }
+        if(node.right != null) {
+            helper(node.right, sum, curSum, curPath, res);
+            curPath.remove(curPath.size() - 1);
+        }
+
     }
 }
