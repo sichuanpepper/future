@@ -1,11 +1,9 @@
 package com.future.round2;
 
+import com.future.round1.LongestParlindorm409;
 import com.future.utils.TreeNode;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * https://leetcode.com/problems/find-mode-in-binary-search-tree/description/
@@ -18,11 +16,11 @@ import java.util.Map;
  Both the left and right subtrees must also be binary search trees.
  For example:
  Given BST [1,null,2,2],
- 1
- \
- 2
- /
- 2
+   1
+    \
+     2
+    /
+   2
  return [2].
 
  Note: If a tree has more than one mode, you can return them in any order.
@@ -56,5 +54,33 @@ public class Problem501 {
         max = Math.max(max, map.get(node.val));
         helper(node.left, map);
         helper(node.right, map);
+    }
+
+    /**
+     * Analyze:
+     * It's a BST, so think about in-order traversal.
+     * @param root
+     * @return
+     */
+    private long preVal = Long.MIN_VALUE;
+    private int curCount = 0;
+    private int maxLength = 0;
+    public Set<Integer> solution(TreeNode root) {
+        if(root == null) return new HashSet<>();
+        Set<Integer> res = solution(root.left);
+        if(root.val == preVal) {
+            curCount++;
+        } else {
+            curCount = 1;
+        }
+        if(curCount == maxLength) {
+            res.add(root.val);
+        } else if(curCount > maxLength) {
+            res.clear();
+            res.add(root.val);
+            maxLength = curCount;
+        }
+        preVal = root.val;
+        return solution(root.right);
     }
 }

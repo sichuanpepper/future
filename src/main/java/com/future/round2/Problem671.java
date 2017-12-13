@@ -23,8 +23,8 @@ import java.util.Queue;
      2
     / \
    2   5
-  / \
- 5   7
+      / \
+     5   7
 
  Output: 5
  Explanation: The smallest value is 2, the second smallest value is 5.
