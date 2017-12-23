@@ -16,6 +16,24 @@ public class DisplayUtils {
         }
     }
 
+    public static void printTwoDimensionsArray(char[][] array) {
+        for(int i = 0; i < array.length; i++) {
+            for(int j = 0; j < array[0].length; j++) {
+                System.out.print(String.format("|%-3c", array[i][j]));
+            }
+            System.out.println();
+        }
+    }
+
+    public static <T> void printTwoDimensionsArray(T[][] array) {
+        for(int i = 0; i < array.length; i++) {
+            for(int j = 0; j < array[0].length; j++) {
+                System.out.print(String.format("|%-3d", array[i][j].toString()));
+            }
+            System.out.println();
+        }
+    }
+
 
     public static void printArray(int[] array) {
         for(int i = 0; i < array.length; i++) {
