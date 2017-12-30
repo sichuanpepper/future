@@ -32,6 +32,23 @@ public class Problem82 {
      * @return
      */
     public ListNode deleteDuplicates(ListNode head) {
-        return head;
+        if(head == null || head.next == null) return head;
+        ListNode dummy = new ListNode(0);
+        ListNode preNode = dummy;
+        ListNode curNode = head;
+        while (curNode != null) {
+            if(curNode.next != null && curNode.val == curNode.next.val) {
+                //find the next different node or null.
+                ListNode tmp = curNode.next;
+                while (tmp != null && tmp.val == curNode.val) tmp = tmp.next;
+                curNode = tmp;
+            } else { //it's an unique.
+                preNode.next = curNode;
+                preNode = preNode.next;
+                curNode = curNode.next;
+            }
+        }
+        preNode.next = null;
+        return dummy.next;
     }
 }

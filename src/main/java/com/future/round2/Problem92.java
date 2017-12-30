@@ -32,21 +32,19 @@ public class Problem92 {
      * @return
      */
     public ListNode reverseBetween(ListNode head, int m, int n) {
-//        if(head == null) return null;
-//        ListNode preNode = head;
-//        for(int i = 1; i < m - 1; i++) {
-//            preNode = preNode.next;
-//        }
-//
-//        ListNode start = preNode.next;
-//        ListNode next = start.next;
-//        for(int i = 1; i < n - m; i++) {
-//            start.next = next.next;
-//            next.next = preNode.next;
-//            preNode.next = next;
-//            next = start.next;
-//        }
-//        return head;
-        return  null;
+        if(head == null) return head;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode preNode = dummy;
+        for(int i = 1; i < m; i++) preNode = preNode.next;
+        ListNode firstNode = preNode.next;
+        ListNode nextNode = firstNode.next;
+        for(int i = 0; i < n - m; i++) {
+            firstNode.next = nextNode.next;
+            nextNode.next = preNode.next;
+            preNode.next = nextNode;
+            nextNode = firstNode.next;
+        }
+        return dummy.next;
     }
 }
