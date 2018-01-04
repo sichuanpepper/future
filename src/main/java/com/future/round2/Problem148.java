@@ -1,6 +1,5 @@
 package com.future.round2;
 
-<<<<<<< Updated upstream
 import com.future.utils.DisplayUtils;
 import com.future.utils.ListNode;
 
@@ -24,18 +23,11 @@ import com.future.utils.ListNode;
 public class Problem148 {
     /**
      * Analyze:
-<<<<<<< Updated upstream
      * Both quick sort and merge sort can sort an array in O(n log n) time
-=======
-     * We can use quick sort to sort an array in time complexity O(nlogn)
-     * We usually select the last element as pivot in array, but we also can pick up first one, no difference.
-     *
->>>>>>> Stashed changes
      * @param head
      * @return
      */
     public ListNode sortList(ListNode head) {
-<<<<<<< Updated upstream
 //        sortList(head, null);
         if(head == null || head.next == null) return head;
 
@@ -111,11 +103,4 @@ public class Problem148 {
         Problem148 p = new Problem148();
         DisplayUtils.printListNode(p.sortList(head));
     }
-=======
-        if(head == null) return null;
-
-        return head;
-    }
-
->>>>>>> Stashed changes
 }
