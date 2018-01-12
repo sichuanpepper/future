@@ -30,11 +30,24 @@ import com.future.utils.TreeNode;
 public class Problem156 {
     /**
      * Analyze:
-     * since all the right nodes are either leaf nodes with a sibling or empty, which means there are at most two nodes in each layer.
-     *  - if node is null, return null
-     *  - if node without children, return node.
-     *  - if node has left child only, tmp = node, node = node.left, node.right = tmp
-     *  - if node has left and right children, tmp = node, tmpRight = node.right, node = node.left, node.right = tmp, node.left = tmpRight.
+     * It take a while to understand this problem
+     *  - If a node has right child, its left child must be available.
+     *  - Since the right child must be leaf or empty, there are at most two nodes in each layer.
+     *
+     * So it's easy to come out the recursive solution, process left subtree, then itself, and nothing need to do for right subtree.
+     * It's could be post-order or in-order traversal, and then do your business.
+     * Let's use a simple example:
+     *     2
+     *    / \
+     *   4  5
+     * After the flipping, we will get
+     *     4
+     *    / \
+     *   5  2
+     * The business here is:
+     * node.left.left = node.right
+     * node.left.right = node
+     * node.left = null && node.right = null (don't forget it)
      * @param root
      * @return
      */

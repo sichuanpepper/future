@@ -19,6 +19,16 @@ import java.util.Map;
  * Created by someone on 10/10/17.
  */
 public class Problem1 {
+    /**
+     * [Tag]: Array.
+     * Analyze:
+     * For given array, ask questions first:
+     *  - Is sorted?
+     *  - Has duplicates?
+     * @param nums
+     * @param target
+     * @return
+     */
     public static int[] solution1(int[] nums, int target) {
         if(nums == null || nums.length < 1) {
             return new int[2];
@@ -62,6 +72,7 @@ public class Problem1 {
         DisplayUtils.printArray(solution1(new int[]{2, 7, 11, 15}, 9));
         DisplayUtils.printArray(solution1(new int[]{2, 7, 11, 15}, 33));
         DisplayUtils.printArray(solution1(new int[]{-2, 7, 11, 0}, 7));
+        DisplayUtils.printArray(solution1(new int[]{Integer.MIN_VALUE, 7, 11, 0}, -7));
 
         System.out.println("=====================");
 
