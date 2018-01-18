@@ -7,6 +7,17 @@ import java.util.*;
  */
 public class Test {
     public static void main(String[] args) {
+        for(int i = 0; i < 10; i++) {
+            System.out.print("Current: " + i + "\r\n");
+            System.out.print("Current: " + i + " copy \r\n");
+//            System.out.println("Current: " + i + " copy" + "\r");
+//            System.out.println("\r\r\r");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
 
         Collections.sort(new ArrayList<>(), new Comparator<Integer>() {
             @Override
