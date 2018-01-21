@@ -80,8 +80,18 @@ public class Knapsack {
         return maxValue[stones.length][capacity];
     }
 
+    public static int recursive(int[] stones, int[] values, int capacity) {
+        if(capacity < 1) return 0;
+        int maxValue = 0;
+        for(int i = 0; i < stones.length; i++) {
+            if(stones[i] <= capacity)
+                maxValue = Math.max(maxValue, recursive(stones, values, capacity - stones[i]) + values[i]);
+        }
+        return maxValue;
+    }
 
     public static void main(String[] args) {
         System.out.println(maxValue2());
+        System.out.println(recursive(stones, values, capacity));
     }
 }
