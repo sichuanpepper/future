@@ -2,6 +2,8 @@ package com.future.foundation.db;
 
 import com.future.utils.DisplayUtils;
 
+import java.util.Arrays;
+
 /**
  * Created by someone on 5/24/17.
  */
@@ -80,8 +82,10 @@ public class Knapsack {
         return maxValue[stones.length][capacity];
     }
 
+    private static int computeTimes = 0;
     public static int recursive(int[] stones, int[] values, int capacity) {
         if(capacity < 1) return 0;
+        System.out.println("Computing capacity: " + capacity + " and compute times: " + (++computeTimes));
         int maxValue = 0;
         for(int i = 0; i < stones.length; i++) {
             if(stones[i] <= capacity)
@@ -90,8 +94,42 @@ public class Knapsack {
         return maxValue;
     }
 
+    private static int[] dp = new int[capacity + 1];
+    private static int computeTimes2 = 0;
+    static {
+        Arrays.fill(dp, -1);
+    }
+    public static int dp1(int[] stones, int[] values, int capacity) {
+        if(capacity < 1) return 0;
+        if(dp[capacity] > -1) return dp[capacity];
+
+        System.out.println("Computing capacity: " + capacity + " and compute times: " + (++computeTimes2));
+        int maxValue = 0;
+        for(int i = 0; i < stones.length; i++) {
+            if(stones[i] <= capacity)
+                maxValue = Math.max(maxValue, dp1(stones, values, capacity - stones[i]) + values[i]);
+        }
+        dp[capacity] = maxValue;
+        return maxValue;
+    }
+
+    public static int dp2(int[] stones, int[] values, int capacity) {
+        if(capacity < 1) return 0;
+        int dp[] = new int[capacity + 1];
+        for(int i = 1 ; i < dp.length; i++) {
+            for(int j = 0; j < values.length; j++) {
+                if(i - stones[j] >= 0 ) dp[i] = Math.max(dp[i], dp[i - stones[j]] + values[j]);
+            }
+        }
+        return dp[capacity];
+    }
+
     public static void main(String[] args) {
         System.out.println(maxValue2());
         System.out.println(recursive(stones, values, capacity));
+        System.out.println("==========================");
+        System.out.println(dp1(stones, values, capacity));
+        System.out.println("==========================");
+        System.out.println(dp2(stones, values, capacity));
     }
 }
