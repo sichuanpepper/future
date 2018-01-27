@@ -54,8 +54,8 @@ public class KadaneAlgorithm {
         int maxSoFar = nums[0];
         int maxHere = nums[0];
         for(int i = 1; i < nums.length; i++) {
-            maxHere = Math.max(maxHere, maxHere + nums[i]);
-            maxSoFar = Math.max(maxHere, maxSoFar);
+            maxSoFar = Math.max(maxSoFar, maxHere + nums[i]);
+            maxHere = Math.max(0, maxHere + nums[i]);
         }
         return maxSoFar;
     }

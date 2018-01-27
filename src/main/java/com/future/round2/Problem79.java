@@ -31,7 +31,28 @@ public class Problem79 {
      * @return
      */
     public boolean exist(char[][] board, String word) {
+        if(board == null || board.length < 1 || word == null || word.length() < 1
+                || board.length * board[0].length < word.length()) return false;
+        for(int i = 0; i < board.length; i++) {
+            for(int j = 0; j < board[0].length; j++) {
+                if(helper(board, word, i, j, 0)) return true;
+            }
+        }
         return false;
+    }
+
+    private boolean helper(char[][] board, String word, int curRow, int curCol, int index) {
+        if(index >= word.length()) return true;
+        if(curRow < 0 || curRow >= board.length || curCol < 0 || curCol >= board[0].length) return false;
+        if(board[curRow][curCol] != word.charAt(index)) return false;
+        board[curRow][curCol] = ' ';
+        if(helper(board, word, curRow - 1, curCol, index + 1) || helper(board, word, curRow + 1, curCol, index + 1)
+                || helper(board, word, curRow, curCol - 1, index + 1) || helper(board, word, curRow, curCol + 1, index + 1)) {
+            return true;
+        }
+        board[curRow][curCol] = word.charAt(index);
+        return false;
+
     }
 
 }

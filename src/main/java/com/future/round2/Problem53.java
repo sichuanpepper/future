@@ -29,4 +29,14 @@ public class Problem53 {
         }
         return maxSum;
     }
+
+    public int maxSubArray2(int[] nums) {
+        if(nums == null || nums.length < 1) return Integer.MIN_VALUE;
+        int maxSum = Integer.MIN_VALUE, sumHere = 0;
+        for(int i = 0; i < nums.length; i++) {
+            maxSum = sumHere > 0 ? Math.max(sumHere + nums[i], maxSum) : Math.max(maxSum, nums[i]);
+            sumHere = sumHere + nums[i] > 0 ? sumHere + nums[i] : 0;
+        }
+        return maxSum;
+    }
 }
