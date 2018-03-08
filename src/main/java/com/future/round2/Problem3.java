@@ -49,6 +49,26 @@ public class Problem3 {
         return longest;
     }
 
+    /**
+     * 02/01/2018
+     * @param s
+     * @return
+     */
+    public int lengthOfLongestSubstring_v2(String s) {
+        if(s == null || s.length() < 1) return 0;
+        boolean[] existed = new boolean[256];
+        int left = 0, right = 0, longest = 0;
+        while(right < s.length()) {
+            if(!existed[s.charAt(right)]) {
+                existed[s.charAt(right++)] = true;
+            } else {
+                existed[s.charAt(left++)] = false;
+            }
+            longest = Math.max(longest, right - left);
+        }
+        return longest;
+    }
+
 
     public static void main(String[] args) {
         System.out.println(solution1(""));

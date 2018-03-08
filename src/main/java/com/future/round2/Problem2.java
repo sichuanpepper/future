@@ -57,6 +57,29 @@ public class Problem2 {
         return res;
     }
 
+    /**
+     * 02/01/2018
+     * @param l1
+     * @param l2
+     * @return
+     */
+    public ListNode addTwoNumbers_v2(ListNode l1, ListNode l2) {
+        if(l1 == null || l2 == null) return null;
+        ListNode res = new ListNode(0);
+        ListNode cur = res;
+        int carry = 0;
+        while(l1 != null || l2 != null || carry > 0) {
+            int sum = (l1 == null ? 0 : l1.val) + (l2 == null ? 0 : l2.val) + carry;
+            carry = sum > 9 ? 1 : 0;
+            sum = sum > 9 ? sum - 10 : sum;
+            cur.next = new ListNode(sum);
+            cur = cur.next;
+            l1 = l1 == null ? null : l1.next;
+            l2 = l2 == null ? null : l2.next;
+        }
+        return res.next;
+    }
+
 
     public static void main(String[] args) {}
 }
