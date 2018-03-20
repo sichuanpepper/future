@@ -26,6 +26,8 @@ import java.util.*;
  Note: If a tree has more than one mode, you can return them in any order.
 
  Follow up: Could you do that without using any extra space? (Assume that the implicit stack space incurred due to recursion does not count).
+
+ [TAGS] TREE
  * Created by someone on 11/19/17.
  */
 public class Problem501 {

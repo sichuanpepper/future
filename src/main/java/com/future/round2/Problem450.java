@@ -5,7 +5,8 @@ import com.future.utils.TreeNode;
 /**
  * https://leetcode.com/problems/delete-node-in-a-bst/description/
 
- Given a root node reference of a BST and a key, delete the node with the given key in the BST. Return the root node reference (possibly updated) of the BST.
+ Given a root node reference of a BST and a key, delete the node with the given key in the BST.
+ Return the root node reference (possibly updated) of the BST.
 
  Basically, the deletion can be divided into two stages:
 
@@ -41,7 +42,7 @@ import com.future.utils.TreeNode;
      2   6
      \   \
      4   7
-
+[TAGS] TREE
  * Created by xingfeiy on 1/7/18.
  */
 public class Problem450 {
