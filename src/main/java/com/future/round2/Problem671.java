@@ -49,16 +49,22 @@ public class Problem671 {
      */
     public int findSecondMinimumValue(TreeNode root) {
         if(root == null || root.left == null || root.right == null) return -1;
-        //the smallest one is root, the second minimum could come from smaller subtree or bigger child's value.
         int left = root.left.val;
-        if(root.left.val == root.val) {
+        if(left == root.val) {
             left = findSecondMinimumValue(root.left);
         }
         int right = root.right.val;
-        if(root.right.val == root.val) {
+        if(right == root.val) {
             right = findSecondMinimumValue(root.right);
         }
-        return (left == right) ? -1 : Math.max(left, right);
+
+        if(left != -1 && right != -1) {
+            return Math.min(left, right);
+        } else if (left == -1) {
+            return right;
+        } else {
+            return left;
+        }
     }
 
 
