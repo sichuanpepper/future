@@ -1,7 +1,16 @@
-package com.future.foundation.java;
+package com.future.foundation.datastructure.hashmap;
 
 /**
- * Created by someone on 9/27/17.
+ * Hash map(hash table) is a data structure with key-value pair, which offers constant lookups.
+ *
+ * A hash map has a hash function to compute an index into array of slots, from which the desired value can be found.
+ *
+ * Ideally, a hash function will assign each key to a unique slots, we called perfect hash function, no collisions.
+ *
+ * The performance of an implementation of hash map depends on the hash function, so what's is a good hash function?
+ *  - Uniform distribution hash values.
+ *
+ * Created by xingfeiy on 3/22/18.
  */
 public class MyHashMap<K, V> {
     private class Entry<K, V> {
