@@ -12,7 +12,7 @@ package com.future.round1;
 
 
 public class Problem99 {
-    public void recoverTree(TreeNode root) {
+    public void recoverTree(MyTreeNode root) {
 
     }
 }

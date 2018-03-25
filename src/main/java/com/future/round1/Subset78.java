@@ -1,7 +1,6 @@
 package com.future.round1;
 
 import com.future.utils.DisplayUtils;
-import com.sun.deploy.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -72,7 +71,7 @@ public class Subset78 {
         cur.remove(cur.size() - 1);
     }
 
-    private void practiceDFS(TreeNode root) {
+    private void practiceDFS(MyTreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         helper(root, res, new ArrayList<>());
         for(List<Integer> list : res) {
@@ -80,9 +79,9 @@ public class Subset78 {
         }
     }
 
-    private void backtrackBT(TreeNode root) {}
+    private void backtrackBT(MyTreeNode root) {}
 
-    private void btHelper(TreeNode node, List<List<Integer>> res, List<Integer> cur) {
+    private void btHelper(MyTreeNode node, List<List<Integer>> res, List<Integer> cur) {
         if(node == null) {
             return;
         }
@@ -92,7 +91,7 @@ public class Subset78 {
 
     }
 
-    private void helper(TreeNode node, List<List<Integer>> res, List<Integer> cur) {
+    private void helper(MyTreeNode node, List<List<Integer>> res, List<Integer> cur) {
         //when stop the recursive and do something
         // here: break the recursive if the node is a leaf.
         // add it to results.
@@ -110,6 +109,6 @@ public class Subset78 {
     }
 
     public static void main(String[] args) {
-        new Subset78().practiceDFS(TreeNode.getSample());
+        new Subset78().practiceDFS(MyTreeNode.getSample());
     }
 }
