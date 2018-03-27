@@ -29,23 +29,17 @@ import java.util.Map;
         cache.get(4);       // returns 4
  * Created by xingfeiy on 1/3/18.
  */
-public class Problem146 extends LinkedHashMap<Integer, Integer> {
+public class Problem146{
     private int capacity;
     public Problem146(int capacity) {
-        super(capacity, 1.0f, true);
         this.capacity = capacity;
     }
 
     public int get(int key) {
-        return get(key);
+        return 0;
     }
 
     public void put(int key, int value) {
-        put(key, value);
     }
 
-    @Override
-    protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
-        return size() > this.capacity;
-    }
 }

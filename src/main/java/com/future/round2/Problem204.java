@@ -52,4 +52,23 @@ public class Problem204 {
         return count;
 
     }
+
+    /**
+     * Beats 50%
+     * @param n
+     * @return
+     */
+    public int countPrimesV2(int n) {
+        if(n <= 2) return 0;
+        boolean prime[] = new boolean[n];
+        Arrays.fill(prime, true);
+        int count = 0;
+        for(int i = 2; i < n; i++) {
+            if(!prime[i]) continue;
+            count++;
+            int start = 2;
+            while (start * i < n) prime[start++ * i] = false;
+        }
+        return count;
+    }
 }

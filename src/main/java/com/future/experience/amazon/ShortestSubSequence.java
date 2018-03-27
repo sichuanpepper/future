@@ -1,6 +1,4 @@
-package com.future.oa.amazon;
-
-import com.future.utils.DisplayUtils;
+package com.future.experience.amazon;
 
 import java.util.Arrays;
 import java.util.HashMap;

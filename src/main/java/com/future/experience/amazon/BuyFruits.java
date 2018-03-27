@@ -1,4 +1,4 @@
-package com.future.oa.amazon;
+package com.future.experience.amazon;
 
 import java.util.List;
 
