@@ -1,0 +1,37 @@
+1. Two sum issue.
+    - If sorted, two pointers, otherwise, map.
+    - If there are multiple solutions? Likes [2, 2, 7, 11, 15, 7], target 9?
+        - Sort and two pointers. (Unique solutions?)
+
+2. Linked list issue.
+
+3. Longest substring issue. (Longest subarray issue)
+    - Sliding window, two pointers.
+        - Current window satisfy conditions, move right pointer to extend the length of window, and update the info of window.
+        - Otherwise, move left pointer and update current window info.
+    - Similar issues, largest sum of subarray?
+
+4. Binary search issue.
+    - Sorted array and find a value in O(log(n))? Binary search in mind.
+    - We can eliminate 1/2 subarray from either array a or array b each time.
+
+5. Longest substring issue and palindromic issue.
+    - Sliding window, two pointer, but in this problem, we sliding left and right in different direction.
+    - Palindromic problem, the difference between odd and even? aba and abba.
+    - Time complexity: O(n * n) and space complexity O(1)
+
+    - Alternative solution, DP.
+        - Overlapping subproblems and optimal substructures, likes a, bab, cbabc, dcbabcd, if f(m, n) is palindromic,
+        and if char[m - 1] == char[n + 1], f(m - 1, n + 1) is palindromic too.
+
+6. Math
+
+7. Integer reverse. Math
+
+9. Palindromic issue.
+    - Even and Odd situations, likes 1221 and 12321.
+    - If it's palindrome, left half == reverse(right half)(12 == reverse(21)) or left half / 10 == reverse(right half)
+    - Corner case, the number % 10 == 0
+
+10. String match issue, think about how Levenstein distance or longest common substring works? DP in mind.
+    - Has overlapping subproblems and optimal substructures.

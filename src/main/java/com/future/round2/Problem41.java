@@ -24,7 +24,7 @@ public class Problem41 {
      *
      * So once we found the k, we can have a k + 1 array for next search, find the missing one.
      * Let's take [2, 0, 9, -1, 8] as example, as the above logic, we can find k = 3, non-positives got ignore.
-     * Since we are asked constant space, we can new an array here, so:
+     * Since we are asked constant space, we can't new an array here, so:
      * Partition (the way in quick sort), [2, 9, 8, 0, -1], Runtime O(n) and constant space.
      * We go through subarray from 0 to k - 1, and use subarray from 0 to k - 1 to mark the corresponding element already appeared.
      * 2 => [2, -9, 8, 0, -1], since the range [0, k - 1] are positives, we need a tag to represent the corresponding value is existed,

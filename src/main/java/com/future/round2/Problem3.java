@@ -13,6 +13,8 @@ package com.future.round2;
  "pwke" is a subsequence and not a substring.
 
  * Created by someone on 10/10/17.
+ *
+ * [Tags] longest substring
  */
 public class Problem3 {
     public static int lengthOfLongestSubstring(String s) {

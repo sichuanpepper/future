@@ -33,49 +33,37 @@ import java.util.Stack;
  */
 public class Problem10 {
     public boolean isMatch(String s, String p) {
-        if(p == ".*" || s.equals(p)) return true;
-        if(s == null || s.length() < 1) return false;
-        Queue<Character> sQueue = new LinkedList<>();
-        for(char ch : s.toCharArray()) {
-            sQueue.offer(ch);
-        }
-        Stack<String> pStack = new Stack<>();
-        for(int i = p.length() - 1; i >= 0; i--) {
-            if(p.charAt(i) == '*' && i > 0) {
-                pStack.push(p.substring(i - 1, i-- + 1));
-            } else {
-                pStack.push(Character.toString(p.charAt(i)));
+        //added one more size since the consideration of empty strings.
+        boolean[][] dp = new boolean[s.length() + 1][p.length() + 1];
+        dp[0][0] = true; // "" matches ""
+
+        //init dp matrix.
+        for(int i = 1; i < dp[0].length; i++) {
+            if(p.charAt(i - 1) == '*') {
+                dp[0][i] = dp[0][i - 1] || dp[0][i - 2];
             }
         }
 
-        while (!sQueue.isEmpty() && !pStack.isEmpty()) {
-            String pTmp = pStack.pop();
-            if(pTmp.equals(".*")) {
-                String ch = pStack.pop();
-                while (!ch.equals(".*") && !ch.equals(".") && !pStack.isEmpty()) {
-                    ch = pStack.pop();
+        for(int i = 1; i < dp.length; i++) {
+            for(int j = 1; j < dp[0].length; j++) {
+                if(s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '.') { // abc vs abc or abc vs ab.
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else if(p.charAt(j - 1) == '*'){
+                    if(s.charAt(i - 1) != p.charAt(j - 2) && p.charAt(j - 2) != '.') { // abc vs abcd*
+                        dp[i][j] = dp[i][j - 2];
+                    } else {
+                        // abbb vs abbbb*, repeat b zero time dp[i][j] = dp[i][j - 2]
+                        // abbb vs abb*, repeat b one time, dp[i][j] = dp[i - 1][j - 1]
+                        // abbb vs ab*, repeat b more times, dp[i][j] = dp[i - 1][j]
+
+                        dp[i][j] = dp[i][j - 2] || dp[i - 1][j - 1] || dp[i - 1][j];
+                    }
                 }
-                char sCh = sQueue.poll();
-                while (Character.toString(sCh) != ch && !sQueue.isEmpty()) {
-                    sCh = sQueue.poll();
-                }
-            } else if(pTmp.equals(".")) {
-                sQueue.poll();
-            } else if(pTmp.endsWith("*") && isValidChar(pTmp.charAt(0))) {
-                if(sQueue.peek() != pTmp.charAt(0)) continue;
-                while (!sQueue.isEmpty() && sQueue.peek() == pTmp.charAt(0)) {
-                    sQueue.poll();
-                }
-            }else {
-                if(!pTmp.equals(Character.toString(sQueue.poll()))) return false;
             }
         }
-        return sQueue.isEmpty() && pStack.isEmpty();
+        return dp[s.length()][p.length()];
     }
 
-    private boolean isValidChar(char ch) {
-        return (ch >= '0' && ch <= '9') || (ch >= 'a' && ch < 'z') || (ch >= 'A' && ch < 'Z');
-    }
 
     public static void main(String[] args) {
         Problem10 p = new Problem10();
