@@ -35,3 +35,19 @@
 
 10. String match issue, think about how Levenstein distance or longest common substring works? DP in mind.
     - Has overlapping subproblems and optimal substructures.
+    - 2D DP problem, initial DP matrix.
+
+11. Two pointers issue.
+
+14. String issue.
+
+15. Three sum issue.
+    - Sort.
+    - Traversal element one by one, skip same elements since required unique.
+
+16. Three sum issue.
+
+17. DFS or backtracking.
+
+19. Linked List.
+    - Find the nth node from end of linkedlist?
