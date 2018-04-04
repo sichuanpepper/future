@@ -31,21 +31,29 @@ public class Problem25 {
      * @return
      */
     public ListNode reverseKGroup(ListNode head, int k) {
-        if(head == null || k < 2) {
-            return head;
-        }
-
-        int length = 1;
-        ListNode start = head;
-        ListNode end = head;
-        while (end.next != null && length < k) {
-            ListNode tmp = end.next;
-            end.next = end.next.next;
-            tmp.next = start;
-            start = tmp;
+        if(head == null || k < 2) return head;
+        int length = 0;
+        ListNode nextHead = head;
+        while(nextHead != null && length != k) {
+            nextHead = nextHead.next;
             length++;
         }
-        end.next = reverseKGroup(end.next, k);
-        return start;
+
+        if(length == k) {
+            nextHead = reverseKGroup(nextHead, k);
+            ListNode dummy = new ListNode(0);
+            ListNode tail = head;
+            while (length-- > 0) {
+                ListNode tmp = head.next;
+                head.next = dummy.next;
+                dummy.next = head;
+                head = tmp;
+            }
+            tail.next = nextHead;
+            return dummy.next;
+
+        }
+
+        return head;
     }
 }
