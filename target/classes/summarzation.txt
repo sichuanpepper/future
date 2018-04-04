@@ -35,6 +35,7 @@
 
 10. String match issue, think about how Levenstein distance or longest common substring works? DP in mind.
     - Has overlapping subproblems and optimal substructures.
+<<<<<<< HEAD
     - 2D DP problem, initial DP matrix.
 
 11. Two pointers issue.
@@ -69,3 +70,39 @@
 49. Calculate hashcode of string by prime
 
 51. Backtracking
+=======
+
+
+
+
+
+
+
+
+20. Stack
+
+21. Merge sorted LinkedList
+    - Recursion, find sub problems.
+
+22. DFS
+
+23, Merge sorted LinkedList, similar as 21.
+    - Priority Queue
+
+24. Swap LinkedList
+    - Recursion
+
+25. Reverse LinkedList
+    - Recursion
+
+26. Two pointers
+
+28. Two pointers
+
+30. Find words in String
+    - DFS in my mind first.
+    - The better solution is use two maps.
+
+
+
+>>>>>>> origin/master

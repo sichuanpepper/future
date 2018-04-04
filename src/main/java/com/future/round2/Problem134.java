@@ -19,8 +19,8 @@ public class Problem134 {
     /**
      * Analyze:
      * 1. If total gas is equal or greater than total cost, there must be a way to travel around the circuit once.
-     * 2. From start station(initial as first one), once the gas in tank is less than 0, that means any station in range start
-     *    to current station that can't be the final starting station, since no one can pass current station in that range.
+     * 2. From start station(initial as first one), once the gas in tank is less than 0, that means any station in range
+     *    from start to current station that can't be the final starting station, since no one can pass current station in that range.
      *    It also means, if that starting station existed, the position must be after the current one.
      *
      * Prove:
