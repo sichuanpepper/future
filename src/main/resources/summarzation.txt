@@ -51,3 +51,21 @@
 
 19. Linked List.
     - Find the nth node from end of linkedlist?
+
+
+
+39. Backtracking
+
+41. Partition, the positive elements can be tagged and keep its original value(negative way).
+
+42. Two pointers.
+
+44. What's the difference between 44 and 10?
+
+45. BFS
+
+46. Permutation issue, backtracking
+
+49. Calculate hashcode of string by prime
+
+51. Backtracking

@@ -67,6 +67,25 @@ public class Problem41 {
     }
 
     /**
+     * Analyze: it's the simple way, but it required O(n) space.
+     * @param nums
+     * @return
+     */
+    public int firstMissingPositiveV2(int[] nums) {
+        if(nums == null || nums.length < 1) return 1;
+        int[] res = new int[nums.length + 1];
+        for(int num : nums) {
+            if(num > 0 && num < res.length) res[num] = num;
+        }
+
+        for(int i = 1; i < res.length; i++) {
+            if(res[i] == 0) return i;
+        }
+        return res.length;
+    }
+
+
+    /**
      * Analyze:
      * 1. Unsorted Integer Array.
      * 2. First missing POSITIVE.
@@ -102,4 +121,12 @@ public class Problem41 {
     }
 
 
+    public static void main(String[] args) {
+        Problem41 p = new Problem41();
+        System.out.println(p.firstMissingPositiveV2(new int[]{0, 1, 2}));
+        System.out.println(p.firstMissingPositiveV2(new int[]{1, 2, 3}));
+        System.out.println(p.firstMissingPositiveV2(new int[]{1, 1,1}));
+        System.out.println(p.firstMissingPositiveV2(new int[]{1, -1, 2}));
+        System.out.println(p.firstMissingPositiveV2(new int[]{-1, -1, -2}));
+    }
 }
