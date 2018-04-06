@@ -1,4 +1,4 @@
-package com.future.foundation;
+package com.future.foundation.algo;
 
 import com.future.utils.DisplayUtils;
 

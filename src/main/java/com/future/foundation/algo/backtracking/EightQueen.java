@@ -1,4 +1,4 @@
-package com.future.foundation.backtracking;
+package com.future.foundation.algo.backtracking;
 
 import com.future.utils.DisplayUtils;
 

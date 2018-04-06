@@ -1,4 +1,4 @@
-package com.future.foundation;
+package com.future.foundation.algo;
 
 /**
  * Kadane Algorithm is an algorithm to solve the maximum subarray problem that is the task of finding the

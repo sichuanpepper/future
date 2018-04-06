@@ -1,9 +1,6 @@
-package com.future.foundation.backtracking;
+package com.future.foundation.algo.backtracking;
 
 import com.future.utils.DisplayUtils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by someone on 7/26/17.
