@@ -70,5 +70,6 @@ public class Problem215 {
         System.out.println(p.findKthLargest(new int[]{1, 2, 3, 4}, 2));
         System.out.println(p.findKthLargest(new int[]{1, 2, 3, 4}, 4));
         System.out.println(p.findKthLargest(new int[]{1, 4, 2, 5, 3}, 4));
+        System.out.println(p.findKthLargest(new int[]{3,2,1,5,6,4}, 2));
     }
 }

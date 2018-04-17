@@ -17,4 +17,22 @@ package com.future.round2;
  * Created by someone on 11/15/17.
  */
 public class Problem278 {
+    public int firstBadVersion(int n) {
+        if(n < 2) return n;
+        int start = 0, end = n;
+        while(start + 1 < end) {
+            int mid = start + (end - start) / 2;
+            if(isBadVersion(mid)) {
+                end = mid;
+            } else {
+                start = mid;
+            }
+        }
+        return isBadVersion(start) ? start : end;
+    }
+
+    private boolean isBadVersion(int n) {
+        //fake code here.
+        return true;
+    }
 }
