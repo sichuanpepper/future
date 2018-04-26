@@ -1,5 +1,7 @@
 package com.future.round2;
 
+import com.future.utils.DisplayUtils;
+
 import java.util.*;
 
 /**
@@ -59,6 +61,11 @@ public class Problem301 {
             if(str.charAt(i) == ')' && count-- == 0) return false;
         }
         return count == 0;
+    }
+
+    public static void main(String[] args){
+        Problem301 p = new Problem301();
+        DisplayUtils.printList(p.removeInvalidParenthesesBFS(")("));
     }
 
 }

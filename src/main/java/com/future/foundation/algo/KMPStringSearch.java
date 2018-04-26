@@ -23,6 +23,10 @@ public class KMPStringSearch {
      *      prefixes: A, AB, ABC, ABCD, ABCDA
      *      suffixes: BCDAB, CDAB, DAB, AB, B
      *      has one common token "AB", the length is 2, lps[5] = 2
+     *
+     * IMPORTANT: We have to understand what is LPS first, LPS represents Longest Prefix Suffix.
+     * The value in LPS array which represents the longest prefix and suffix for substring 0 to current position.
+     *
      * @param pattern
      */
     public static int[] computeLPS(String pattern) {
@@ -44,6 +48,7 @@ public class KMPStringSearch {
                 //that means the first second character in left must equals the last two characters in right.
                 if (currMaxLPS != 0) {
                     currMaxLPS = lps[currMaxLPS - 1];
+//                    currMaxLPS--;
                 } else {
                     lps[i++] = 0;
                 }
@@ -52,10 +57,20 @@ public class KMPStringSearch {
         return lps;
     }
 
-
     /**
-     * KMP is just a re-application of the LPS concept shown above.
-     * Its algorithm is very similar to the above one.
+     * For KMP algorithm, the first thing is compute the LPS array.
+     * And then, use two pointers, one traversal characters in pattern, and another traversal characters in txt.
+     * Once the first character of pattern equals to one character in txt, that's a position where a possible matched pattern started.
+     *  - Move two pointers together util either any one pointer reached the last or encountered different characters.
+     *  - The pointer of txt reached last, the algorithm ended.
+     *  - The pointer of pattern reached last, found a matched substring.
+     *      - Find the corresponding position by LPS, the value of LPS means how many common characters in prefix, it also means
+     *          we don't have to compare the common prefix, so just set the pattern position to the proper position.
+     *      - example: ABCDABC, the lps array could be [0,0,0,0,1,2,3], once the pointer of pattern reached last,
+     *  - Found mismatched characters, the possible matched substring got failed, it's not.
+     *
+     * @param pattern
+     * @param txt
      */
     public static void kmp(String pattern, String txt) {
         int lps[] = computeLPS(pattern);
@@ -64,28 +79,27 @@ public class KMPStringSearch {
         int txtPos = 0, patternPos = 0;
         while (txtPos < txt.length()) {
             if (pattern.charAt(patternPos) == txt.charAt(txtPos)) {
-                patternPos++;
+                if(patternPos == pattern.length() - 1) {
+                    System.out.println("Pattern is found at index " + (txtPos - patternPos));
+                    patternPos = lps[patternPos];
+                } else {
+                    patternPos++;
+                }
                 txtPos++;
-            }
-
-            if (patternPos == pattern.length()) {
-                System.out.println
-                        ("Pattern is found at index " + (txtPos - patternPos));
-                patternPos = lps[patternPos - 1];
-            } else if (pattern.charAt(patternPos) != txt.charAt(txtPos)) {
-                // mismatch occurs after j matches
+            } else {
                 if (patternPos != 0)
                     patternPos = lps[patternPos - 1];
                 else
                     txtPos++;
             }
+
         }
     }
 
     public static void main(String[] args) {
 //        DisplayUtils.printArray(computeLPS("ABCDABD"));
         DisplayUtils.printArray(computeLPS("AAACAAAA"));
-        kmp("ABCABC", "ABABCABCBA");
+        kmp("ABCABC", "ABABCABCBABCABCCCABABABCABC");
     }
 }
 
