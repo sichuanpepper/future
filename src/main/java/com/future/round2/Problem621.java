@@ -25,17 +25,23 @@ import java.util.*;
  */
 public class Problem621 {
     /**
-     * The key point here is,
-     * 1. The final number of intervals could be (think about it's a frame)
-     *      - The size of tasks OR
-     *      - The size of tasks + the number of idles.
-     * 2. If the most frequency task can be separated in either frame above, the other tasks must be suitable in this frame.
+     * Analyze:
+     * Let's start from simple case, let's say there are triple A, and n = 2, we can see the execution plan is
+     * A??A??A  (4 idles are required) where ? means idle
      *
-     * So the problem is, just find that frame.
-     * Tasks AAABBB n = 2
-     * First, the most frequency task is A, so we can get the frame like this A**A**A,
-     * current frame length = (n + 1) * (f - 1) + 1, where f is the frequency of A. And it's the Minimum size.
-     * The only thing left is the last "wall", the thickness of the wall.
+     * Now, let's add one more task B, the number of task B could be:
+     *  - num_of_B == num_of_A, replace the idles after A or add to new interval.
+     *      - AB?AB?AB , total = (3-1) * (n+1) + 2
+     *  - num_of_B > num_of_A, in this case, we can just switch A and B, then we can get same situation like above.
+     *  - num_of_B < num_of_A, just replace the idles after A.
+     *      - AB?AB?AB, total = (3 - 1) * (n + 1) + 1
+     *
+     *  So, based on case 1 and 3, we can conclude total = (most_task - 1) * (n + 1) + num_of_most_task
+     *
+     *  But if we have more tasks which can occupy all idles or even much more than idles? in this case, we don't need any idle.
+     *  Just insert other tasks after the most tasks one by one.
+     *
+     *  So, the final result will be one of them, the larger one.
      *
      * @param tasks
      * @param n
