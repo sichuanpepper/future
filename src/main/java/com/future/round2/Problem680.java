@@ -2,10 +2,6 @@ package com.future.round2;
 
 /**
  * https://leetcode.com/problems/valid-palindrome-ii/description/
-<<<<<<< HEAD
-=======
- *
->>>>>>> origin/master
  Given a non-empty string s, you may delete at most one character. Judge whether you can make it a palindrome.
 
  Example 1:
@@ -18,7 +14,6 @@ package com.future.round2;
  Note:
  The string will only contain lowercase characters a-z. The maximum length of the string is 50000.
 
-<<<<<<< HEAD
  * Created by xingfeiy on 4/24/18.
  */
 public class Problem680 {
@@ -39,11 +34,8 @@ public class Problem680 {
         }
         return true;
     }
-=======
- * Created by xingfeiy on 4/17/18.
- */
-public class Problem680 {
-    public boolean validPalindrome(String s) {
+
+    public boolean validPalindromev2(String s) {
         int left = 0, right = s.length() - 1;
         while(left < right) {
             if(s.charAt(left++) != s.charAt(right--)) return helper(s, left, right + 1) || helper(s, left - 1, right);
@@ -64,5 +56,4 @@ public class Problem680 {
 //        System.out.println(p.validPalindrome("ababb"));
         System.out.println(p.validPalindrome("enveorysiwkzbfngqeijeynzlfuivzsbjgwrpgcawikmvsbtmxhokubhrahzpougclcfzmmwklgxfyeovygfjwdyg"));
     }
->>>>>>> origin/master
 }

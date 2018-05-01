@@ -76,6 +76,8 @@ public class EventsCounter {
         events.add(new Event(5, 8, 2));
         events.add(new Event(9, 10, 3));
         events.add(new Event(12, 17, 4));
+        events.add(new Event(13, 14, 5));
+        events.add(new Event(13, 24, 6));
         EventsCounter counter = new EventsCounter();
         System.out.println("Find first possible events");
         for(Event event : counter.findPossibleEvents(events, 1)) {
@@ -83,6 +85,11 @@ public class EventsCounter {
         }
 
         System.out.println("Find second possible events");
+        for(Event event : counter.findPossibleEvents(events, 2)) {
+            System.out.println(event.id);
+        }
+
+        System.out.println("Find third possible events");
         for(Event event : counter.findPossibleEvents(events, 2)) {
             System.out.println(event.id);
         }
