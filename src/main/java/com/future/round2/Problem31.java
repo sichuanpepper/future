@@ -19,15 +19,14 @@ package com.future.round2;
 public class Problem31 {
     /**
      * Analyze:
-     * - sored in ascending, 1, 2, 3, 4, reverse last two elements.
-     * - sored in descending, 4, 3, 2, 1, then reverse whole array.
-     * - others, 1, 3, 2, 5, 4 -> 1, 3, 5, 2, 4
-     *  -- from right side to left side, find the k element, which nums[k] > nums[k - 1], and swap it??
-     *    --- 1, 3, 2, 5, 1 -> 1, 3, 5, 1, 2  - swap and reverse the right partition
-     *    --- 1, 5, 4 -> 4, 1, 5 - after swap, we comes out 5, 1, 4, so we can't just swap it simply.
-     *    --- The solution could be find the smallest element in range k to n - 1 which is greater than element k - 1.
-     *    --- 1, 5, 4, find k = 1, and the smallest element in range 1 to 2 which is is greater than k - 1(here is 1) is 4, swap it.
-     *    --- 1, 5, 4, 3 -> 3, 5, 4, 1 -> 3, 1, 4, 5
+     * - Ascending array, switch last two elements.
+     * - Descending array, reverse it.
+     *
+     * so the solution could be, find a position where an ascending subarray ended, that means, from end of array, find
+     * i where nums[i] > nums[i - 1], and it's easy to know the subarray from i to end is descending, so we need to find
+     * the first element in desending subarray which greater than or equal to nums[i - 1], and switch them.
+     * last thing, switch the desending subarray.
+     *
      * @param nums
      */
     public void nextPermutation(int[] nums) {

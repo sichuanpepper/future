@@ -42,6 +42,8 @@ public class Problem28 {
      * Given "" and "", return 0;
      * Given "" and "a" return -1;
      * Given "a" and "" return 0;
+     *
+     * beats 14%
      * @param haystack
      * @param needle
      * @return
@@ -57,6 +59,50 @@ public class Problem28 {
                 if(haystack.charAt(i + j) != needle.charAt(j)) break;
                 if(j == needle.length() - 1) return i;
             }
+        }
+        return -1;
+    }
+
+    /**
+     * Beats 4%
+     * @param haystack
+     * @param needle
+     * @return
+     */
+    public int strStrV2(String haystack, String needle) {
+        if(haystack == null) return -1;
+        if(needle == null || needle.length() < 1) return 0;
+        int p1 = 0, p2 = 0;
+        while(p1 < haystack.length()) {
+            int tmpPos = p1;
+            while(tmpPos < haystack.length() && p2 < needle.length() && haystack.charAt(tmpPos) == needle.charAt(p2)) {
+                tmpPos++;
+                p2++;
+            }
+            if(p2 == needle.length()) return p1;
+            p2 = 0;
+            p1++;
+        }
+        return -1;
+    }
+
+    /**
+     * Beats 63%
+     * @param haystack
+     * @param needle
+     * @return
+     */
+    public int strStrV3(String haystack, String needle) {
+        if(haystack == null) return -1;
+        if(needle == null || needle.length() < 1) return 0;
+        int start = haystack.indexOf(needle.charAt(0));
+        while(start >= 0 && start + needle.length() <= haystack.length()) {
+            int i = 0;
+            for(; i < needle.length(); i++) {
+                if(haystack.charAt(start + i) != needle.charAt(i)) break;
+            }
+            if(i == needle.length()) return start;
+            start = haystack.indexOf(needle.charAt(0), start + 1);
         }
         return -1;
     }
