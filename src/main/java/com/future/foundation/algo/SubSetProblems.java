@@ -79,14 +79,22 @@ public class SubSetProblems {
      * The knapsack is a classic DP problem, it's actually a subset problem also.
      * The problem is find a subset that make a maximum sum with capacity limited.
      * - If each element in stones can be used at most one time
+     *  ex [2, 1, 4, 10], capacity = 8, should return 7.
+     *  f(c) = max{f(c-s1) + s1, f(c-s2) + s2...}
      * - If each element in stones can be used unlimited times.
-     * 
+     *
      * @param stones
      * @param capacity
      * @return
      */
-    public int knapsack(int[] stones, int capacity) {
-        return 0;
+    public int knapsackV1(int[] stones, int capacity) {
+        int[] dp = new int[capacity + 1];
+        for(int i = 1; i <= capacity; i++) {
+            for(int s : stones) {
+                if(i - s >= 0) dp[i] = Math.max(dp[i], dp[i - s] + s);
+            }
+        }
+        return dp[capacity];
     }
 
     public static void main(String[] args) {
@@ -98,5 +106,8 @@ public class SubSetProblems {
         System.out.println(p.findSubsetDP(new int[0], 3)); //false
         System.out.println(p.findSubsetDP(new int[]{5, 2, 8, 1}, 3)); //true
         System.out.println(p.findSubsetDP(new int[]{5, 2, 8, 1}, 4)); //false
+
+        System.out.println(p.knapsackV1(new int[]{5, 2, 8, 1}, 4));  //3
+        System.out.println(p.knapsackV1(new int[]{5, 5, 8, 8}, 4)); //0
     }
 }
