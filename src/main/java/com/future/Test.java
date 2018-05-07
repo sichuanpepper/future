@@ -7,6 +7,16 @@ import java.util.*;
  */
 public class Test {
     public static void main(String[] args) {
+        int index = 0;
+        while (index < 26) {
+            System.out.println((char)('a' + index++));
+        }
+        String word = "hello";
+        System.out.println("=====");
+        System.out.println(word.substring(0, 0));
+
+        System.out.println(word.substring(word.length(), word.length()));
+        System.out.println("=====");
         for(int i = 0; i < 10; i++) {
             System.out.print("Current: " + i + "\r\n");
             System.out.print("Current: " + i + " copy \r\n");
