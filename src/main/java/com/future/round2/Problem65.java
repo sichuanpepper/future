@@ -18,6 +18,30 @@ package com.future.round2;
 public class Problem65 {
     /**
      * Analyze: the key point of this issue is how to define a valid number..
+     * Ask questions first:
+     *  - Can we consider decimal number only?
+     *      - contains char between ['0', '9']
+     *  - 32 bits or 64 bits?
+     *  - What are the number types we have to care about? Integer, Float, Double?
+     *      - max length of string? or max value and min value
+     *  - Positive && Negative
+     *      - contains '+', '-'
+     *  - Float
+     *      - contains '.'
+     *  - Scientific notion
+     *      - contains 'e', 'E'
+     *  - constraint
+     *      - Start with:
+     *          - digit, '+', '-'
+     *          - '.' ?
+     *      - End with:
+     *          - digit
+     *          - '.' ?
+     *      - Appearance
+     *          - '.', only 1, and behind digit
+     *          - '+', '-' only 1 and must be first position
+     *          - 'e', 'E' only one
+     *
      * 1 => true  decimal
      * 01 => octal number
      * ox145 => hexadecimal number
@@ -44,6 +68,30 @@ public class Problem65 {
      * @return
      */
     public boolean isNumber(String s) {
+        if(s == null || s.length() < 1) return false;
+        if(!validStartAndEnd(s)) return false;
+        int[] counter = new int[3]; //0 -> '.', 1 -> '+'/'-', 2 -> 'e'/'E'
+        for(int i = 0; i < s.length(); i++) {
+
+        }
+
         return true;
+    }
+
+    private boolean validPrefixChar(char pre, char cur) {
+        if(isDigit(pre)) return true;
+        return true;
+    }
+
+    private boolean isDigit(char ch) {
+        return ch >= '0' && ch <= '9';
+    }
+
+    private boolean validStartAndEnd(String s) {
+        return s.startsWith("+") || s.startsWith("-") || (s.charAt(0) >= '0' && s.charAt(0) <= 9);
+    }
+
+    private boolean isValid(char ch) {
+        return (ch >= '0' && ch <= '9') || (ch == 'E') || (ch == 'e') || (ch == '+') || (ch == '-');
     }
 }

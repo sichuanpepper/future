@@ -1,8 +1,6 @@
 package com.future.experience.facebook;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * https://leetcode.com/problems/3sum/description/
@@ -47,5 +45,43 @@ public class ThreeSum {
             }
         }
         return res;
+    }
+
+    /**
+     * Same as above, but here each elements can be used unlimited times.
+     *
+     * @param nums
+     * @return
+     */
+    public List<List<Integer>> threeSum2(int[] nums, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        if(nums == null || nums.length < 3) return res;
+        Arrays.sort(nums);
+        helper(nums, 0, target, new ArrayList<>(), res);
+        return res;
+    }
+
+    private void helper(int[] nums, int start, int target, List<Integer> curRes, List<List<Integer>> res) {
+        if(target == 0) {
+            res.add(new ArrayList<>(curRes));
+            return;
+        }
+        if(target < 0) return;
+        if(start >= nums.length) return;
+        for(int i = start; i < nums.length; i++) {
+            if(i > 0 && nums[i] == nums[i - 1]) continue;
+            curRes.add(nums[i]);
+            helper(nums, i, target - nums[i], curRes, res);
+            curRes.remove(curRes.size() - 1);
+        }
+    }
+
+    public static void main(String[] args) {
+        List<List<Integer>> res = new ArrayList<>();
+        ThreeSum p = new ThreeSum();
+        res = p.threeSum2(new int[]{1, 1, 2, 2, 3}, 6);
+        for(List<Integer> row : res) {
+            System.out.println(row);
+        }
     }
 }

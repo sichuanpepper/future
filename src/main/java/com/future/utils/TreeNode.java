@@ -30,6 +30,57 @@ public class TreeNode {
         return head;
     }
 
+    /**
+     *                5
+     *              /  \
+     *             3    6
+     *            / \
+     *           1   4
+     *              /
+     *             2
+     * @return
+     */
+    public static TreeNode getSample1() {
+        TreeNode root = new TreeNode(5);
+        root.right = new TreeNode(6);
+        root.left = new TreeNode(3);
+        root.left.left = new TreeNode(1);
+        root.left.right = new TreeNode(4);
+        root.left.right.left = new TreeNode(2);
+        return root;
+    }
+
+    /**
+     *                5
+     *              /  \
+     *             3    6
+     *            / \
+     *           1   4
+     *          /   /
+     *         0   2
+     *          \   \
+     *          9    8
+     * @return
+     */
+    public static TreeNode getSample3() {
+        TreeNode root = new TreeNode(5);
+        root.right = new TreeNode(6);
+        root.left = new TreeNode(3);
+        root.left.left = new TreeNode(1);
+        root.left.left.left = new TreeNode(0);
+        root.left.left.left.right = new TreeNode(9);
+
+        root.left.right = new TreeNode(4);
+        root.left.right.left = new TreeNode(2);
+        root.left.right.left.right = new TreeNode(8);
+        return root;
+    }
+
+    public static TreeNode getSample2() {
+        TreeNode root = new TreeNode(1);
+        return root;
+    }
+
     public TreeNode(int x) {
         val = x;
     }
