@@ -7,6 +7,7 @@ import java.util.*;
  */
 public class Test {
     public static void main(String[] args) {
+
         int index = 0;
         while (index < 26) {
             System.out.println((char)('a' + index++));

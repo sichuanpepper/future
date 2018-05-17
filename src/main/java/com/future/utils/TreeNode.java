@@ -8,6 +8,10 @@ public class TreeNode {
     public TreeNode left;
     public TreeNode right;
 
+    public TreeNode(int x) {
+        val = x;
+    }
+
     public static TreeNode getBSTSample() {
         TreeNode head = new TreeNode(4);
         head.left = new TreeNode(2);
@@ -30,7 +34,7 @@ public class TreeNode {
         return head;
     }
 
-<<<<<<< Updated upstream
+
     /**
      *                5
      *              /  \
@@ -80,18 +84,16 @@ public class TreeNode {
     public static TreeNode getSample2() {
         TreeNode root = new TreeNode(1);
         return root;
-=======
+    }
+
     public static void inOrder(TreeNode root) {
         if(root == null) return;
         inOrder(root.left);
         System.out.print(root.val + " ");
         inOrder(root.right);
->>>>>>> Stashed changes
     }
 
-    public TreeNode(int x) {
-        val = x;
-    }
+
 
     @Override
     public String toString() {

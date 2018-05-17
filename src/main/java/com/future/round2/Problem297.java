@@ -2,6 +2,9 @@ package com.future.round2;
 
 import com.future.utils.TreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * https://leetcode.com/problems/serialize-and-deserialize-binary-tree/description/
 
@@ -29,12 +32,42 @@ import com.future.utils.TreeNode;
  * Created by xingfeiy on 3/23/18.
  */
 public class Problem297 {
-//    public String serialize(TreeNode root) {
-//
-//    }
-//
-//    // Decodes your encoded data to tree.
-//    public TreeNode deserialize(String data) {
-//
-//    }
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+        if(root == null) return "";
+        StringBuilder sb = new StringBuilder();
+        preOrder(root, sb);
+        return sb.toString();
+    }
+
+    private void preOrder(TreeNode node, StringBuilder sb) {
+        if(node == null) {
+            sb.append("n").append("/");
+            return;
+        }
+
+        sb.append(Integer.toString(node.val)).append("/");
+        preOrder(node.left, sb);
+        preOrder(node.right, sb);
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+        if(data == null || data.length() < 1) return null;
+        Queue<String> queue = new LinkedList<>();
+        for(String str : data.split("/")) {
+            if(str != null && str.length() > 0) queue.offer(str);
+        }
+        return helper(queue);
+    }
+
+    private TreeNode helper(Queue<String> queue) {
+        if(queue.isEmpty()) return null;
+        String str = queue.poll();
+        if(str.equals("n")) return null;
+        TreeNode root = new TreeNode(Integer.parseInt(str));
+        root.left = helper(queue);
+        root.right = helper(queue);
+        return root;
+    }
 }
