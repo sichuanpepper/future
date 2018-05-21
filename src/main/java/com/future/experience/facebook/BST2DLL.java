@@ -16,15 +16,27 @@ public class BST2DLL {
         return head;
     }
 
-    private TreeNode pre = new TreeNode(0);
+    private TreeNode pre = null;
     private TreeNode head = null;
     public void helper(TreeNode node) {
         if(node == null) return;
         helper(node.left);
-        node.left = pre;
-        pre.right = node;
         if(head == null) head = node;
+        if(pre != null) {
+            pre.right = node;
+            node.left = pre;
+        }
         pre = node;
         helper(node.right);
+    }
+
+    public static void main(String[] args) {
+        BST2DLL p = new BST2DLL();
+        TreeNode root = p.treeToDLL(TreeNode.getBSTSample());
+        TreeNode node = root;
+        do{
+            System.out.print(node.val + "->");
+            node = node.left;
+        } while (node != root);
     }
 }
