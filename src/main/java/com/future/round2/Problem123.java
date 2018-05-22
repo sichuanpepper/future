@@ -30,26 +30,31 @@ package com.future.round2;
  * Created by xingfeiy on 5/21/18.
  */
 public class Problem123 {
+    /**
+     * https://aaronice.gitbooks.io/lintcode/content/high_frequency/best_time_to_buy_and_sell_stock_iii.html
+     *
+     * @param prices
+     * @return
+     */
     public int maxProfit(int[] prices) {
         if(prices == null || prices.length < 2) return 0;
-        int peek = prices[0], valley = prices[0], p = 1;
-        int[] top2 = new int[2];
-        while (p < prices.length) {
-            //find valley
-            while (p < prices.length && prices[p] <= prices[p - 1]) p++;
-            valley = prices[p - 1];
-            //find peek
-            while (p < prices.length && prices[p] >= prices[p - 1]) p++;
-            peek = prices[p - 1];
-
-            int cur = peek - valley;
-            if(cur >= top2[0]) {
-                top2[1] = top2[0];
-                top2[0] = cur;
-            } else if(cur > top2[1]) {
-                top2[1] = cur;
-            }
+        int[] buyer = new int[prices.length];
+        int[] seller = new int[prices.length];
+        int lowest = prices[0], highest = prices[prices.length - 1];
+        for(int i = 1; i < prices.length; i++) {
+            lowest = Math.min(lowest, prices[i]);
+            buyer[i] = Math.max(buyer[i - 1], buyer[i] - lowest);
         }
-        return top2[0] + top2[1];
+
+        for(int i = prices.length - 2; i >= 0; i--) {
+            highest = Math.max(highest, prices[i]);
+            seller[i] = Math.max(seller[i + 1], highest - prices[i]);
+        }
+
+        int max = 0;
+        for(int i = 0; i < prices.length; i++) {
+            max = Math.max(max, buyer[i] + seller[i]);
+        }
+        return max;
     }
 }
