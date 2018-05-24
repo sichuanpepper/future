@@ -42,13 +42,13 @@ public class Problem123 {
         int[] seller = new int[prices.length];
         int lowest = prices[0], highest = prices[prices.length - 1];
         for(int i = 1; i < prices.length; i++) {
+            buyer[i] = Math.max(buyer[i - 1], prices[i] - lowest);
             lowest = Math.min(lowest, prices[i]);
-            buyer[i] = Math.max(buyer[i - 1], buyer[i] - lowest);
         }
 
         for(int i = prices.length - 2; i >= 0; i--) {
-            highest = Math.max(highest, prices[i]);
             seller[i] = Math.max(seller[i + 1], highest - prices[i]);
+            highest = Math.max(highest, prices[i]);
         }
 
         int max = 0;

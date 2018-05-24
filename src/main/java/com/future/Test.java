@@ -7,7 +7,9 @@ import java.util.*;
  */
 public class Test {
     public static void main(String[] args) {
-
+        Random r =  new Random();
+        for(int i = 0; i < 1000; i++) System.out.println(r.nextFloat());
+        System.out.println(1/0.001);
         int index = 0;
         while (index < 26) {
             System.out.println((char)('a' + index++));

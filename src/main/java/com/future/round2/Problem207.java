@@ -71,10 +71,12 @@ public class Problem207 {
 
     public static void main(String[] args) {
         Problem207 p  = new Problem207();
-        int[][] prerequisites = new int[3][2];
-        prerequisites[0] = new int[]{0, 2};
-        prerequisites[1] = new int[]{1, 2};
-        prerequisites[2] = new int[]{2, 0};
-        System.out.println(p.canFinish(3, prerequisites));
+//        int[][] prerequisites = new int[3][2];
+//        prerequisites[0] = new int[]{0, 2};
+//        prerequisites[1] = new int[]{1, 2};
+//        prerequisites[2] = new int[]{2, 0};
+        int[][] prerequisites = new int[1][2];
+        prerequisites[0] = new int[]{0, 1};
+        System.out.println(p.canFinish(2, prerequisites));
     }
 }
