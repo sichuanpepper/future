@@ -11,7 +11,7 @@ import java.util.Stack;
 public class Problem20 {
     public static boolean isValid(String s) {
         if(s == null || s.length() < 1) {
-            return false;
+            return true;
         }
 
         Stack<Character> stack = new Stack<>();

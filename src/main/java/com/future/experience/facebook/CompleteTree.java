@@ -14,7 +14,7 @@ public class CompleteTree {
     private int preDepth = Integer.MIN_VALUE;
     private boolean helper(TreeNode node, int curDepth) {
         if(node == null) {
-            if(curDepth != Integer.MIN_VALUE && (curDepth < preDepth || curDepth - preDepth > 1)) return false;
+            if(preDepth != Integer.MIN_VALUE && (curDepth < preDepth || curDepth - preDepth > 1)) return false;
             preDepth = curDepth;
             return true;
         }
@@ -24,11 +24,11 @@ public class CompleteTree {
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(0);
-//        root.left = new TreeNode(2);
-//        root.left.left = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(1);
 //        root.left.right = new TreeNode(3);
         root.right = new TreeNode(6);
-//        root.right.left = new TreeNode(5);
+        root.right.left = new TreeNode(5);
         CompleteTree p = new CompleteTree();
         System.out.println(p.isCompleteTree(root));
     }
