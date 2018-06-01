@@ -33,6 +33,9 @@ public class Problem30 {
      *
      * Alternative solution:
      * Use two maps.
+     *
+     * Time complexity: O(m * n) where m is the length of s and n is the length of words.
+     * Space complexity: O(n) where n is the length of words.
      * @param s
      * @param words
      * @return
@@ -71,4 +74,11 @@ public class Problem30 {
 
         return res;
     }
+//
+//    public List<Integer> findSubstringDFS(String s, String[] words) {
+//        List<Integer> res = new ArrayList<>();
+//        if(s == null || words == null || s.length() < 1 || words.length < 1) return res;
+//    }
+//
+//    private void helper(String s, int start, Map<String, Integer> map) {}
 }

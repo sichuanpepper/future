@@ -31,6 +31,7 @@ public class HashCodeTest2 {
         HashCodeTest2 that = (HashCodeTest2) o;
 
         if (age != that.age) return false;
+//        if(!address.equals(that.address)) return false;
         return !(name != null ? !name.equals(that.name) : that.name != null);
 
     }
@@ -51,5 +52,10 @@ public class HashCodeTest2 {
         test.changeAddress("1130 Kifer Rd");
         System.out.println(maps.get(test)); //Output => "It's a test"
         System.out.println(test.hashCode());  //-2137068125
+
+        HashCodeTest2 test2 = new HashCodeTest2("Hello", 21, "Fake address");
+        maps.put(test2, "It's second test");
+        System.out.println(maps.get(test));
+        System.out.println(maps.get(test2));
     }
 }

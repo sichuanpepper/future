@@ -20,16 +20,6 @@ public class CoinChanges {
      * @param n
      * @return
      */
-//    public static int waysToChange(int n) {
-//        int[] res = new int[n + 1];
-//        res[0] = 0;
-//        for(int i = 1; i <= 2; i++) {
-//            for(int j = 1; j < n; j++) {
-//                res[j] =
-//            }
-//        }
-//    }
-
     public static int bottomUp(int n) {
         //it's easy to find the f(n) = min{f(n - 1), f(n - 3), f(n - 5)} + 1
         int[] values = new int[n + 1];
