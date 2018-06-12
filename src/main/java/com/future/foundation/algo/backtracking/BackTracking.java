@@ -84,7 +84,7 @@ public class BackTracking {
         res.add(new ArrayList<>(cur));
         if(start >= nums.length) return;
         for(int i = start; i < nums.length; i++) {
-            if(i > 0 && nums[i] == nums[i - 1]) continue;
+            if(i > start && nums[i] == nums[i - 1]) continue;
             cur.add(nums[i]);
             subsetsDupHelper(nums, i + 1, cur, res);
             cur.remove(cur.size() - 1);
