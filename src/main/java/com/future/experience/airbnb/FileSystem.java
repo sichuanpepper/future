@@ -1,4 +1,4 @@
-package com.future.experience;
+package com.future.experience.airbnb;
 
 import java.util.HashMap;
 import java.util.Map;
