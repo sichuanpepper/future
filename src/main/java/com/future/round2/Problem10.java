@@ -56,7 +56,7 @@ public class Problem10 {
                         // abbb vs abb*, repeat b one time, dp[i][j] = dp[i - 1][j - 1]
                         // abbb vs ab*, repeat b more times, dp[i][j] = dp[i - 1][j]
 
-                        dp[i][j] = dp[i][j - 2] || dp[i - 1][j - 1] || dp[i - 1][j];
+                        dp[i][j] = dp[i][j - 2] || dp[i - 1][j];
                     }
                 }
             }
