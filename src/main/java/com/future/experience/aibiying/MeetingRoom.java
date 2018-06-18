@@ -29,8 +29,7 @@ public class MeetingRoom {
         }
     }
 
-    public List<Interval> getAvailableIntervals(List<List<Interval>>
-                                                        intervals, int k) {
+    public List<Interval> getAvailableIntervals(List<List<Interval>> intervals, int k) {
         List<Interval> res = new ArrayList<>();
         List<Point> points = new ArrayList<>();
         for (List<Interval> intervalList : intervals) {

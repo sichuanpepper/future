@@ -42,7 +42,7 @@ import java.util.Queue;
 public class Problem671 {
     /**
      * Analyze:
-     * The node's value is the smaller value among its two sub-nodes, so the root the smallest one.
+     * The node's value is the smaller value among its two sub-nodes, so the root is the smallest one.
      *
      * @param root
      * @return

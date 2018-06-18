@@ -16,7 +16,7 @@ import java.util.*;
 
  * Created by xingfeiy on 5/1/18.
  */
-public class Problem339 {
+public class Problem399 {
 
     private void buildGraph(String a, String b, double val, Map<String, Map<String, Double>> map) {
         if(map.containsKey(a)) {
@@ -68,7 +68,7 @@ public class Problem339 {
         double[] values = new double[]{2.0, 3.0};
         String[][] queries = new String[1][2];
         queries[0] = new String[]{"a", "c"};
-        Problem339 p = new Problem339();
+        Problem399 p = new Problem399();
         System.out.println(p.calcEquation(equations, values, queries)[0]);
 
     }
