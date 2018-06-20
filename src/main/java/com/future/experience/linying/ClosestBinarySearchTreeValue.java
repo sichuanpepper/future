@@ -1,11 +1,9 @@
 package com.future.experience.linying;
 
 import com.future.utils.DisplayUtils;
+import com.future.utils.TreeNode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by xingfeiy on 6/18/18.
@@ -41,9 +39,53 @@ public class ClosestBinarySearchTreeValue {
         return res;
     }
 
+    /**
+     * Given a non-empty binary search tree and a target value, find k values in the BST that are closest to the target.
+
+     Note: Given target value is a floating point. You may assume k is always valid, that is: k ≤ total nodes.
+     You are guaranteed to have only one unique set of k values in the BST that are closest to the target.
+
+     Follow up: Assume that the BST is balanced, could you solve it in less than O(n) runtime (where n = total nodes)?
+
+     Analyze:
+     The straightforward way is we maintain a queue with size k and do in-order traversal
+     - If current size of queue is smaller than k, just insert the element.
+     - If current size of queue is equal to or larger than k, compare current difference and the peek's difference.
+     * @param root
+     * @param target
+     * @param k
+     * @return
+     */
+    public List<Integer> closestKValues(TreeNode root, double target, int k) {
+        Queue<Integer> queue = new LinkedList<>();
+        helper(root, target, k, queue);
+        return (List<Integer>)queue;
+    }
+
+    private void helper(TreeNode node, double target, int k, Queue<Integer> queue) {
+        if(node == null) return;
+        helper(node.left, target, k, queue);
+        if(queue.size() < k) {
+            queue.offer(node.val);
+        } else {
+            if(Math.abs(queue.peek() - target) > Math.abs(node.val - target)) {
+                queue.poll();
+                queue.offer(node.val);
+            } else {
+                return;
+            }
+        }
+        helper(node.right, target, k, queue);
+    }
+
 
 
     public static void main(String[] args) {
         ClosestBinarySearchTreeValue p = new ClosestBinarySearchTreeValue();
+        DisplayUtils.printList(p.closestKValues(TreeNode.getBSTSample(), 0.0, 3)); //1, 2, 3
+        DisplayUtils.printList(p.closestKValues(TreeNode.getBSTSample(), 2.3, 3)); //1, 2, 3
+        DisplayUtils.printList(p.closestKValues(TreeNode.getBSTSample(), 2.7, 3)); //2, 3, 4
+        DisplayUtils.printList(p.closestKValues(TreeNode.getBSTSample(), 21.7, 6)); //2, 3, 4
+        DisplayUtils.printList(p.closestKValues(TreeNode.getBSTSample(), 21.7, 7)); //2, 3, 4
     }
 }

@@ -1,48 +1,51 @@
-package com.future.experience;
+package com.future.experience.linying;
 
-import java.util.*;
+import java.util.Stack;
 
 /**
- * Double linked list + tree map solution
- * push: add to list, and map, O(log(n))
+ * Two stacks solution
+ * push: O(1)
  * pop: O(1)
  * top: O(1)
  * peekMax: O(1)
- * popMax: O(1)
+ * popMax: O(n)
  *
+ * Space complexity O(n)
  * Created by xingfeiy on 6/17/18.
  */
-public class MaxStack2 {
-    private List<Integer> list = new LinkedList<>();
+public class MaxStack {
+    private Stack<Integer> stack = new Stack<>();
 
-    private TreeMap<Integer, Integer> map = new TreeMap<>();
+    private Stack<Integer> maxStack = new Stack<>();
 
     public void push(int val) {
-        list.add(val);
-        map.put(val, map.getOrDefault(val, 0) + 1);
+        stack.push(val);
+        if(maxStack.isEmpty() || val >= maxStack.peek()) {
+            maxStack.push(val);
+        }
     }
 
     public int pop() {
-        if(list.isEmpty()) return Integer.MIN_VALUE;
-        int val = list.remove(list.size() - 1);
-        if(map.get(val) == 1) map.remove(val);
-        map.put(val, map.get(val) - 1);
+        if(stack.isEmpty()) return Integer.MIN_VALUE;
+        int val = stack.pop();
+        if(val == maxStack.peek()) maxStack.pop();
         return val;
     }
 
     public int top() {
-        if(list.isEmpty()) return Integer.MIN_VALUE;
-        return list.get(list.size() - 1);
+        if(stack.isEmpty()) return Integer.MIN_VALUE;
+        return stack.peek();
     }
 
     public int peekMax() {
-        if(map.isEmpty()) return Integer.MIN_VALUE;
-        return map.firstEntry().getKey();
+        if(maxStack.isEmpty()) return Integer.MIN_VALUE;
+        return maxStack.peek();
     }
 
     public int popMax() {
-        int max = map.firstKey();
-        list.remove(max);
+        if(maxStack.isEmpty()) return Integer.MIN_VALUE;
+        int max = maxStack.pop();
+        stack.remove(new Integer(max));  //there are two remove methods, primitive int is removing element by index.
         return max;
     }
 

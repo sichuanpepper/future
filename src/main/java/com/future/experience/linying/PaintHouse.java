@@ -14,6 +14,9 @@ public class PaintHouse {
      Find the minimum cost to paint all houses.
 
      Note: All costs are positive integers.
+
+     Analyze:
+
      * @param costs
      * @return
      */

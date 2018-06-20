@@ -1,51 +1,50 @@
-package com.future.experience;
+package com.future.experience.linying;
 
-import java.util.Stack;
+import com.future.experience.linying.MaxStack;
+
+import java.util.*;
 
 /**
- * Two stacks solution
- * push: O(1)
+ * Double linked list + tree map solution
+ * push: add to list, and map, O(log(n))
  * pop: O(1)
  * top: O(1)
  * peekMax: O(1)
- * popMax: O(n)
+ * popMax: O(1)
  *
- * Space complexity O(n)
  * Created by xingfeiy on 6/17/18.
  */
-public class MaxStack {
-    private Stack<Integer> stack = new Stack<>();
+public class MaxStack2 {
+    private List<Integer> list = new LinkedList<>();
 
-    private Stack<Integer> maxStack = new Stack<>();
+    private TreeMap<Integer, Integer> map = new TreeMap<>();
 
     public void push(int val) {
-        stack.push(val);
-        if(maxStack.isEmpty() || val >= maxStack.peek()) {
-            maxStack.push(val);
-        }
+        list.add(val);
+        map.put(val, map.getOrDefault(val, 0) + 1);
     }
 
     public int pop() {
-        if(stack.isEmpty()) return Integer.MIN_VALUE;
-        int val = stack.pop();
-        if(val == maxStack.peek()) maxStack.pop();
+        if(list.isEmpty()) return Integer.MIN_VALUE;
+        int val = list.remove(list.size() - 1);
+        if(map.get(val) == 1) map.remove(val);
+        map.put(val, map.get(val) - 1);
         return val;
     }
 
     public int top() {
-        if(stack.isEmpty()) return Integer.MIN_VALUE;
-        return stack.peek();
+        if(list.isEmpty()) return Integer.MIN_VALUE;
+        return list.get(list.size() - 1);
     }
 
     public int peekMax() {
-        if(maxStack.isEmpty()) return Integer.MIN_VALUE;
-        return maxStack.peek();
+        if(map.isEmpty()) return Integer.MIN_VALUE;
+        return map.firstEntry().getKey();
     }
 
     public int popMax() {
-        if(maxStack.isEmpty()) return Integer.MIN_VALUE;
-        int max = maxStack.pop();
-        stack.remove(new Integer(max));  //there are two remove methods, primitive int is removing element by index.
+        int max = map.firstKey();
+        list.remove(max);
         return max;
     }
 
