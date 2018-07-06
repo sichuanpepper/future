@@ -28,7 +28,7 @@ public class DisplayUtils {
     public static void printTwoDimensionsArray(boolean[][] array) {
         for(int i = 0; i < array.length; i++) {
             for(int j = 0; j < array[0].length; j++) {
-                System.out.print(String.format("|%-3c", array[i][j]));
+                System.out.print(String.format("|%-3b", array[i][j]));
             }
             System.out.println();
         }

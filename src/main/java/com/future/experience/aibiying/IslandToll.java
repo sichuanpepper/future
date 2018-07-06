@@ -22,25 +22,25 @@ public class IslandToll {
      * @param map
      * @return
      */
-//    public int minToll(int[][] map) {
-//        //int[] -> [island_id, toll]
-//        PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2) -> (o1[1] - o2[1]));
-//        for(int adj : map[0]) queue.offer(new int[]{adj, adj * adj});
-//        boolean[] visited = new boolean[map.length];
-//        visited[0] = true;
-//        while (!queue.isEmpty()) {
-//            int[] islandToll = queue.poll();
-//            if(islandToll[0] == 9) return islandToll[1];
-//            if(map[islandToll[0]].length < 1) continue; //no further reachable islands
-//            //update
-//            for(int adj : map[islandToll[0]]) {
-//                if(visited[adj]) continue;
-//                queue.offer(new int[]{adj, Math.abs(adj - islandToll[0]) * Math.abs(adj - islandToll[0]) + islandToll[1]});
-//                visited[adj] = true;
-//            }
-//        }
-//        return Integer.MAX_VALUE; //unreachable
-//    }
+    public int minToll2(int[][] map, int dest) {
+        //int[] -> [island_id, toll]
+        PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2) -> (o1[1] - o2[1]));
+        for(int adj : map[0]) queue.offer(new int[]{adj, adj * adj});
+        boolean[] visited = new boolean[map.length];
+        visited[0] = true;
+        while (!queue.isEmpty()) {
+            int[] islandToll = queue.poll();
+            if(islandToll[0] == 9) return islandToll[1];
+            if(map[islandToll[0]].length < 1) continue; //no further reachable islands
+            //update
+            for(int adj : map[islandToll[0]]) {
+                if(visited[adj]) continue;
+                queue.offer(new int[]{adj, Math.abs(adj - islandToll[0]) * Math.abs(adj - islandToll[0]) + islandToll[1]});
+                visited[adj] = true;
+            }
+        }
+        return Integer.MAX_VALUE; //unreachable
+    }
 
     public int minToll(int[][] map, int dest) {
         int[] tolls = new int[map.length];
