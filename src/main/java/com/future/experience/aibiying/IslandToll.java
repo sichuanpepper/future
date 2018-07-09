@@ -1,7 +1,9 @@
 package com.future.experience.aibiying;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
+import java.util.Queue;
 
 /**
  * Created by xingfeiy on 6/14/18.
@@ -22,66 +24,82 @@ public class IslandToll {
      * @param map
      * @return
      */
-    public int minToll2(int[][] map, int dest) {
-        //int[] -> [island_id, toll]
-        PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2) -> (o1[1] - o2[1]));
-        for(int adj : map[0]) queue.offer(new int[]{adj, adj * adj});
-        boolean[] visited = new boolean[map.length];
-        visited[0] = true;
+//    public int minToll2(int[][] map) {
+//        //int[] -> [island_id, toll]
+//        PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2) -> (o1[1] - o2[1]));
+//        for(int adj : map[0]) queue.offer(new int[]{adj, adj * adj});
+//        boolean[] visited = new boolean[map.length];
+//        visited[0] = true;
+//        while (!queue.isEmpty()) {
+//            int[] islandToll = queue.poll();
+//            if(islandToll[0] == 9) return islandToll[1];
+//            if(map[islandToll[0]].length < 1) continue; //no further reachable islands
+//            //update
+//            for(int adj : map[islandToll[0]]) {
+//                if(visited[adj]) continue;
+//                queue.offer(new int[]{adj, Math.abs(adj - islandToll[0]) * Math.abs(adj - islandToll[0]) + islandToll[1]});
+//                visited[adj] = true;
+//            }
+//        }
+//        return Integer.MAX_VALUE; //unreachable
+//    }
+
+    /**
+     * dijkstra solution
+     * - Init toll array with max integer except first element
+     * - Add first one into queue
+     * - Update reachable elements
+     * @param map
+     * @return
+     */
+    public int minToll3(int[][] map) {
+        int[] tolls = new int[10];
+        for(int i = 1; i < 10; i++) tolls[i] = Integer.MAX_VALUE;
+
+        //array includes 2 elements, array[0] the number of island, array[1], the min cost so far.
+        Queue<int[]> queue = new LinkedList<>();
+        queue.offer(new int[]{0, 0});
         while (!queue.isEmpty()) {
-            int[] islandToll = queue.poll();
-            if(islandToll[0] == 9) return islandToll[1];
-            if(map[islandToll[0]].length < 1) continue; //no further reachable islands
-            //update
-            for(int adj : map[islandToll[0]]) {
-                if(visited[adj]) continue;
-                queue.offer(new int[]{adj, Math.abs(adj - islandToll[0]) * Math.abs(adj - islandToll[0]) + islandToll[1]});
-                visited[adj] = true;
+            int[] tmp = queue.poll();
+            for(int neighbor : map[tmp[0]]) {
+                int cost = Math.abs(neighbor - tmp[0]) * Math.abs(neighbor - tmp[0]) + tmp[1];
+                if(tolls[neighbor] > cost) {
+                    tolls[neighbor] = cost;
+                    queue.offer(new int[]{neighbor, cost});
+                }
             }
         }
-        return Integer.MAX_VALUE; //unreachable
+        return tolls[9];
     }
 
-    public int minToll(int[][] map, int dest) {
-        int[] tolls = new int[map.length];
-        Arrays.fill(tolls, Integer.MAX_VALUE);
-        tolls[0] = 0;
-        boolean[] visited = new boolean[map.length];
-        int curDest = 0;
-        while (true) {
-            if(curDest == dest) break;
-            visited[curDest] = true;
-            //update tolls
-            if(map[curDest].length > 0) {
-                for(int adj : map[curDest]) {
-                    tolls[adj] = Math.min(tolls[adj], Math.abs(adj - curDest) * Math.abs(adj - curDest) + tolls[curDest]);
-                }
-            }
-
-            //find minimal one
-            int min = Integer.MAX_VALUE, minIsland = -1;
-            for(int i = 0; i< tolls.length; i++) {
-                if(visited[i]) continue;
-                if(tolls[i] < min) {
-                    min = tolls[i];
-                    minIsland = i;
-                }
-            }
-            if(min == Integer.MAX_VALUE) break;
-            curDest = minIsland;
+    public int minTollDFS(int[][] map) {
+        helper(map, 0, 0, new boolean[10]);
+        return min;
+    }
+    private int min = Integer.MAX_VALUE;
+    private void helper(int[][] map, int cur, int curToll, boolean[] visited) {
+        if(cur == 9) {
+            min = Math.min(min, curToll);
+            System.out.println("Found a way, cost: " + curToll);
+            return;
         }
-        return tolls[dest];
+        if(visited[cur]) return;
+        visited[cur] = true;
+        for(int neighbor : map[cur]) {
+            int cost = Math.abs(neighbor - cur) * Math.abs(neighbor - cur);
+            helper(map, neighbor, curToll + cost, visited);
+        }
     }
 
     public static void main(String[] args) {
         int[][] map = new int[10][];
         map[0] = new int[]{1, 2, 3};
-        map[1] = new int[]{9};
-        map[2] = new int[]{5, 6};
+        map[1] = new int[]{0};
+        map[2] = new int[]{0, 5, 6};
         map[3] = new int[]{};
         map[4] = new int[]{};
         map[5] = new int[]{0, 1};
-        map[6] = new int[]{0, 1, 2, 3, 4, 5, 9};
+        map[6] = new int[]{0, 1, 2, 3, 4, 5, 8};
         map[7] = new int[]{};
         map[8] = new int[]{};
         map[9] = new int[]{};
@@ -95,6 +113,7 @@ public class IslandToll {
 //        map[9] = new int[]{1, 2, 3};
 
         IslandToll p = new IslandToll();
-        System.out.println(p.minToll(map, 9));
+        System.out.println(p.minToll3(map));
+        System.out.println(p.minTollDFS(map));
     }
 }

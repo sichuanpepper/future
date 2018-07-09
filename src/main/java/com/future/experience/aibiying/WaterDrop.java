@@ -2,8 +2,6 @@ package com.future.experience.aibiying;
 
 import com.future.utils.DisplayUtils;
 
-import java.util.Arrays;
-import java.util.Stack;
 
 /**
  * Created by xingfeiy on 6/14/18.
