@@ -17,8 +17,16 @@ public class WaterDrop {
      */
     public void pourWater(int[] heights, int water, int location) {
         int max = 0;
-        for(int h : heights) max = Math.max(max, h);
-        char[][] matrix = new char[max + 5][heights.length];
+        int wallCells = 0;
+        for(int h : heights) {
+            max = Math.max(max, h);
+            wallCells += h;
+        }
+        int extraRow = 0;
+        if(max * heights.length -  wallCells < water) {
+            extraRow = (water - (max * heights.length -  wallCells)) / heights.length + 1;
+        }
+        char[][] matrix = new char[max + extraRow][heights.length];
         for(int i = 0; i < matrix.length; i++) {
             for(int j = 0; j < matrix[0].length; j++) {
                 matrix[i][j] = ' ';
@@ -74,6 +82,6 @@ public class WaterDrop {
     public static void main(String[] args) {
         WaterDrop w = new WaterDrop();
         int[] heights = new int[]{4, 2, 0, 3, 3, 1, 3, 1, 4};
-        w.pourWater(heights, 19, 3);
+        w.pourWater(heights, 29, 0);
     }
 }
