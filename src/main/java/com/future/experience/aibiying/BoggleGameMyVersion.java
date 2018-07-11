@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.Set;
 
 /**
+ * The simple way is just do DFS, and check each current string, if current string is a word, add it to results.
+ * Time complexity O((m*n)^2)
+ *
+ *
  * Created by xingfeiy on 7/3/18.
  */
 public class BoggleGameMyVersion {

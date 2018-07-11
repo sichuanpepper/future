@@ -72,6 +72,24 @@ public class IslandToll {
         return tolls[9];
     }
 
+    public int minToll2(int[][] map) {
+        //array includes 2 elements, array[0] the number of island, array[1], the min cost so far.
+        PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2)->(o1[1] - o2[1]));
+        boolean[] visited = new boolean[10];
+        queue.offer(new int[]{0, 0});
+        while (!queue.isEmpty()) {
+            int[] tmp = queue.poll();
+            visited[tmp[0]] = true;
+            if(tmp[0] == 9) return tmp[1];
+            for(int neighbor : map[tmp[0]]) {
+                if(visited[neighbor]) continue;
+                int cost = Math.abs(neighbor - tmp[0]) * Math.abs(neighbor - tmp[0]) + tmp[1];
+                queue.offer(new int[]{neighbor, cost});
+            }
+        }
+        return Integer.MAX_VALUE;
+    }
+
     public int minTollDFS(int[][] map) {
         helper(map, 0, 0, new boolean[10]);
         return min;
@@ -95,11 +113,11 @@ public class IslandToll {
         int[][] map = new int[10][];
         map[0] = new int[]{1, 2, 3};
         map[1] = new int[]{0};
-        map[2] = new int[]{0, 5, 6};
+        map[2] = new int[]{0, 5, 6, 9};
         map[3] = new int[]{};
         map[4] = new int[]{};
         map[5] = new int[]{0, 1};
-        map[6] = new int[]{0, 1, 2, 3, 4, 5, 8};
+        map[6] = new int[]{0, 1, 2, 3, 4, 5, 8, 9};
         map[7] = new int[]{};
         map[8] = new int[]{};
         map[9] = new int[]{};
@@ -115,5 +133,6 @@ public class IslandToll {
         IslandToll p = new IslandToll();
         System.out.println(p.minToll3(map));
         System.out.println(p.minTollDFS(map));
+        System.out.println(p.minToll2(map));
     }
 }

@@ -7,6 +7,10 @@ import java.util.*;
  */
 public class Test {
     public static void main(String[] args) {
+        System.out.println((int)Math.floor(4.0) + " vs " + (int)4.0);
+        System.out.println((int)Math.floor(4.1) + " vs " + (int)4.1);
+        System.out.println((int)Math.floor(4.6) + " vs " + (int)4.6);
+        System.out.println((int)Math.floor(4.9) + " vs " + (int)4.9);
 
         int index = 0;
         while (index < 26) {

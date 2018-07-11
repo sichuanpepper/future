@@ -37,4 +37,27 @@ public class CheapestFlightsWithinKStops {
 
         return -1;
     }
+
+
+    /**
+     * There are n cities which represented by 0 to n-1
+     * We are given a flights info represented by a 2d array, each row includes 3 elements, departure, destination, price.
+     * And we are going to find the cheapest flight tickets from src to dst with at most k stops.
+     *
+     * @param flights
+     * @param src
+     * @param dst
+     * @param K
+     * @return
+     */
+    public int findCheapestPriceMy(int[][] flights, int src, int dst, int K, int n) {
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        CheapestFlightsWithinKStops c = new CheapestFlightsWithinKStops();
+//        int[][] flights = new int[][]{{1, 2, 100}, {2, 3, 150}, {1, 3, 300}, {3, 4, 100}, {2, 4, 200}, {1, 4, 500}};
+        int[][] flights = new int[][]{{0, 1, 100}, {1, 9, 800}, {0, 5, 300}, {5, 6, 100}, {6, 9, 100}};
+        System.out.println(c.findCheapestPrice(10, flights, 0, 9, 4));
+    }
 }

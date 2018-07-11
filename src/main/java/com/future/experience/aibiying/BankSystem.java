@@ -7,6 +7,16 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Design:
+ * - each account has a transaction list which ordered by time stamp.
+ * - deposit
+ *  - if given account doesn't have any transaction, add new transaction with the given amount.
+ *  - otherwise, add one more transaction, and the amount is the previous amount plus given amount.
+ * - withdraw
+ *  - first, check if given account existed, then check the latest amount of this account.
+ *      - if latest amount is greater or equal to given amount, add transaction and update amount
+ *      - otherwise, just return.
+ *
  * Created by xingfeiy on 6/14/18.
  */
 public class BankSystem {
