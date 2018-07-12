@@ -115,6 +115,22 @@ public class CIDRIP {
         return res;
     }
 
+    /**
+     * Analyze:
+     * We are give a start ip, and a range, and try to find the CIDRs that can cover it.
+     * CIDR: xxx.xxx.xxx.xxx/mask
+     * mask = 32, cover one IP
+     * mask = 31, cover 2 IPs
+     * mask = 32, cover 4 IPs
+     * ...
+     * - A IP address can be cover to a binary
+     * - Then we can find the first 1's from lower position, then we can know what the largest IP range that this CIDR can cover.
+     *  - The largest range = start + range, that's perfect CIDR.
+     *  - The largest range > start + range, that's not good
+     * @param startIp
+     * @param range
+     * @return
+     */
     public List<String> ipRange2CidrMy(String startIp, int range) {
         List<String> res = new ArrayList<>();
         long start = ipToLong(startIp);
