@@ -3,6 +3,7 @@ package com.future.experience.aibiying;
 import com.future.utils.Interval;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -67,5 +68,15 @@ public class MeetingRoom {
         return res;
     }
 
-
+    public static void main(String[] args) {
+        MeetingRoom m = new MeetingRoom();
+        List<List<Interval>> intervals = new ArrayList<>();
+        intervals.add(Arrays.asList(new Interval[]{new Interval(1, 3), new Interval(3, 5)}));
+        intervals.add(Arrays.asList(new Interval[]{new Interval(2, 4), new Interval(6, 8)}));
+        intervals.add(Arrays.asList(new Interval[]{new Interval(8, 10), new Interval(11, 12)}));
+        intervals.add(Arrays.asList(new Interval[]{new Interval(1, 12)}));
+        for(Interval in : m.getAvailableIntervals(intervals, 2)) {
+            System.out.println(in.start + " to " + in.end);
+        }
+    }
 }

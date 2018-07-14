@@ -78,12 +78,10 @@ public class PyramidsTransitionMatrix {
             return;
         }
 
-        for(int i = start; i < bottom.length() - 1; i++) {
-            String prefix = bottom.substring(start, start + 2);
-            if(!map.containsKey(prefix)) return;
-            for(char ch : map.get(prefix)) {
-                getUpperRows(bottom, start + 1, curStr + ch, map, res);
-            }
+        String prefix = bottom.substring(start, start + 2);
+        if(!map.containsKey(prefix)) return;
+        for(char ch : map.get(prefix)) {
+            getUpperRows(bottom, start + 1, curStr + ch, map, res);
         }
     }
 
@@ -129,7 +127,7 @@ public class PyramidsTransitionMatrix {
 //        ["AAA","AAB","ABA","ABB","BAC"]
 
         PyramidsTransitionMatrix p = new PyramidsTransitionMatrix();
-        System.out.println(p.pyramidTransition("AABA", Arrays.asList(new String[]{"AAA","AAB","ABA","ABB","BAC"})));
+        System.out.println(p.pyramidTransition("BDAFFFDB", Arrays.asList(new String[]{"EED","BGG","AGF","AGD","AGA","CCE","DCG","DCD","DCB","DCA","FGD","FGE","FGG","FGA","FGC","BFB","BFG","BFD","FAB","GAF","EDD","DBC","EDE","DBE","DBD","FAG","FFG","FFF","FFE","FFD","FFC","FFA","FDA","GCA","GBD","FDB","GBB","BEB","BEF","BEG","BED","AEA","GCB","AED","AEG","AEF","DEA","EEA","DEE","DEF","EEB","CEG","CEC","GEC","GEB","GEG","GED","BDE","BDG","BDF","GCE","AFE","AFG","AFA","AFB","EFA","DDA","EFD","DDF","EFF","EFG","CBB","CBF","CBD","BDA","ACC","ACB","ACA","ACE","BCE","BCF","BCG","DGF","ECG","DGC","ECE","ECC","DGD","CGA","CGC","CGE","FCB","FCD","DDE","FCF","GGB","FED","FEB","BBC","BBA","ADF","ADE","ADB","ADA","DFD","DFA","DFC","CDD","CDE","CDB","CDC","FBC","GDB","GDC","FBG","GDE","AAE","AAD","AAG","AAA","AAC","BAF","BAG","BAB","BAA","CAC","CAB","CAE","CAD","DAF","DAB","DAC","EAC","EAF","GAG","FAC","FAF","GAB","ABB","ABD","ABE","ABF","ABG","GCC","EBD","EBE","EBF","CFF","CFE","CFB","GFA","GFF","GFG"})));
     }
 
 
