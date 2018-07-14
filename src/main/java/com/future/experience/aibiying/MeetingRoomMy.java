@@ -36,7 +36,9 @@ public class MeetingRoomMy {
         }
 
         Collections.sort(tps, (o1, o2) -> (o1.time - o2.time));
-        
+
+        return res;
+
     }
 
     /**
@@ -45,5 +47,5 @@ public class MeetingRoomMy {
      * @param k
      * @return
      */
-    public List<Interval> getAvailableIntervals(List<List<Interval>> intervals, int k) {}
+    public List<Interval> getAvailableIntervals(List<List<Interval>> intervals, int k) {return null;}
 }
