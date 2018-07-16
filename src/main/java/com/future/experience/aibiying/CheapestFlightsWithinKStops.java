@@ -1,8 +1,6 @@
 package com.future.experience.aibiying;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
+import java.util.*;
 
 /**
  * Created by xingfeiy on 6/25/18.
@@ -51,7 +49,40 @@ public class CheapestFlightsWithinKStops {
      * @return
      */
     public int findCheapestPriceMy(int[][] flights, int src, int dst, int K, int n) {
-        return 0;
+        if(flights == null || flights.length < 1 || K < 0) return Integer.MAX_VALUE;
+        if(src == dst) return 0;
+
+        Map<Integer, Map<Integer, Integer>> graph = new HashMap<>();
+        for(int[] flight : flights) {
+            if(!graph.containsKey(flight[0])) graph.put(flight[0], new HashMap<>());
+            graph.get(flight[0]).put(flight[1], flight[2]);
+        }
+
+        Queue<MidPoint> queue = new PriorityQueue<>((o1, o2) -> (o1.cost - o2.cost));
+        queue.offer(new MidPoint(src, 0, K + 1));
+        while (!queue.isEmpty()) {
+            MidPoint cur = queue.poll();
+            if(cur.num == dst) return cur.cost;
+            if(!graph.containsKey(cur.num) || cur.stops == 0) continue;
+            for(Map.Entry<Integer, Integer> entry : graph.get(cur.num).entrySet()) {
+                queue.offer(new MidPoint(entry.getKey(), entry.getValue() + cur.cost, cur.stops - 1));
+            }
+        }
+        return -1;
+    }
+
+    private class MidPoint{
+        public int num;
+
+        public int cost;
+
+        public int stops;
+
+        public MidPoint(int num, int cost, int stops) {
+            this.num = num;
+            this.cost = cost;
+            this.stops = stops;
+        }
     }
 
     public static void main(String[] args) {
@@ -59,5 +90,6 @@ public class CheapestFlightsWithinKStops {
 //        int[][] flights = new int[][]{{1, 2, 100}, {2, 3, 150}, {1, 3, 300}, {3, 4, 100}, {2, 4, 200}, {1, 4, 500}};
         int[][] flights = new int[][]{{0, 1, 100}, {1, 9, 800}, {0, 5, 300}, {5, 6, 100}, {6, 9, 100}};
         System.out.println(c.findCheapestPrice(10, flights, 0, 9, 4));
+        System.out.println(c.findCheapestPriceMy(flights, 0, 9, 4, 10));
     }
 }

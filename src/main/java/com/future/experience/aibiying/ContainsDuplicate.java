@@ -111,6 +111,14 @@ public class ContainsDuplicate {
         return false;
     }
 
+//    public boolean containsNearbyAlmostDuplicate2(int[] nums, int k, int t) {
+//        if(nums == null || k < 0 || t < 0) return false;
+//        TreeSet<Integer> set = new TreeSet<>();
+//        for(int i = 0; i < nums.length; i++) {
+//
+//        }
+//    }
+
     public static void main(String[] args) {
         ContainsDuplicate c = new ContainsDuplicate();
         System.out.println(c.containsDuplicate(new int[]{1, 2, 3, 4}));

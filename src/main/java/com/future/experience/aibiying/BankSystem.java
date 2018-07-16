@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Assumption:
+ * - Can we simplify the problem, using integer represent the number of money? otherwise, we'd better use BigDecimal
+ *
  * Design:
  * - each account has a transaction list which ordered by time stamp.
  * - deposit

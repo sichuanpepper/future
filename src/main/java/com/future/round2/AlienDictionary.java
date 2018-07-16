@@ -45,6 +45,7 @@ public class AlienDictionary {
         List<Integer>[] adjacentNodes = buildGraph(words);
         int[] indegree = new int[26];
         Arrays.fill(indegree, -1);
+
         for(int i = 0; i < adjacentNodes.length; i++) {
             if(adjacentNodes[i] == null) continue;
             indegree[i] = Math.max(indegree[i], 0);
@@ -54,8 +55,10 @@ public class AlienDictionary {
         }
 
         Queue<Integer> zeroQueue = new LinkedList<>();
+        int countOfch = 0;
         for(int i = 0; i < indegree.length; i++) {
             if(indegree[i] == 0) zeroQueue.offer(i);
+            if(indegree[i] >= 0) countOfch++;
         }
         StringBuilder sb = new StringBuilder();
         while (!zeroQueue.isEmpty()) {
@@ -71,7 +74,7 @@ public class AlienDictionary {
             }
 
         }
-        return sb.toString();
+        return sb.length() == countOfch ? sb.toString() : "";
     }
 
     /**
@@ -100,5 +103,6 @@ public class AlienDictionary {
     public static void main(String[] args) {
         AlienDictionary p = new AlienDictionary();
         System.out.println(p.alienOrder(new String[]{"wrt", "wrf", "er", "ett", "rftt"})); //wertf
+        System.out.println(p.alienOrder(new String[]{"wrt", "wrf", "er", "ett", "rftt", "acd", "aef", "aer"})); //wertf
     }
 }

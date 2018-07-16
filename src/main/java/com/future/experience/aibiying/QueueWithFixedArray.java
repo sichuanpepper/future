@@ -20,7 +20,7 @@ public class QueueWithFixedArray {
 
     public QueueWithFixedArray(int lengthOfArray) {
         this.lengthOfArray = lengthOfArray;
-        list.add(new int[this.lengthOfArray]);
+//        list.add(new int[this.lengthOfArray]);
     }
 
     /**
@@ -29,18 +29,21 @@ public class QueueWithFixedArray {
      * @param val
      */
     public void offer(int val) {
-        if(tail % (lengthOfArray - 1) == 0) {
+        //length = tail + 1
+        if((tail + 1) % lengthOfArray == 0) {
             list.add(new int[lengthOfArray]);
         }
         list.get(list.size() - 1)[(++tail) % lengthOfArray] = val;
-        if(head == -1) head =0;
+        if(head == -1) head = 0;
     }
 
     public int poll() {
         if(head < 0 || head > tail) return Integer.MIN_VALUE;
         int res = list.get(0)[head % lengthOfArray];
-        if(head % (lengthOfArray - 1) == 0) {
+        if((head + 1) % lengthOfArray == 0) {
             list.remove(0);
+            head -= lengthOfArray;
+            tail -= lengthOfArray;
         }
         head++;
         return res;

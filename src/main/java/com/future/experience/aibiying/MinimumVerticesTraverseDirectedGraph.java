@@ -1,6 +1,7 @@
 package com.future.experience.aibiying;
 
 import com.future.utils.DisplayUtils;
+import sun.util.resources.cldr.zh.CalendarData_zh_Hans_HK;
 
 import java.util.*;
 
@@ -88,21 +89,59 @@ public class MinimumVerticesTraverseDirectedGraph {
         }
     }
 
+    public List<Integer> mySolution2Round(int[][] edges, int n) {
+        Map<Integer, Set<Integer>> graph = new HashMap<>();
+        for(int[] pair : edges) {
+            if(!graph.containsKey(pair[0])) graph.put(pair[0], new HashSet<>());
+            graph.get(pair[0]).add(pair[1]);
+        }
+
+        Set<Integer> res = new HashSet<>();
+        boolean[] visited = new boolean[n];
+        for(int i = 0; i < n; i++) {
+            if(visited[i]) continue;
+            visited[i] = true;
+            res.add(i);
+            //
+            helper2(graph, i, new boolean[n], visited, res);
+        }
+        return new ArrayList<>(res);
+    }
+
+    private void helper2(Map<Integer, Set<Integer>> graph, int cur, boolean[] curVisited, boolean[] visited, Set<Integer> res) {
+        curVisited[cur] = true;
+        if(graph.get(cur) == null) return;
+        for(int adj : graph.get(cur)) {
+            if(curVisited[adj]) continue;
+            visited[adj] = true;
+            if(res.contains(adj)) res.remove(adj);
+            helper2(graph, adj, curVisited, visited, res);
+        }
+    }
+
+
+
     public static void main(String[] args) {
         MinimumVerticesTraverseDirectedGraph p = new MinimumVerticesTraverseDirectedGraph();
         int[][] edges = new int[][]{{0,0},{9, 9},{9, 2}, {3, 3}, {3, 5}, {3, 7}, {4, 8}, {5, 8}, {6, 6}, {7, 4}, {8, 7}, {2, 3}, {2, 6}};
         DisplayUtils.printList(p.getMin(edges, 10));
         DisplayUtils.printList(p.mySolution(edges, 10));
+        DisplayUtils.printList(p.mySolution2Round(edges, 10));
+
+
         edges = new int[][]{{0, 1}, {1, 0}, {2, 1}, {3, 1}, {3, 2}};
         DisplayUtils.printList(p.getMin(edges, 4));
         DisplayUtils.printList(p.mySolution(edges, 4));
+        DisplayUtils.printList(p.mySolution2Round(edges, 4));
 
         edges = new int[][]{{0, 1}, {1, 0}, {2, 1}, {2, 3}, {3, 2}};
         DisplayUtils.printList(p.getMin(edges, 4));
         DisplayUtils.printList(p.mySolution(edges, 4));
+        DisplayUtils.printList(p.mySolution2Round(edges, 4));
 
         edges = new int[][]{{0, 0}, {1, 2}, {2, 0}, {2, 3}, {3, 1}};
         DisplayUtils.printList(p.getMin(edges, 4));
         DisplayUtils.printList(p.mySolution(edges, 4));
+        DisplayUtils.printList(p.mySolution2Round(edges, 4));
     }
 }

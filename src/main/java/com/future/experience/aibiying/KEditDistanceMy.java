@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by xingfeiy on 7/7/18.
  */
-public class MyKEditDistance {
+public class KEditDistanceMy {
 
     class TrieNode {
         public char ch;
@@ -151,7 +151,7 @@ public class MyKEditDistance {
     }
 
     public static void main(String[] args) {
-        MyKEditDistance m = new MyKEditDistance();
+        KEditDistanceMy m = new KEditDistanceMy();
         System.out.println(m.oneEditDistance(null, null));
         System.out.println(m.oneEditDistance(null, "abc"));
         System.out.println(m.oneEditDistance("abc", "abc"));

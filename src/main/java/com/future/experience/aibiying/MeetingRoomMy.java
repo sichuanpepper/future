@@ -43,11 +43,7 @@ public class MeetingRoomMy {
         }
 
         Collections.sort(tps, (o1, o2) -> (o1.time - o2.time));
-<<<<<<< Updated upstream
 
-        return res;
-
-=======
         TimePoint start = null;
         int countOfStart = 0;
         for(TimePoint tp : tps) {
@@ -60,7 +56,6 @@ public class MeetingRoomMy {
             }
         }
         return res;
->>>>>>> Stashed changes
     }
 
     /**
@@ -75,9 +70,6 @@ public class MeetingRoomMy {
      * @param k
      * @return
      */
-<<<<<<< Updated upstream
-    public List<Interval> getAvailableIntervals(List<List<Interval>> intervals, int k) {return null;}
-=======
     public List<Interval> getAvailableIntervals(List<List<Interval>> intervals, int k) {
         List<Interval> res = new ArrayList<>();
         List<TimePoint> tps = new ArrayList<>();
@@ -124,5 +116,4 @@ public class MeetingRoomMy {
         }
 
     }
->>>>>>> Stashed changes
 }

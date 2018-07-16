@@ -1,5 +1,10 @@
 package com.future.experience.aibiying;
 
+import com.future.foundation.java.multiplethreads.SyncExample;
+import com.future.utils.DisplayUtils;
+import com.future.utils.DoublyLinkedList;
+
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -53,5 +58,85 @@ public class MenuCombination {
         }
         search(res, centsPrices, 0, centsTarget, new ArrayList<>(), prices);
         return res;
+    }
+
+
+    public List<List<Double>> getCombosMy(double[] prices, double target) {
+        List<List<Double>> res = new ArrayList<>();
+        helper(prices, 0, 0.0, new ArrayList<>(), res, target);
+        return res;
+    }
+
+    private void helper(double[] prices, int start, double curVal, List<Double> curRes, List<List<Double>> res, double target) {
+        if(Math.abs(curVal - target) < 0.01) res.add(new ArrayList<>(curRes));
+        if(start >= prices.length || (curVal - target) > 0.01) return;
+
+        for(int i = start; i < prices.length; i++) {
+            curRes.add(prices[i]);
+            helper(prices, i + 1, curVal + prices[i], curRes, res, target);
+            curRes.remove(curRes.size() - 1);
+        }
+    }
+
+    public List<List<Double>> getCombosMy2(double[] prices, double target) {
+        BigDecimal[] bPrices = new BigDecimal[prices.length];
+        for(int i = 0; i < prices.length; i++) bPrices[i] = new BigDecimal(Double.toString(prices[i]));
+        BigDecimal bTarget = new BigDecimal(Double.toString(target));
+        List<List<Double>> res = new ArrayList<>();
+        helper2(bPrices, 0, new BigDecimal("0"), bTarget, new ArrayList<>(), res, prices);
+        return res;
+    }
+
+    private void helper2(BigDecimal[] bPrices, int start, BigDecimal curVal, BigDecimal target, List<Double> curRes,
+                         List<List<Double>> res, double[] prices) {
+        if(curVal.equals(target)) res.add(new ArrayList<>(curRes));
+        if(start >= bPrices.length || curVal.compareTo(target) > 0) return;
+        for(int i = start; i < bPrices.length; i++) {
+            curRes.add(prices[i]);
+            helper2(bPrices, i + 1, curVal.add(bPrices[i]), target, curRes, res, prices);
+            curRes.remove(curRes.size() - 1);
+        }
+    }
+
+
+
+
+    public static void main(String[] args) {
+        MenuCombination m = new MenuCombination();
+        System.out.println("======> case 1 - 1");
+        List<List<Double>> res = m.getCombos(new double[]{1.6, 2.8,1.0001, 5.20001, 0.0}, 10.6);
+        for(List<Double> combin : res) {
+            DisplayUtils.printList(combin);
+            System.out.println("=====================");
+        }
+
+        m = new MenuCombination();
+        System.out.println("======> case 1 - 2");
+        res = m.getCombos(new double[]{1.6, 2.8,1.0001, 5.20001, 0.0}, 10.60011);
+        for(List<Double> combin : res) {
+            DisplayUtils.printList(combin);
+            System.out.println("=====================");
+        }
+
+        System.out.println("======> case 2 - 1");
+        res = m.getCombosMy(new double[]{1.6, 2.8, 1.0001, 5.20001, 0.0}, 10.6);
+        for(List<Double> combin : res) {
+            DisplayUtils.printList(combin);
+            System.out.println("=====================");
+        }
+
+        System.out.println("======> case 2 - 2");
+        res = m.getCombosMy(new double[]{1.6, 2.8, 1.0001, 5.20001, 0.0}, 10.60011);
+        for(List<Double> combin : res) {
+            DisplayUtils.printList(combin);
+            System.out.println("=====================");
+        }
+
+        System.out.println("======> case 3 - 1");
+        res = m.getCombosMy2(new double[]{1.6, 2.8, 1.0001, 5.20001, 0.0}, 10.60011);
+        for(List<Double> combin : res) {
+            DisplayUtils.printList(combin);
+            System.out.println("=====================");
+        }
     }
 }

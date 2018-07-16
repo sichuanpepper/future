@@ -7,6 +7,8 @@ package com.future.experience.aibiying;
  Jane,Roberts,janer@msn.com,"San Francisco, CA",0
  "Alexandra ""Alex""",Menendez,alex.menendez@gmail.com,Miami,1 """Alexandra Alex"""
 
+ "Alexandra ""A""le""x""",Menendez,alex.menendez@gmail.com,Miami,1 """Alexandra Alex"""
+
  Output: escaped string
  John|Smith|john.smith@gmail.com|Los Angeles|1
  Jane|Roberts|janer@msn.com|San Francisco, CA|0
@@ -67,5 +69,6 @@ public class CSVParser {
         System.out.println(p.parse("John,Smith,john.smith@gmail.com,Los Angeles,1"));
         System.out.println(p.parse("Jane,Roberts,janer@msn.com,\"San Francisco, CA\",0"));
         System.out.println(p.parse("\"Alexandra \"\"Alex\"\"\",Menendez,alex.menendez@gmail.com,Miami,1 \"\"\"Alexandra Alex\"\"\""));
+        System.out.println(p.parse("\"Alexandra \"\"A\"\"le\"\"x\"\"\",Menendez,alex.menendez@gmail.com,Miami,1 \"\"\"Alexandra Alex\"\"\""));
     }
 }
