@@ -49,9 +49,7 @@ public class Problem1 {
     }
 
     public static int[] solution2(int[] nums, int target) {
-        if(nums == null || nums.length < 1) {
-            return new int[2];
-        }
+        if(nums == null || nums.length < 1) return new int[2];
 
         //sort first
         Arrays.sort(nums);
