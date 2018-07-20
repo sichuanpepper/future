@@ -41,7 +41,7 @@ import java.util.*;
  * Created by xingfeiy on 7/11/18.
  */
 public class SlidingPuzzle {
-    public int slidingPuzzle(int[][] board) {
+    public int game(int[][] board) {
         if(board == null || board.length < 1) return -1;
         String dest = "";
         for(int i = 1; i < board.length * board[0].length; i++) dest += i;
@@ -139,11 +139,11 @@ public class SlidingPuzzle {
     public static void main(String[] args) {
         SlidingPuzzle s = new SlidingPuzzle();
         //[[1,2,3],[4,0,5]]
-        System.out.println(s.slidingPuzzle(new int[][]{{1,2,3}, {4,0,5}}));
+        System.out.println(s.game(new int[][]{{1, 2, 3}, {4, 0, 5}}));
         //[[3,2,4],[1,5,0]]
-        System.out.println(s.slidingPuzzle(new int[][]{{3,2,4}, {1,5,0}}));
+        System.out.println(s.game(new int[][]{{3, 2, 4}, {1, 5, 0}}));
 //        System.out.println(s.slidingPuzzle2(new int[][]{{3, 2, 4}, {1, 5, 0}}));
-        System.out.println(s.slidingPuzzle(new int[][]{{3, 2, 4}, {1, 5, 0}, {6,7,8}}));
-        System.out.println(s.slidingPuzzle(new int[][]{{1,2,3}, {4,5,6}, {7,0,8}}));
+        System.out.println(s.game(new int[][]{{3, 2, 4}, {1, 5, 0}, {6, 7, 8}}));
+        System.out.println(s.game(new int[][]{{1, 2, 3}, {4, 5, 6}, {7, 0, 8}}));
     }
 }

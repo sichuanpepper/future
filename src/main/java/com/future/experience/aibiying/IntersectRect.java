@@ -22,11 +22,6 @@ public class IntersectRect {
                 if(intersected(rectangles.get(i), rectangles.get(j))) {
                     union(ids, i, j);
                     num--;
-                    for(int n = 0; n < ids.length; n++) {
-                        if(ids[n] == idj) {
-                            ids[n] = idi;
-                        }
-                    }
                 }
             }
         }
@@ -56,8 +51,10 @@ public class IntersectRect {
     public static void main(String[] args) {
         IntersectRect i = new IntersectRect();
         List<int[][]> rects = new ArrayList<>();
+        rects.add(new int[][]{{3, 3},{4, 0}});
         rects.add(new int[][]{{0, 2},{2, 0}});
         rects.add(new int[][]{{1, 4},{4, 1}});
+        rects.add(new int[][]{{2, 3},{4, 0}});
         rects.add(new int[][]{{5, 2},{7, 0}});
         rects.add(new int[][]{{6, 4},{8, 1}});
 //        rects.add(new int[][]{{-1, 10},{10, -1}});

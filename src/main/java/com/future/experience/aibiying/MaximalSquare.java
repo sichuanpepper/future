@@ -31,16 +31,13 @@ public class MaximalSquare {
         int max = 0;
         for(int i = 0; i < matrix.length; i++) {
             for(int j = 0; j < matrix[0].length; j++) {
-                if(matrix[i][j] == '1') {
-                    dp[i][j] = 1;
-                } else {
-                    continue;
-                }
+                if(matrix[i][j] == '0') continue;
                 if(i > 0 && j > 0 && dp[i - 1][j - 1] > 0) {
                     int pre = dp[i - 1][j - 1];
                     int cur = 1;
                     while (cur <= pre && matrix[i - cur][j] == '1' && matrix[i][j - cur] == '1') cur++;
-                    dp[i][j] += (cur -1);
+//                    dp[i][j] += (cur -1);
+                    dp[i][j] = cur;
                 }
                 max = Math.max(max, dp[i][j] * dp[i][j]);
             }

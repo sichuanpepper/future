@@ -94,6 +94,39 @@ public class BoggleGameMyVersion {
         return root;
     }
 
+    public List<String> findAllWords3(char[][] boggle, Set<String> dict) {
+        List<String> res = new ArrayList<>();
+        boolean[][] visited = new boolean[boggle.length][boggle[0].length];
+        TrieNode root = buildTree(dict);
+        for(int i = 0; i < boggle.length; i++) {
+            for(int j = 0; j < boggle[0].length; j++) {
+                helper3(boggle, i, j, "", res, root, visited);
+            }
+        }
+        return res;
+    }
+
+    private void helper3(char[][] boggle, int row, int col, String cur, List<String> res, TrieNode root , boolean[][] visited) {
+        if(row < 0 || row >= boggle.length || col < 0 || col >= boggle[0].length) return;
+        if(visited[row][col]) return;
+        TrieNode nextNode = root.children[boggle[row][col] - 'a'];
+        if(nextNode == null) return;
+        cur += boggle[row][col];
+        if(nextNode.isWord) {
+            res.add(cur);
+        }
+        visited[row][col] = true;
+        helper3(boggle, row - 1, col, cur, res, nextNode, visited);
+        helper3(boggle, row + 1, col, cur, res, nextNode, visited);
+        helper3(boggle, row, col - 1, cur, res, nextNode, visited);
+        helper3(boggle, row, col + 1, cur, res, nextNode, visited);
+        helper3(boggle, row - 1, col - 1, cur, res, nextNode, visited);
+        helper3(boggle, row - 1, col + 1, cur, res, nextNode, visited);
+        helper3(boggle, row + 1, col - 1, cur, res, nextNode, visited);
+        helper3(boggle, row + 1, col + 1, cur, res, nextNode, visited);
+        visited[row][col] = false;
+    }
+
     /**
      * return -1, if un-matches
      * return 0, matches
@@ -138,5 +171,6 @@ public class BoggleGameMyVersion {
         System.out.println(count);
         DisplayUtils.printList(p.findAllWords2(boggle, dict));
         System.out.println(count2);
+        DisplayUtils.printList(p.findAllWords3(boggle, dict));
     }
 }
