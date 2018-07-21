@@ -1,4 +1,4 @@
-package com.future.experience;
+package com.future.experience.diuhezi;
 
 /**
  * Created by xingfeiy on 7/9/18.
@@ -44,6 +44,32 @@ public class HighestMinimumSharpness {
         return res;
     }
 
+    /**
+     * The problem actually is, from left to right, for each grid, there are at most 3 directions to move.
+     * First, find the minimum value in each path.
+     * Second, find the maximum value among these minimum values.
+     *
+     * @param grid
+     * @return
+     */
+    public int highestMinValMy(int[][] grid) {
+        if(grid == null || grid.length < 1) return 0;
+        int[][] dp = new int[grid.length][grid[0].length];
+        for(int i = 0; i < dp.length; i++) dp[i][0] = grid[i][0];
+
+        for(int col = 1; col < grid[0].length; col++) {
+            for(int row = 0; row < grid.length; row++) {
+                int leftUpper = row > 0 ? dp[row - 1][col - 1] : Integer.MIN_VALUE;
+                int leftLower = row < grid.length - 1 ? dp[row + 1][col - 1] : Integer.MIN_VALUE;
+                dp[row][col] = Math.max(Math.max(leftLower, leftUpper), dp[row][col - 1]);
+                dp[row][col] = Math.min(grid[row][col], dp[row][col]);
+            }
+        }
+        int res = Integer.MIN_VALUE;
+        for(int row = 0; row < dp.length; row++) res = Math.max(dp[row][dp[0].length - 1], res);
+        return res;
+    }
+
     public static void main(String[] args) {
         HighestMinimumSharpness so = new HighestMinimumSharpness();
 
@@ -54,6 +80,14 @@ public class HighestMinimumSharpness {
         };
 
         assert so.highestMinVal(grid) == 7;
+
+        System.out.println(so.highestMinValMy(grid));
+        grid = new int[][]{
+                {5, 7, 2},
+                {7, 5, 8},
+                {9, 9, 5}
+        };
+        System.out.println(so.highestMinValMy(grid));
         System.out.println("Success!");
     }
 }
