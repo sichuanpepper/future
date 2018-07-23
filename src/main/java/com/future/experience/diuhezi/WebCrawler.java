@@ -14,6 +14,6 @@ public class WebCrawler {
     }
 
 
-    private class
+//    private class
 
 }
