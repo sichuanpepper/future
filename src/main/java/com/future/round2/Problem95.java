@@ -28,7 +28,8 @@ public class Problem95 {
      * If there are two nodes, two BSTs
      * If there are 3 nodes, 5 BSTs, as we can see
      * when 1 is head, there are two nodes which are greater than 1, so these two number come to right, so there are two BSTs are heading by 1.
-     * When 2 is head, there is one node which is greater than 2 and one node smaller than 2, so each side has one BST, so there is one BST is heading by 2.
+     * When 2 is head, there is one node which is greater than 2 and one node smaller than 2,
+     * so each side has one BST, so there is one BST is heading by 2.
      * When 3 is head, similar as 1.
      *
      * So f(n) = f(n - 1) * f(0) + f(n - 2) * f(1) + f(n - 3) * f(2)...  where f(0) = 1
@@ -65,4 +66,6 @@ public class Problem95 {
         }
         return res;
     }
+
+
 }

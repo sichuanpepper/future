@@ -1,5 +1,8 @@
 package com.future.round2;
 
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/description/
  *
@@ -25,26 +28,10 @@ public class Problem689 {
      * @param k
      * @return
      */
-    public static int[] maxSumOfThreeSubarrays(int[] nums, int k) {
-        int[] sum = new int[nums.length + 1];
-
-        // all elements are init as 0 by defalut.
-        int[][] top3 = new int[3][2];
-        //init the start index as -1
-        for(int[] row : top3) {
-            row[1] = -1;
-        }
-
-        for(int i = 0; i < nums.length; i++) {
-            sum[i + 1] = sum[i] + nums[i];
-            if(i < k) {
-                continue;
-            }
-            int tmp = sum[i + 1] - sum[i + 1 - k];
-            //
-
-        }
-
-        return new int[]{top3[0][1], top3[1][1], top3[2][1]};
+    public int[] maxSumOfThreeSubarrays(int[] nums, int k) {
+        int[] res = new int[3];
+        if(k < 1 || nums.length * 3 < k) return res;
+        List<Integer> sum = new LinkedList<>();
+        return res;
     }
 }
