@@ -1,9 +1,4 @@
-package com.future.foundation.algo.backtracking;
-
-import com.future.foundation.java.multiplethreads.SyncExample;
-
-import java.util.HashMap;
-import java.util.Map;
+package com.future.foundation.game;
 
 /**
  * Created by xingfeiy on 6/11/18.

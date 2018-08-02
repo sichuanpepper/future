@@ -1,5 +1,7 @@
 package com.future.foundation.algo.backtracking;
 
+import com.future.utils.DisplayUtils;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +12,31 @@ import java.util.List;
  *
  * Most times, the back tracking problem can be represent by a tree, then do DFS to find the answers.
  *
+ * Summarize:
+ * - the helper function of back tracking, actually moves to directions, vertical and horizontal,
+ *   the recursive goes to vertical, and the for loop goes to horizontal.
+ * - the condition to end recursive(vertical traversal) could be:
+ *      - Sum to certain value, or grater/smaller than certain value.
+ *      - Reached a null node in the tree, in array, the current index beyond the array bound.
+ * - the start point of for loop, we care about it because the recursive call
+ *      - always starts from 0
+ *      - starts from given point
+ * - duplicated elements, most time, sort is required
+ *      - in vertical way, the current index always equals to start if start position is presented.
+ *      - in horizontal way, simply check current element and (current - 1)
+ *
+ *  Template:
+ *  helper(int[] nums, int start, List curRes, List res) {
+ *      - if we need process curRes
+ *
+ *      - the condition to end recursive
+ *
+ *      - for loop
+ *          - any condition such as remove duplicated
+ *          - add to curRes
+ *          --> recursive call (go vertical)
+ *          -- remove last element from curRes (take a step back, and go horizontal)
+ *  }
  * Created by xingfeiy on 6/5/18.
  */
 public class BackTracking {
@@ -84,6 +111,8 @@ public class BackTracking {
         res.add(new ArrayList<>(cur));
         if(start >= nums.length) return;
         for(int i = start; i < nums.length; i++) {
+            //going to vertical, i always equals start, so the duplicated is allowed in vertical.
+            //going to horizontal, i may greater than start, so the duplicated is not allowed in horizontal.
             if(i > start && nums[i] == nums[i - 1]) continue;
             cur.add(nums[i]);
             subsetsDupHelper(nums, i + 1, cur, res);
@@ -326,6 +355,15 @@ public class BackTracking {
             if(s.charAt(left++) != s.charAt(right--)) return false;
         }
         return true;
+    }
+
+
+    public static void main(String[] args) {
+        BackTracking b = new BackTracking();
+        List<List<Integer>> res = b.subsetsDup(new int[]{2, 2, 3});
+        for(List<Integer> r : res) {
+            DisplayUtils.printList(r);
+        }
     }
 
 }
