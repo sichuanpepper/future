@@ -131,8 +131,15 @@ public class MapLearning {
     }
 
     public static void main(String[] args) {
-        mapIntro();
-        sortedMapIntro();
-        navigableMap();
+        Map<Character, Integer> map = new HashMap<>();
+        map.put('a', 1);
+        map.put('b', 2);
+        System.out.println(map.putIfAbsent('a', 3)); //1
+        System.out.println(map.get('a')); //1
+        System.out.println(map.putIfAbsent('c', 3)); //null
+
+//        mapIntro();
+//        sortedMapIntro();
+//        navigableMap();
     }
 }

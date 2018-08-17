@@ -81,4 +81,51 @@ public class Problem127 {
         }
         return 0;
     }
+
+    /**
+     * Analyze:
+     * Given a start word, to find a destination word, and each word will connect with zero or multiple words.
+     * It's a graph problem, since we need to find the shortest path, BFS.
+     * @param beginWord
+     * @param endWord
+     * @param wordList
+     * @return
+     */
+    public int ladderLengthRound2(String beginWord, String endWord, List<String> wordList) {
+        if(wordList == null || wordList.size() < 1) return 0;
+        Set<String> wordSet = new HashSet<>(wordList);
+        Queue<String> queue = new LinkedList<>();
+        queue.offer(beginWord);
+        wordSet.remove(beginWord);
+        int step = 1;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for(int i = 0; i < size; i++) {
+                String curWord = queue.poll();
+                if(curWord.equals(endWord)) return step;
+                char[] chars = curWord.toCharArray();
+                for(int m = 0; m < chars.length; m++) {
+                    char origCh = chars[m];
+                    for(int j = 0; j < 26; j++) {
+                        if(chars[m] - 'a' == j) continue;
+                        chars[m] = (char)('a' + j);
+                        String tmp = new String(chars);
+                        if(wordSet.contains(tmp)) {
+                            queue.offer(tmp);
+                            wordSet.remove(tmp);
+                        }
+                    }
+                    chars[m]= origCh;
+                }
+
+            }
+            step++;
+        }
+        return 0;
+    }
+
+    public static void main(String[] args) {
+        Problem127 p = new Problem127();
+        System.out.println(p.ladderLengthRound2("hit", "cog", Arrays.asList(new String[]{"hot","dot","dog","lot","log","cog"})));
+    }
 }
