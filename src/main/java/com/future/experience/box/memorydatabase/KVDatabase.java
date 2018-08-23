@@ -1,10 +1,28 @@
 package com.future.experience.box.memorydatabase;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * Assumption:
+ *  - database scale: 1B
+ *  - key/value types: simple type
+ *      - If key/value are long type, 16GB is required
+ *      - Counter, another 16GB is required
+ *  - implicit transaction ~ 90%
+ *  - explicit transaction ~ 10%
+ *      - avg atomic(single transaction) operations ~ 10
+ *  - get ~ 70%
+ *  - set ~ 20%
+ *  - delete ~ 10%
+ *
+ *  - bottleneck
+ *      - Read from memory is 40 times faster than Ethernet
+ *
+ * Design:
+ *  - The whole database consists of multiple segments(default by 16).
+ *      - Scale to bigger database size, hashmap's size is limited.
+ *      - Performance.
+ *
  * - set, get and delete call commit implicitly
  * - begin transaction
  *      - set (all changes are available in current session, place lock if needed)
@@ -25,83 +43,22 @@ import java.util.concurrent.ConcurrentHashMap;
  *
  * Created by xingfeiy on 8/17/18.
  */
-public class KVDatabase<K, V> implements KVDBInterface<K, V> {
+public class KVDatabase<K, V> {
     private long capacity = 100000000;
 
     private int numOfSeg = 10;
 
     private ConcurrentHashMap<V, Long> valueCounter = new ConcurrentHashMap<>();
 
-    private ConcurrentHashMap<Integer, KVSegment> segments = new ConcurrentHashMap<>();
-
-    private ConcurrentHashMap<K, V> map = new ConcurrentHashMap<>();
-
-    // key: session id, value: the opening transaction
-    private Map<Long, KVTransaction<K, V>> sessionTranMap = new HashMap<>();
+    private ConcurrentHashMap<K, V> data = new ConcurrentHashMap<>();
 
     public KVDatabase(long capacity, int numOfSeg) {
         this.capacity = capacity;
         this.numOfSeg = numOfSeg;
-        for(int i = 0; i < numOfSeg; i++) {
-            segments.put(i, new KVSegment<K, V>());
-        }
     }
 
-    /**
-     * - Check if there's an opening transaction
-     *  - No, add it to database directly.
-     *  - Yes, add it to the current transaction
-     * @param key
-     * @param val
-     * @return
-     */
-    @Override
-    public V set(K key, V val) {
-        KVTransaction transaction = sessionTranMap.get(getSessionId());
-        if(transaction == null) return map.put(key, val);
-        return (V)transaction.getLocalData().put(key, val);
-    }
-
-    @Override
-    public V get(K key) {
-        KVTransaction transaction = sessionTranMap.get(getSessionId());
-        if(transaction == null) return map.get(key);
-        return (V)transaction.getLocalData().get(key);
-    }
-
-    @Override
-    public int count(V val) {
-        return 0;
-    }
-
-    @Override
-    public V delete(K key) {
-        return map.remove(key);
-    }
-
-    @Override
-    public boolean beginTransaction() {
-        return false;
-    }
-
-    @Override
-    public boolean commit() throws ConflictException {
-        return false;
-    }
-
-    @Override
-    public boolean rollback() {
-        return false;
-    }
-
-    protected long hash(K key) {
-        //todo
-        return 0l;
-    }
-
-    private KVSegment getSegment(K key) {
-        int mod = (int)(hash(key) % segments.size());
-        return segments.get(mod);
+    public KVSession getSession() {
+        return new KVSession(getSessionId(), data, valueCounter);
     }
 
     protected long getSessionId() {

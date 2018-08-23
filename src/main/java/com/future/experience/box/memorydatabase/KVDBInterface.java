@@ -8,13 +8,13 @@ public interface KVDBInterface<K, V> {
 
     V get(K key);
 
-    int count(V val);
+    long count(V val);
 
     V delete(K key);
 
     boolean beginTransaction();
 
-    boolean commit() throws ConflictException;
+    boolean commit();
 
     boolean rollback();
 
