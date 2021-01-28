@@ -34,10 +34,11 @@ public class Problem106 {
     }
 
     private static TreeNode helper(int[] inorder, int iStart, int iEnd, int[] postorder, int pStart, int pEnd, Map<Integer, Integer> iMap) {
+        if(iStart < 0 || iStart > iEnd || iEnd >= inorder.length || pStart < 0 || pStart > pEnd || pEnd >= postorder.length) return null;
         TreeNode root = new TreeNode(postorder[pEnd]);
         if(iStart >= iEnd || pStart >= pEnd) return root;
         int iPosition = iMap.get(postorder[pEnd]);
-        root.left = helper(inorder, iStart, iPosition - 1, postorder, pStart, pStart + iPosition - iStart + 1, iMap);
+        root.left = helper(inorder, iStart, iPosition - 1, postorder, pStart, pStart + iPosition - iStart - 1, iMap);
         root.right = helper(inorder, iPosition + 1, iEnd, postorder, pEnd - (iEnd - iPosition), pEnd - 1, iMap);
         return root;
     }

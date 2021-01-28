@@ -3,6 +3,7 @@ package com.future.round2;
 import java.util.*;
 
 /**
+ * [tags] Facebook
  * https://leetcode.com/problems/top-k-frequent-elements/description/
  *
  * Given a non-empty array of integers, return the k most frequent elements.
@@ -39,9 +40,25 @@ public class Problem347 {
             }
         });
 
+
         List<Integer> res = new ArrayList<>(k);
         for(int i = 0; i < k; i++) {
             res.add(list.get(i).getKey());
+        }
+        return res;
+    }
+
+    public List<Integer> topKFrequent2(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for(int n : nums) map.put(n , map.getOrDefault(n, 0) + 1);
+        PriorityQueue<Map.Entry<Integer, Integer>> queue = new PriorityQueue<>((o1, o2) -> (o1.getValue() - o2.getValue()));
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
+            queue.offer(entry);
+            if(queue.size() > k) queue.poll();
+        }
+        List<Integer> res = new ArrayList<>(k);
+        for(int i = 0; i < k; i++) {
+            res.add(queue.poll().getKey());
         }
         return res;
     }

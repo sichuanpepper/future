@@ -40,4 +40,40 @@ public class Problem224 {
         }
         return curVal;
     }
+
+    public int calculate2(String s) {
+        int preSign = 1; // 1 means +, and -1 means -
+        int res = 0, index = 0, reverse = 1;
+        while (index < s.length()) {
+            if(Character.isDigit(s.charAt(index))) {
+                int num = 0;
+                while(index < s.length() && Character.isDigit(s.charAt(index))) {
+                    num = num * 10 + (s.charAt(index++) - '0');
+                }
+                res = res + preSign * reverse * num;
+            } else if(s.charAt(index) == '(') {
+                reverse = preSign;
+                if(Character.isDigit(s.charAt(index + 1))) {
+                    preSign = 1;
+                }
+                index++;
+            } else if(s.charAt(index) == ')') {
+                index++;
+            } else if(s.charAt(index) == '+') {
+                preSign = 1;
+                index++;
+            } else if(s.charAt(index) == '-') {
+                preSign = -1;
+                index++;
+            } else {
+                index++;
+            }
+        }
+        return res;
+
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new Problem224().calculate2("1-(5)"));
+    }
 }

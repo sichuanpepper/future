@@ -2,10 +2,7 @@ package com.future.round2;
 
 import com.future.utils.Interval;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 /**
  * https://leetcode.com/problems/merge-intervals/description/
@@ -51,5 +48,33 @@ public class Problem56 {
         }
         res.add(tmp);
         return res;
+    }
+
+
+    public int[][] merge2(int[][] intervals) {
+        if(intervals == null || intervals.length < 1) return null;
+
+        Arrays.sort(intervals, (o1, o2)->(Integer.compare(o1[0], o2[0])));
+        int start = Integer.MIN_VALUE, end = Integer.MIN_VALUE;
+        List<int[]> res = new ArrayList<>();
+        for(int i = 0; i < intervals.length; i++) {
+            if(start == Integer.MIN_VALUE) {
+                start = intervals[i][0];
+                end = intervals[i][1];
+            } else {
+                if(intervals[i][0] <= intervals[i - 1][1]) {
+                    end = Math.max(end, intervals[i][1]);
+                } else {
+                    res.add(new int[]{start, end});
+                    start = Integer.MIN_VALUE;
+                }
+            }
+        }
+        if(start != Integer.MIN_VALUE) res.add(new int[]{start, end});
+        int[][] array = new int[res.size()][2];
+        for(int i = 0; i < res.size(); i++) {
+            array[i] = res.get(i);
+        }
+        return array;
     }
 }

@@ -54,6 +54,29 @@ public class MergeBSTs {
         return res;
     }
 
+    /**
+     * Input:
+     * 	Tree 1                          Tree 2
+     *           1                         2
+     *          / \                       / \
+     *         3   2                     1   3
+     *        /                           \   \
+     *       5                             4   7
+     * Output:
+     * Merged tree:
+     * 	     3
+     * 	    / \
+     * 	   4   5
+     * 	  / \   \
+     * 	 5   4   7
+     * @param root1
+     * @param root2
+     * @return
+     */
+    public TreeNode mergeBTs(TreeNode root1, TreeNode root2) {
+        return null;
+    }
+
     public static void main(String[] args) {
         TreeNode bst1 = new TreeNode(4);
         bst1.left = new TreeNode(3);
