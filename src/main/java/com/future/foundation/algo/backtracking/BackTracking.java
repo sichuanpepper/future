@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * Backtracking is an algorithm for finding all solutions, notably constraint satisfaction problems.
+ * That incrementally generate the candidates and abandons a candidate as soon as it determines that the candidate can't complete the solution.
+ *
  * What kind of problem can be solved by back tracking?
  * - Subsets, permutations, combinations
  *

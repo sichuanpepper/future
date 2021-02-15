@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
  *  - database scale: 1B
  *  - key/value types: simple type
  *      - If key/value are long type, 16GB is required
- *      - Counter, another 16GB is required
+ *      - SyncKeyWord, another 16GB is required
  *  - implicit transaction ~ 90%
  *  - explicit transaction ~ 10%
  *      - avg atomic(single transaction) operations ~ 10

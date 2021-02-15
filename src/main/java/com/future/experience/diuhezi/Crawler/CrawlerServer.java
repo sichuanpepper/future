@@ -1,7 +1,5 @@
 package com.future.experience.diuhezi.Crawler;
 
-import com.future.foundation.threads.ThreadExtend;
-
 import java.util.Map;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;

@@ -34,6 +34,30 @@ public class EventsCounter {
      *
      * n = 2, only event3 should be returned.
      *
+     * - Assume the inputs are valid, for each Event, the start is always smaller than end
+     * - Assume there is no duplicated events.
+     * - The collection of events is not sorted.
+     *
+     * Why event3 can't be first one, because there are at least one event ended before event3 starts.
+     * Why event3 can't be second, because there are at least two events ended before event3 starts.
+     * ...
+     * We care about how many events ended before current event starts.
+     *
+     * So for each event, we check the earliest end of the events before current one.
+     * - if earliest end < current start, possible position ++
+     * - else continue do the same thing
+     *
+     *
+     * Explanation:
+     * - For each node, we care about how many events ended before current node starts.
+     * - There are two sorts required, sort by start time and sort by end time.
+     * - We can use two priority queue, let's say start queue and end queue.
+     * - For each event, if its start time >= end queue.peek.end time
+     *      - Poll from end queue until end queue.peek.end > its start time
+     * - Else
+     *      - Add to start queue
+     *
+     * It's not a correct solution, please check findPossibleEventsV2
      * @param events
      * @param n
      * @return
@@ -70,6 +94,28 @@ public class EventsCounter {
         return results;
     }
 
+    public Set<Event> findPossibleEventsV2(Set<Event> events, int n) {
+        Set<Event> results = new HashSet<>();
+        if(events == null || events.size() < 1 || n < 1) return results;
+        PriorityQueue<Event> startQueue = new PriorityQueue<>((a, b)->Float.compare(a.start, b.start));
+        PriorityQueue<Event> endQueue = new PriorityQueue<>((a, b)->Float.compare(a.end, b.end));
+
+        for(Event event : events) {
+            startQueue.offer(event);
+        }
+        while (!startQueue.isEmpty()) {
+            while (!endQueue.isEmpty() && startQueue.peek().start >= endQueue.peek().end) {
+                if(n == 1) {
+                    return new HashSet<>(endQueue);
+                }
+                endQueue.poll();
+                n--;
+            }
+            endQueue.offer(startQueue.poll());
+        }
+        return new HashSet<>(endQueue);
+    }
+
     public static void main(String[] args) {
         Set<Event> events = new HashSet<>();
         events.add(new Event(2, 7, 1));
@@ -91,6 +137,32 @@ public class EventsCounter {
 
         System.out.println("Find third possible events");
         for(Event event : counter.findPossibleEvents(events, 2)) {
+            System.out.println(event.id);
+        }
+
+        System.out.println("=============================");
+        Set<Event> events2 = new HashSet<>();
+        events2.add(new Event(1, 5, 1));
+        events2.add(new Event(2, 4, 2));
+        events2.add(new Event(2, 5, 3));
+        events2.add(new Event(7, 8, 4));
+        System.out.println("Find first possible events");
+        for(Event event : counter.findPossibleEventsV2(events2, 1)) {
+            System.out.println(event.id);
+        }
+
+        System.out.println("Find second possible events");
+        for(Event event : counter.findPossibleEventsV2(events2, 2)) {
+            System.out.println(event.id);
+        }
+
+        System.out.println("Find third possible events");
+        for(Event event : counter.findPossibleEventsV2(events2, 3)) {
+            System.out.println(event.id);
+        }
+
+        System.out.println("Find fourth possible events");
+        for(Event event : counter.findPossibleEventsV2(events2, 4)) {
             System.out.println(event.id);
         }
     }
