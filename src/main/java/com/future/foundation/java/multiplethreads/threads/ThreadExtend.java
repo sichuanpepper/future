@@ -1,4 +1,4 @@
-package com.future.foundation.threads;
+package com.future.foundation.java.multiplethreads.threads;
 
 /**
  * Created by xingfeiy on 4/3/18.

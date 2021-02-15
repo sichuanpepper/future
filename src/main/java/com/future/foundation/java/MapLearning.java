@@ -130,6 +130,36 @@ public class MapLearning {
 
     }
 
+    /**
+     * TreeMap implemented NavigableMap
+     */
+    public static void treeMap() {
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+        map.put(10, 100);
+        map.put(40, 1004);
+        map.put(30, 1003);
+        map.put(20, 1002);
+        map.put(50, 1005);
+
+        //first/last entry, key(lowest-key)
+        System.out.println(map.firstKey()); //10
+        System.out.println(map.lastKey()); //50
+
+        //celling(least key greater than or equal to) and floor(greatest key less than or equal to) entry/key
+        System.out.println(map.ceilingKey(21));  //30
+        System.out.println(map.floorKey(21));  //20
+        //higher/lower key/entry, strictly greater than less than given key
+
+        //pollFirstEntry/pollLastEntry, similar as first/last entry, poll will remove first/last
+
+        //subMap, from(included) to(excluded)
+
+        //tail map
+
+
+        //celling
+    }
+
     public static void main(String[] args) {
         Map<Character, Integer> map = new HashMap<>();
         map.put('a', 1);

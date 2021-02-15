@@ -1,4 +1,4 @@
-package com.future.foundation.threads;
+package com.future.foundation.java.multiplethreads.threads;
 
 //import com.sun.org.apache.xalan.internal.utils.FeatureManager;
 

@@ -1,4 +1,4 @@
-package com.future.foundation.threads;
+package com.future.foundation.java.multiplethreads.threads;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

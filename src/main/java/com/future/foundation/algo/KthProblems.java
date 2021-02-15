@@ -15,6 +15,8 @@ package com.future.foundation.algo;
  *  - Sorted input and get kth elements, easy but unable to deal with streaming data, TC: Nlog(N), SC: (1)
  *  - Max-heap, able to deal with streaming data, TC: Nlog(K), SC: O(K)
  *  - Quick select, Avg TC: O(N), worst case O(N^2), SC: O(1)
+ *
+ *  https://leetcode.com/problems/k-closest-points-to-origin/discuss/220235/Java-Three-solutions-to-this-classical-K-th-problem.
  */
 public class KthProblems {
     /**

@@ -1,7 +1,5 @@
 package com.future.foundation.java.multiplethreads.producerComsumer;
 
-import com.future.foundation.threads.ThreadExtend;
-
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 

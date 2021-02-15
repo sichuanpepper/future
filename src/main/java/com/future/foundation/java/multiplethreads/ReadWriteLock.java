@@ -1,7 +1,5 @@
 package com.future.foundation.java.multiplethreads;
 
-import com.future.foundation.threads.ThreadExtend;
-
 /**
  * http://tutorials.jenkov.com/java-concurrency/read-write-locks.html
  *
