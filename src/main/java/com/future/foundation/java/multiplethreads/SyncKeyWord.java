@@ -95,9 +95,13 @@ public class SyncKeyWord {
 
     public static void main(String[] args) {
         SyncKeyWord syncKeyWord = new SyncKeyWord();
-        Thread thread1 = new Thread(()-> syncKeyWord.multi(1));
+        Thread thread1 = new Thread(()-> syncKeyWord.add(1));
         thread1.start();
-        Thread thread2 = new Thread(()-> syncKeyWord.div(1));
+        Thread thread2 = new Thread(()-> syncKeyWord.sub(1));
         thread2.start();
+//        Thread thread1 = new Thread(()-> syncKeyWord.multi(1));
+//        thread1.start();
+//        Thread thread2 = new Thread(()-> syncKeyWord.div(1));
+//        thread2.start();
     }
 }
