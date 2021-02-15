@@ -48,14 +48,17 @@ public class WaysToGetOut {
         helper(matrix, row + 1, col, curSteps + 1);
         helper(matrix, row - 1, col, curSteps + 1);
         helper(matrix, row, col + 1, curSteps + 1);
+        helper(matrix, row, col - 1, curSteps + 1);
         matrix[row][col] = 0;
     }
 
     public static void main(String[] args) {
-        int[][] matrix = new int[3][3];
-        matrix[0] = new int[]{1, 0, 0};
-        matrix[1] = new int[]{0, 0, 0};
-        matrix[2] = new int[]{1, 0, 0};
+        int[][] matrix = new int[5][4];
+        matrix[0] = new int[]{0, 0, 0, 1};
+        matrix[1] = new int[]{1, 1, 0, 1};
+        matrix[2] = new int[]{1, 0, 0, 1};
+        matrix[3] = new int[]{1, 0, 1, 0};
+        matrix[4] = new int[]{1, 0, 0, 0};
 
         WaysToGetOut ways = new WaysToGetOut();
         System.out.println(ways.minWays(matrix));

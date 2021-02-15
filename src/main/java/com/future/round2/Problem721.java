@@ -7,44 +7,62 @@ import java.util.*;
  */
 public class Problem721 {
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
-        if(accounts == null || accounts.size() < 1) return accounts;
-        int[] users = new int[accounts.size()];
-        for(int i = 0;i < users.length; i++) users[i] = i;
-
-        //(mail=>user)
-        Map<String, Integer> map = new HashMap<>();
-        for(int i = 0; i < accounts.size(); i++) {
-            List<String> account = accounts.get(i);
-            for(int j = 1; j < account.size(); j++) {
-                if(map.containsKey(account.get(j))) {
-                    connect(i, map.get(account.get(j)), users);
-                } else {
-                    map.put(account.get(j), i);
-                }
-            }
-        }
-
-        Map<Integer, TreeSet<String>> resMap = new HashMap<>();
-        for(int i = 0; i < users.length; i++) {
-            if(resMap.containsKey(users[i])) {
-                resMap.get(users[i]).addAll(accounts.get(i).subList(1, accounts.get(i).size()));
-            } else {
-                resMap.put(users[i], new TreeSet<>(accounts.get(i).subList(1, accounts.get(i).size())));
-            }
-        }
-
         List<List<String>> res = new ArrayList<>();
-        for(Map.Entry<Integer, TreeSet<String>> entry : resMap.entrySet()) {
-            List<String> account = new ArrayList<>(entry.getValue());
-            account.add(0, accounts.get(entry.getKey()).get(0));
-            res.add(account);
+        if(accounts == null || accounts.size() < 1) return res;
+
+        //build graph
+        //account => account numbers
+        Map<String, Set<Integer>> map = new HashMap<>();
+        for(int num = 0; num < accounts.size(); num ++) {
+            List<String> account = accounts.get(num);
+            for(int i = 1; i < account.size(); i++) {
+                Set<Integer> set = map.getOrDefault(account.get(i), new HashSet<>());
+                set.add(num);
+                map.put(account.get(i), set);
+            }
+        }
+
+        Map<Integer, Set<Integer>> graph = new HashMap<>();
+        for(int i = 0; i < accounts.size(); i++) {
+            Set<Integer> neibors = new HashSet<>();
+            for(int j = 1; j < accounts.get(i).size(); j++) {
+                neibors.addAll(map.get(accounts.get(i).get(j)));
+            }
+            graph.put(i, neibors);
+        }
+
+        Set<Integer> visited = new HashSet<>();
+        for(int i = 0; i < accounts.size(); i++) {
+            if(visited.contains(i)) continue;
+            Set<Integer> curRes = new HashSet<>();
+            helper(i, graph, visited, curRes);
+            Set<String> tmp = new TreeSet<>();
+            for(int num : curRes) tmp.addAll(accounts.get(num).subList(1, accounts.get(num).size()));
+            List<String> tmpRes = new ArrayList<>(tmp);
+            tmpRes.add(0, accounts.get(i).get(0));
+            res.add(tmpRes);
         }
         return res;
     }
 
-    private void connect(int usr1, int usr2, int[] users) {
-        for(int i = 0; i < users.length; i++) {
-            if(users[i] == usr1) users[i] = usr2;
+    private void helper(int account, Map<Integer, Set<Integer>> graph, Set<Integer> visited, Set<Integer> curRes) {
+        if(visited.contains(account)) return;
+        visited.add(account);
+        curRes.add(account);
+        for(Integer a : graph.get(account)) {
+            helper(a, graph, visited, curRes);
         }
+    }
+
+    public static void main(String[] args) {
+        List<List<String>> accounts = new ArrayList<>();
+        accounts.add(Arrays.asList("John", "johnsmith@mail.com", "john00@mail.com"));
+        accounts.add(Arrays.asList("John", "johnnybravo@mail.com"));
+        accounts.add(Arrays.asList("John", "johnsmith@mail.com", "john_newyork@mail.com"));
+        accounts.add(Arrays.asList("Mary", "mary@mail.com"));
+        Problem721 p = new Problem721();
+        List<List<String>> res = p.accountsMerge(accounts);
+        System.out.println(res);
+
     }
 }

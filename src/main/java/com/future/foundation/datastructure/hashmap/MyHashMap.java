@@ -41,13 +41,16 @@ public class MyHashMap<K, V> {
         }
 
         Entry<K, V> entry = entries[hashIndex];
-        do {
+
+        while (true) {
             if(entry.hashcode == key.hashCode()) {
                 V oldVal = entry.value;
                 entry.value = value;
                 return oldVal;
             }
-        } while (entry.next != null);
+            if(entry.next == null) break;
+            entry = entry.next;
+        }
 
         Entry<K, V> newEntry = new Entry<>();
         newEntry.key = key;

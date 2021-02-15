@@ -50,4 +50,16 @@ public class Problem53 {
         }
         return maxSoFar;
     }
+
+    public int maxSubArray4(int[] nums) {
+        if(nums == null || nums.length < 1) return Integer.MIN_VALUE;
+
+        int startPos = 0, endPos = 0;
+        int maxSoFar = nums[0], maxHere = nums[0];
+        for(int i = 1; i < nums.length; i++) {
+            maxSoFar = Math.max(maxSoFar, maxHere + nums[i]);
+            maxHere = Math.max(0, maxHere + nums[i]);
+        }
+        return maxSoFar;
+    }
 }

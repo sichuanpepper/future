@@ -12,6 +12,8 @@ public class OuterClass {
      * Purpose: Logical grouping
      */
     private class NestedClass {
+        // private static int innerNum = 0; //inner class can't have any static member since it belong a instance.
+
         public void print() {
             System.out.println("num in nested class: " + num);
             System.out.println("sNum in nested class: " + sNum);

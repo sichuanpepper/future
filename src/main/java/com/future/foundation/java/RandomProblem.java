@@ -35,7 +35,8 @@ public class RandomProblem {
         for(int i = 0; i < 10000000; i++) {
 //            long randomVal = random.nextLong();
 //            randomVal = randomVal & range[range.length - 1];
-            long randomVal = ThreadLocalRandom.current().nextLong(range[range.length - 1]);
+//            long randomVal = ThreadLocalRandom.current().nextLong(range[range.length - 1]);
+            long randomVal = (long)(Math.random() * (range[range.length - 1] + 1));
             for(int j = 0; j < range.length; j++) {
                 if(randomVal <= range[j]) {
                     counter.put(countries[j], counter.getOrDefault(countries[j], 0) + 1);
