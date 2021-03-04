@@ -1,5 +1,6 @@
 package com.future.round2;
 
+import com.future.utils.ListNode;
 import com.future.utils.RandomListNode;
 
 import java.util.HashMap;
@@ -15,6 +16,31 @@ import java.util.Map;
  * Created by xingfeiy on 4/4/18.
  */
 public class Problem138 {
+    /**
+     * How to copy a linked list
+     * @param head
+     * @return
+     */
+    public ListNode copyLinkedList(ListNode head) {
+        if(head == null) {
+            return null;
+        }
+
+        ListNode oh = head, ch = null, pre = null;
+        while (oh != null) {
+            ListNode cn = new ListNode(oh.val);
+            if(ch == null) {
+                ch = cn;
+            }
+            if(pre != null) {
+                pre.next = cn;
+            }
+            pre = cn;
+            oh = oh.next;
+        }
+        return ch;
+    }
+
     /**
      * Analyze:
      * It's easy to copy an ordinary linked list, but this list node contains a random pointer which points a node may
@@ -89,6 +115,8 @@ public class Problem138 {
         }
         return newHead;
     }
+
+
 
     public static void main(String[] args) {
         Problem138 p = new Problem138();

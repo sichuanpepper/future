@@ -27,8 +27,12 @@ public class MaxStack2 {
     public int pop() {
         if(list.isEmpty()) return Integer.MIN_VALUE;
         int val = list.remove(list.size() - 1);
-        if(map.get(val) == 1) map.remove(val);
-        map.put(val, map.get(val) - 1);
+        if(map.get(val) == 1) {
+            map.remove(val);
+        } else {
+            map.put(val, map.get(val) - 1);
+        }
+
         return val;
     }
 
@@ -39,17 +43,25 @@ public class MaxStack2 {
 
     public int peekMax() {
         if(map.isEmpty()) return Integer.MIN_VALUE;
-        return map.firstEntry().getKey();
+        return map.lastKey();
     }
 
     public int popMax() {
-        int max = map.firstKey();
-        list.remove(max);
+        if(map.isEmpty()) {
+            return Integer.MIN_VALUE;
+        }
+        int max = map.lastKey();
+        if(map.get(max) == 1) {
+            map.remove(max);
+        } else {
+            map.put(max, map.get(max) - 1);
+        }
+        list.remove(Integer.valueOf(max));
         return max;
     }
 
     public static void main(String[] args) {
-        MaxStack ms = new MaxStack();
+        MaxStack2 ms = new MaxStack2();
         System.out.println(ms.top());  //min value
         ms.push(3);
         ms.push(5);
