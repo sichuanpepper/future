@@ -40,6 +40,10 @@ package com.future.experience.fsbk;
  已知一个点和半径，设计一个service返回此点和半径构成的圆内的所有点。
 
 
+ 1. 设计邻近服务器
+ 2. https://www.youtube.com/watch?v=Hq8pZ8G2Lm8&t=64s
+
+
 高频算法题
  https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=698494&page=1&ex
 

@@ -35,11 +35,30 @@ public class Permutation {
         }
     }
 
+    public List<Integer> productsV2(int[] nums) {
+        List<Integer> res = new ArrayList<>();
+        res.add(nums[0]);
+        for(int i = 1; i < nums.length; i++) {
+            List<Integer> tmp = new ArrayList<>(res);
+            for(int r : res) {
+                tmp.add(r * nums[i]);
+            }
+            tmp.add(nums[i]);
+            res = tmp;
+        }
+        return res;
+    }
+
     public static void main(String[] args) {
         Permutation p = new Permutation();
         DisplayUtils.printList(p.products(new int[]{2, 3, 4}));
         DisplayUtils.printList(p.products(new int[]{1}));
         DisplayUtils.printList(p.products(new int[]{1, 1, 1}));
         DisplayUtils.printList(p.products(new int[]{-1, 0, 1}));
+        System.out.println("==============");
+        DisplayUtils.printList(p.productsV2(new int[]{2, 3, 4}));
+        DisplayUtils.printList(p.productsV2(new int[]{1}));
+        DisplayUtils.printList(p.productsV2(new int[]{1, 1, 1}));
+        DisplayUtils.printList(p.productsV2(new int[]{-1, 0, 1}));
     }
 }

@@ -10,6 +10,15 @@ package com.future.experience.linying;
  * 一轮system要我去design columnar db。
  *
  * 设计一个类似微博热搜的系统
+ *
+ * https://www.youtube.com/watch?v=kx-XDoPjoHw
+ *
+ * 系统设计，assuming you have a library to store lots of books, design a system to support two queries: "and" to return
+ * the collection of book ids which contain word1 and word2; "not" to return the book ids which don't contain a specific word
+ *
+ *
+ * Technical communication。Assume面试官是一个入职你组里的新人，向他介绍一个你们组的service/project。需要注意的是你要assume
+ * 这个面试官Know nothing about your team and your product as well as the component(用到的技术比如AWS web service, KAFKA这类)。条理清楚地表达好就可以。
  */
 public class SystemDesign {
 }
