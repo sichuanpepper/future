@@ -16,20 +16,21 @@ public class RaceCondition {
     private Integer lock2 = new Integer(2);
 
     public  void add(int val1, int val2)  {
-        System.out.println("Thread: " + Thread.currentThread().getName() + " is coming to sum1");
+        System.out.println(Thread.currentThread().getName() + " is coming to sum1");
+
         synchronized (this.lock1) {
+            System.out.println(Thread.currentThread().getName() + " is adding sum1");
             this.sum1 += val1;
             try {
-                System.out.println("Current Thread in sum1 : " + Thread.currentThread().getName());
                 Thread.sleep(new Random().nextInt(100));
             } catch (Exception ex) {}
         }
 
-        System.out.println("Thread: " + Thread.currentThread().getName() + " is coming to sum2");
+        System.out.println(Thread.currentThread().getName() + " is coming to sum2");
         synchronized (this.lock2) {
+            System.out.println(Thread.currentThread().getName() + " is adding sum2");
             this.sum2 += val2;
             try {
-                System.out.println("Current Thread: in sum2 : " + Thread.currentThread().getName());
                 Thread.sleep(new Random().nextInt(100));
             } catch (Exception ex) {}
         }

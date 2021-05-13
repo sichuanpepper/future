@@ -8,15 +8,17 @@ import java.util.Map;
  */
 public class LRUCache146 {
     /**
-     get
-     1. Lookup
-     2. Move it to head
-     put
-     1. Lookup and overwrite value
-     2. Add/Move it to head
-     3. Delete tail
-     Move it to head
-     1. Delete and Add
+     * - get(key)
+     *  - find the key and return val, or return null if key doesn't exist.
+     *  - move the key to the head if we consider head is the most recently position.
+     * - put(key, val)
+     *  - If key existed, overwrite value and move it to head.
+     *  - Else,
+     *      - Check if it's full.
+     *          - evict tail one if it's full.
+     *      - Add it to head.
+     *
+     *  Lookup, delete/add
 
      HashMap && DoublyLinkedList
      **/

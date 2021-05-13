@@ -10,6 +10,9 @@ package com.future.experience.fsbk;
  * 设计2，按经纬度query附近的Points of Interest
  * (我当时面的时候就是spatial index in single db + geohash作db sharding。一些有意思的问题是怎么解决hotspot，怎么解决large range query，怎么搞caching。)
  *
+ * 设计耶尔普，重点是给定地点返回top k。
+ *
+ *
  * Notify users there are new feeds. Cover the cases that user is online, offline or facebook is running in background
  *
  *
@@ -43,9 +46,23 @@ package com.future.experience.fsbk;
  1. 设计邻近服务器
  2. https://www.youtube.com/watch?v=Hq8pZ8G2Lm8&t=64s
 
+ https://www.1point3acres.com/bbs/thread-680958-1-1.html
 
-高频算法题
+ SD2: 汇合n个social media 的input，然后build timeline
+ 2. sys design: Fb status search
+
+ Product architecture （system design）：Design taxi service like uber/lyft。 这个grokking里面都有细讲。
+
+ 给你1万个node， 然后让你设计crawl 网页， 问你如何实现， 要保障网页不被多次crawl。
+
+
+
+ 高频算法题
  https://www.1point3acres.com/bbs/forum.php?mod=viewthread&tid=698494&page=1&ex
+
+ https://www.youtube.com/watch?v=hykjbT5Z0oE
+
+
 
  */
 public class SystemDesign {

@@ -1,7 +1,9 @@
-package com.future.experience.fsbk;
+package com.future.experience.fsbk.eley;
 
 /**
  * http://lixinchengdu.github.io/algorithmbook/leetcode/minimum-knight-moves.html
+ *
+ * https://leetcode.jp/problemdetail.php?id=1197
  *
  * Analyze:
  *  * basically, it's a graph issue, we can solve graph issue by either dfs or bfs.

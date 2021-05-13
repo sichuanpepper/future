@@ -26,7 +26,7 @@ public class ShortWordDistance {
         int pos = -1, res = Integer.MAX_VALUE;
         for(int i = 0; i < words.length; i++) {
             if((words[i].equals(word1) || words[i].equals(word2))) {
-                if(pos >= 0) {
+                if(pos >= 0 && !words[pos].equals(words[i])) {
                     res = Math.min(res, i - pos);
                 }
                 pos = i;
@@ -69,5 +69,11 @@ public class ShortWordDistance {
             }
         }
         return shortest;
+    }
+
+
+    public static void main(String[] args) {
+        ShortWordDistance p = new ShortWordDistance();
+        System.out.println(p.shortestDistance(new String[]{"make", "make", "apple", "java"}, "make", "java"));
     }
 }
