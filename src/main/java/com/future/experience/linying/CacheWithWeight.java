@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * 第二题类似LRU Cache但是Eviction条件不同，Put的时候自带权重，要求Evict权重最低
  * 的。HashMap+PriorityQueue搞定。然后分析Multi-thread的情况，分析哪里可能是瓶颈，
- * 提出可以用ConcurrentHashMap + Lock on Queue。
+ * 提出可以用ConcurrentHashMap + MyLock on Queue。
  */
 public class CacheWithWeight {
     private class WeightedKey {

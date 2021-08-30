@@ -15,9 +15,9 @@ import java.util.concurrent.locks.ReentrantLock;
  * Implement a main method that spawns 1 producer and 1 consumer, such that each producer producers K integers.
  * The program should shutdown gracefully after all producers and consumers have finished their work and the queue is empty.
  *
- * Semaphore vs Lock
+ * Semaphore vs MyLock
  * Semaphore allows multiple threads access one resource at same time
- * Lock is mutex way that allows only one thread access one resource at same time.
+ * MyLock is mutex way that allows only one thread access one resource at same time.
  */
 public class ProducerAndConsumer <E> {
 
